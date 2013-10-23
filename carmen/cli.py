@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+import collections
 import json
 import sys
 
@@ -12,6 +13,9 @@ from .resolvers import *
 def parse_args():
     parser = argparse.ArgumentParser(
         description='Resolve tweet locations.')
+    parser.add_argument('-s', '--statistics',
+        action='store_true',
+        help='show summary statistics')
     parser.add_argument('--ignore-geocodes',
         action='store_false', dest='use_geocodes',
         help="don't use tweet geographic coordinates")
@@ -59,14 +63,57 @@ if __name__ == '__main__':
     resolver = LocationResolver(resolvers)
     for line in args.locations_file:
         resolver.add_location(Location(**json.loads(line)))
-    resolved_tweets = total_tweets = 0
+    # Variables for statistics.
+    city_found = county_found = state_found = country_found = 0
+    has_place = has_coordinates = has_geo = has_profile_location = 0
+    resolution_method_counts = collections.defaultdict(int)
+    skipped_tweets = resolved_tweets = total_tweets = 0
     for line in args.input_file:
-        tweet = json.loads(line)
+        try:
+            tweet = json.loads(line)
+        except ValueError:
+            # TODO:  Warn about the invalid tweet.
+            skipped_tweets += 1
+            continue
+        # Collect statistics on the tweet.
+        if tweet.get('place'):
+            has_place += 1
+        if tweet.get('coordinates'):
+            has_coordinates += 1
+        if tweet.get('geo'):
+            has_geo += 1
+        if tweet.get('user', {}).get('location', ''):
+            has_profile_location += 1
+        # Perform the actual resolution.
         location = resolver.resolve_tweet(tweet)
         if location:
             tweet['location'] = location
+            # More statistics.
+            resolution_method_counts[location.resolution_method] += 1
+            if location.city:
+                city_found += 1
+            elif location.county:
+                county_found += 1
+            elif location.state:
+                state_found += 1
+            elif location.country:
+                country_found += 1
             resolved_tweets += 1
         print >> args.output_file, json.dumps(tweet, cls=LocationEncoder)
         total_tweets += 1
+    if args.statistics:
+        print >> sys.stderr, 'Skipped %d tweets.' % skipped_tweets
+        print >> sys.stderr, ('Tweets with "place" key: %d; '
+                              '"coordinates" key: %d; '
+                              '"geo" key: %d.' % (
+                                has_place, has_coordinates, has_geo))
+        print >> sys.stderr, ('Resolved %d tweets to a city, '
+                              '%d to a county, %d to a state, '
+                              'and %d to a country.' % (
+                                city_found, county_found,
+                                state_found, country_found))
+        print >> sys.stderr, ('Tweet resolution methods: %s.' % (
+            ', '.join('%d by %s' % (v, k)
+                for (k, v) in resolution_method_counts.iteritems())))
     print >> sys.stderr, 'Resolved locations for %d of %d tweets.' % (
         resolved_tweets, total_tweets)
