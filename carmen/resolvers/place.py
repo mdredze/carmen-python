@@ -17,27 +17,23 @@ class PlaceResolver(object):
 
     name = 'place'
 
-    unknown_id_start = 1000000
+    _unknown_id_start = 1000000
 
     def __init__(self, allow_unknown_locations=True,
                        resolve_to_known_ancestor=False):
         self.allow_unknown_locations = allow_unknown_locations
         self.resolve_to_known_ancestor = resolve_to_known_ancestor
-        # Lookup tables.
-        self.id_to_location = {}
-        self.location_to_id = {}
-        self.location_to_children = defaultdict(list)
-        self.location_to_parent = {}
-        self.unknown_id_counter = count(self.unknown_id_start)
+        self._locations_by_name = {}
+        self._unknown_ids = count(self._unknown_id_start)
+
+    def _find_by_name(self, country=None, state=None,
+                            county=None, city=None):
+        return self._locations_by_name.get((country, state, county, city))
 
     def add_location(self, location):
-        self.id_to_location[location.id] = location
-        self.location_to_id[location] = location.id
-        # Let's hope the parents are always added before their children.
-        parent = self.id_to_location.get(location.parent_id)
-        if parent:
-            self.location_to_parent[location] = parent
-            self.location_to_children[parent].append(location)
+        name = (location.country, location.state,
+                location.county, location.city)
+        self._locations_by_name[name] = location
 
     def resolve_tweet(self, tweet):
         # TODO:  Write docstring.
@@ -51,10 +47,7 @@ class PlaceResolver(object):
             return None
         country = ALTERNATIVE_COUNTRY_NAMES.get(country.lower(), country)
 
-        location_kwargs = {
-            'url': place['url'],
-            'country': country
-        }
+        name = {'country': country}
 
         place_type = place['place_type'].lower()
         if place_type in ('neighborhood', 'poi'):
@@ -62,12 +55,12 @@ class PlaceResolver(object):
             if full_name:
                 split_full_name = full_name.split(',')
                 if len(split_full_name) > 1:
-                    location_kwargs['city'] = split_full_name[-1]
+                    name['city'] = split_full_name[-1]
             else:
                 # TODO:  Warn about finding a place with no full_name.
                 pass
         elif place_type == 'city':
-            location_kwargs['city'] = place['name']
+            name['city'] = place['name']
             if country.lower() == 'united states':
                 full_name = place['full_name']
                 if full_name:
@@ -75,27 +68,25 @@ class PlaceResolver(object):
                     match = STATE_RE.search(full_name)
                     if match:
                         state = match.group(1).lower()
-                        location_kwargs['state'] = \
-                            US_STATE_ABBREVIATIONS.get(state)
+                        name['state'] = US_STATE_ABBREVIATIONS.get(state)
                 else:
                     # TODO:  Warn about finding a place with no full_name.
                     pass
         elif place_type == 'admin':
-            location_kwargs['state'] = place['name']
+            name['state'] = place['name']
         else:
             # TODO:  Warn about unknown place type.
             pass
 
-        location = Location(**location_kwargs)
-        known_location = self.id_to_location.get(
-            self.location_to_id.get(location))
-        if known_location:
-            return (10, known_location)
+        location = self._find_by_name(**name)
+        if location:
+            return (10, location)
         if self.allow_unknown_locations:
             # Remember this location for future lookups.
-            location.id = next(self.unknown_id_counter)
-            location.twitter_url = place['url']
-            location.twitter_id = place['id']
+            location = Location(
+                id=next(self._unknown_ids),
+                twitter_url=place['url'], twitter_id=place['id'],
+                **name)
             # TODO:  This is from a version different from the
             # version add_location was ported from.
             self.add_location(location)
