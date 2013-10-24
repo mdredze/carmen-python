@@ -62,7 +62,7 @@ def main():
         resolvers.append(ProfileResolver())
     resolver = LocationResolver(resolvers)
     for line in args.locations_file:
-        resolver.add_location(Location(**json.loads(line)))
+        resolver.add_location(Location(known=True, **json.loads(line)))
     # Variables for statistics.
     city_found = county_found = state_found = country_found = 0
     has_place = has_coordinates = has_geo = has_profile_location = 0
