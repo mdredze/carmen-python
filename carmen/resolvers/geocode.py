@@ -27,7 +27,8 @@ class GeocodeResolver(object):
                               latitude, latitude + shift_size):
             for longitude_cell in (longitude - shift_size,
                                    longitude, longitude + shift_size):
-                yield (int(latitude_cell), int(longitude_cell))
+                yield (int(latitude_cell / self.cell_size),
+                       int(longitude_cell / self.cell_size))
 
     def add_location(self, location):
         """Add a known location to the resolver."""
@@ -42,7 +43,8 @@ class GeocodeResolver(object):
         tweet_coordinates = tweet.get('coordinates', {}).get('coordinates')
         if not tweet_coordinates:
             return None
-        tweet_coordinates = Point(tweet_coordinates)
+        tweet_coordinates = Point(longitude=tweet_coordinates[0],
+                                  latitude=tweet_coordinates[1])
         closest_candidate = None
         closest_distance = float('inf')
         for cell in self._cells_for(tweet_coordinates.latitude,
@@ -57,3 +59,4 @@ class GeocodeResolver(object):
                     closest_distance = distance
         if closest_distance < self.max_distance:
             return (9, closest_candidate)
+        return None
