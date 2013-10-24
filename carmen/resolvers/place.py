@@ -26,14 +26,11 @@ class PlaceResolver(object):
         self._locations_by_name = {}
         self._unknown_ids = count(self._unknown_id_start)
 
-    def _find_by_name(self, country=None, state=None,
-                            county=None, city=None):
-        return self._locations_by_name.get((country, state, county, city))
+    def _find_by_name(self, **kwargs):
+        return self._locations_by_name.get(Location(**kwargs).canonical())
 
     def add_location(self, location):
-        name = (location.country, location.state,
-                location.county, location.city)
-        self._locations_by_name[name] = location
+        self._locations_by_name[location.canonical()] = location
 
     def resolve_tweet(self, tweet):
         # TODO:  Write docstring.

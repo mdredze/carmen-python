@@ -51,16 +51,9 @@ class Location(object):
             if hasattr(self, k):
                 setattr(self, k, v)
 
+        self.id = int(self.id)
         self.latitude = float(self.latitude)
         self.longitude = float(self.longitude)
-
-    def __hash__(self):
-        return hash(tuple(
-            getattr(self, x).lower() if getattr(self, x) else ''
-            for x in ('country', 'state', 'county', 'city')))
-
-    def __eq__(self, other):
-        return isinstance(other, Location) and hash(self) == hash(other)
 
     def __repr__(self):
         attrs = []
@@ -72,8 +65,19 @@ class Location(object):
         return 'Location({})'.format(', '.join(attrs))
 
     def __unicode__(self):
-        return u', '.join(itertools.ifilter(None,
-            (self.city, self.county, self.state, self.country)))
+        return u', '.join(itertools.ifilter(None, reversed(self.name())))
+
+    def canonical(self):
+        """Return a tuple containing a canonicalized version of this
+        location's country, state, county, and city names."""
+        return tuple(map(lambda x: x.lower(), self.name()))
+
+    def name(self):
+        """Return a tuple containing this location's country, state,
+        county, and city names."""
+        return tuple(
+            getattr(self, x) if getattr(self, x) else u''
+            for x in ('country', 'state', 'county', 'city'))
 
     def parent(self):
         """Return a location representing the administrative unit above
