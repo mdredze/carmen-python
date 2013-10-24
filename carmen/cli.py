@@ -2,6 +2,7 @@
 
 import argparse
 import collections
+import gzip
 import json
 import sys
 
@@ -10,9 +11,22 @@ from .resolver import LocationResolver
 from .resolvers import *
 
 
+class MaybeGzipFileType(argparse.FileType):
+    """A factory for creating file object types.  Filenames that end in
+    ".gz" are treated as if they were gzipped; otherwise, this class
+    behaves the same as argparse.FileType."""
+
+    def __call__(self, filename):
+        f = super(MaybeGzipFileType, self).__call__(filename)
+        if filename.endswith('.gz'):
+            return gzip.GzipFile(fileobj=f)
+        return f
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='Resolve tweet locations.')
+        description='Resolve tweet locations.',
+        epilog='Paths ending in ".gz" are treated as gzipped files.')
     parser.add_argument('-s', '--statistics',
         action='store_true',
         help='show summary statistics')
@@ -37,14 +51,14 @@ def parse_args():
         help='maximum distance to look from the position specified by '
              'a geographic coordinate pair for matching locations')
     parser.add_argument('locations_file', metavar='locations_path',
-        type=argparse.FileType('r'),
+        type=MaybeGzipFileType('r'),
         help='file containing location database')
     parser.add_argument('input_file', metavar='input_path',
-        nargs='?', type=argparse.FileType('r'), default=sys.stdin,
+        nargs='?', type=MaybeGzipFileType('r'), default=sys.stdin,
         help='file containing tweets to locate with geolocation field '
              '(defaults to standard input)')
     parser.add_argument('output_file', metavar='output_path',
-        nargs='?', type=argparse.FileType('w'), default=sys.stdout,
+        nargs='?', type=MaybeGzipFileType('w'), default=sys.stdout,
         help='file to write geolocated tweets to (defaults to standard '
              'output)')
     return parser.parse_args()
