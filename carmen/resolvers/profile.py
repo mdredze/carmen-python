@@ -52,7 +52,7 @@ class ProfileResolver(object):
             return None
         normalized = normalize(location_string)
         if normalized in self.location_name_to_location:
-            return self.location_name_to_location[normalized]
+            return (8, self.location_name_to_location[normalized])
         # Try again with commas.
         normalized = normalize(location_string, preserve_commas=True)
         match = STATE_RE.search(normalized)
@@ -66,5 +66,5 @@ class ProfileResolver(object):
             elif after_comma in COUNTRY_CODES:
                 location_name = COUNTRY_CODES[after_comma]
             if location_name in self.location_name_to_location:
-                return self.location_name_to_location[location_name]
+                return (8, self.location_name_to_location[location_name])
         return None
