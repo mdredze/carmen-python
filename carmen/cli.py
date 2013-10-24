@@ -50,7 +50,7 @@ def parse_args():
     return parser.parse_args()
 
 
-if __name__ == '__main__':
+def main():
     args = parse_args()
     resolvers = []
     if args.use_places:
@@ -117,3 +117,7 @@ if __name__ == '__main__':
                 for (k, v) in resolution_method_counts.iteritems())))
     print >> sys.stderr, 'Resolved locations for %d of %d tweets.' % (
         resolved_tweets, total_tweets)
+
+
+if __name__ == '__main__':
+    main()
