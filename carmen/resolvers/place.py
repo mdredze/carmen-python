@@ -32,6 +32,9 @@ class PlaceResolver(AbstractResolver):
         self._locations_by_name = {}
         self._unknown_ids = count(self._unknown_id_start)
 
+    def _find_by_location(self, location):
+        return self._locations_by_name.get(location.canonical())
+
     def _find_by_name(self, **kwargs):
         return self._locations_by_name.get(Location(**kwargs).canonical())
 
@@ -83,12 +86,12 @@ class PlaceResolver(AbstractResolver):
         location = self._find_by_name(**name)
         if location:
             return (10, location)
+        location = Location(
+            id=next(self._unknown_ids),
+            twitter_url=place['url'], twitter_id=place['id'],
+            **name)
         if self.allow_unknown_locations:
             # Remember this location for future lookups.
-            location = Location(
-                id=next(self._unknown_ids),
-                twitter_url=place['url'], twitter_id=place['id'],
-                **name)
             self.add_location(location)
             return (10, location)
         if self.resolve_to_known_ancestor:
@@ -97,8 +100,7 @@ class PlaceResolver(AbstractResolver):
                 ancestor = ancestor.parent()
                 if ancestor == EARTH:
                     break
-                known_ancestor = self.id_to_location.get(
-                    self.location_to_id.get(ancestor))
+                known_ancestor = self._find_by_location(ancestor)
                 if known_ancestor:
                     return (1, known_ancestor)
         return None
