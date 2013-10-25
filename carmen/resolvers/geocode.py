@@ -1,14 +1,19 @@
-# TODO:  Write docstring.
+"""Resolvers based on geocodes."""
 
 
 from collections import defaultdict
+import warnings
 
 from geopy import Point
 from geopy.distance import distance as geopy_distance
 
+from ..location import EARTH
+
 
 class GeocodeResolver(object):
-    # TODO:  Write docstring.
+    """A resolver that locates a tweet by finding the known location
+    with the shortest geographic distance from the tweet's coordinates.
+    """
 
     name = 'geocode'
     cell_size = 100.0
@@ -31,15 +36,15 @@ class GeocodeResolver(object):
                        int(longitude_cell / self.cell_size))
 
     def add_location(self, location):
-        """Add a known location to the resolver."""
-        if not (location.latitude and location.longitude):
-            # TODO:  Should we warn here?
+        if not (location == EARTH or
+                location.latitude and location.longitude):
+            warnings.warn('Attempted to add location missing either a '
+                          'latitude or longitude to geocoder')
             return
         for cell in self._cells_for(location.latitude, location.longitude):
             self.location_map[cell].append(location)
 
     def resolve_tweet(self, tweet):
-        # TODO:  Write docstring.
         tweet_coordinates = tweet.get('coordinates', {}).get('coordinates')
         if not tweet_coordinates:
             return None

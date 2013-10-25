@@ -5,6 +5,7 @@ import collections
 import gzip
 import json
 import sys
+import warnings
 
 from .location import Location, LocationEncoder
 from .resolver import LocationResolver
@@ -66,6 +67,7 @@ def parse_args():
 
 def main():
     args = parse_args()
+    warnings.simplefilter('always')
     resolvers = []
     if args.use_places:
         resolvers.append(PlaceResolver(
@@ -75,18 +77,32 @@ def main():
     if args.use_user_profile:
         resolvers.append(ProfileResolver())
     resolver = LocationResolver(resolvers)
-    for line in args.locations_file:
-        resolver.add_location(Location(known=True, **json.loads(line)))
+    for i, location_line in enumerate(args.locations_file):
+        def showwarning(message, category, filename, lineno,
+                        file=sys.stderr, line=None):
+            sys.stderr.write(warnings.formatwarning(
+                message, category, args.locations_file.name, i+1,
+                line=''))
+        warnings.showwarning = showwarning
+        resolver.add_location(
+            Location(known=True, **json.loads(location_line)))
     # Variables for statistics.
     city_found = county_found = state_found = country_found = 0
     has_place = has_coordinates = has_geo = has_profile_location = 0
     resolution_method_counts = collections.defaultdict(int)
     skipped_tweets = resolved_tweets = total_tweets = 0
-    for line in args.input_file:
+    for i, input_line in enumerate(args.input_file):
+        # Show warnings from the input file, not the Python source code.
+        def showwarning(message, category, filename, lineno,
+                        file=sys.stderr, line=None):
+            sys.stderr.write(warnings.formatwarning(
+                message, category, args.input_file.name, i+1,
+                line=''))
+        warnings.showwarning = showwarning
         try:
-            tweet = json.loads(line)
+            tweet = json.loads(input_line)
         except ValueError:
-            # TODO:  Warn about the invalid tweet.
+            warnings.warn('Invalid JSON object')
             skipped_tweets += 1
             continue
         # Collect statistics on the tweet.

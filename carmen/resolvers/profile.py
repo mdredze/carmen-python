@@ -1,7 +1,8 @@
-# TODO:  Write docstring.
+"""Resolvers based on Twitter user profile data."""
 
 
 import re
+import warnings
 
 from ..names import *
 
@@ -11,6 +12,8 @@ NORMALIZATION_RE = re.compile(r'\s+|\W')
 
 
 def normalize(location_name, preserve_commas=False):
+    """Normalize *location_name* by stripping punctuation and collapsing
+    runs of whitespace, and return the normalized name."""
     def replace(match):
         if preserve_commas and ',' in match.group(0):
             return ','
@@ -19,7 +22,8 @@ def normalize(location_name, preserve_commas=False):
 
 
 class ProfileResolver(object):
-    # TODO:  Write docstring.
+    """A resolver that locates a tweet by matching the tweet author's
+    profile location against known locations."""
 
     name = 'profile'
 
@@ -33,8 +37,7 @@ class ProfileResolver(object):
             if alias in aliases_already_added:
                 continue
             if alias in self.location_name_to_location:
-                # TODO:  Warn about duplicate location name.
-                pass
+                warnings.warn('Duplicate location name "%s"' % alias)
             else:
                 self.location_name_to_location[alias] = location
             # Additionally add a normalized version of the alias
@@ -46,7 +49,6 @@ class ProfileResolver(object):
             aliases_already_added.add(alias)
 
     def resolve_tweet(self, tweet):
-        # TODO:  Write docstring.
         location_string = tweet.get('user', {}).get('location', '')
         if not location_string:
             return None

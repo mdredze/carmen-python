@@ -1,6 +1,5 @@
 # -*- coding: utf-8
-# TODO:  Write docstring.
-# We probably want to replace this with pycountry down the line.
+"""Lookup tables for geographic name variations."""
 
 
 from __future__ import unicode_literals
