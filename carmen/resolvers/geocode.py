@@ -8,9 +8,10 @@ from geopy import Point
 from geopy.distance import distance as geopy_distance
 
 from ..location import EARTH
+from ..resolver import AbstractResolver
 
 
-class GeocodeResolver(object):
+class GeocodeResolver(AbstractResolver):
     """A resolver that locates a tweet by finding the known location
     with the shortest geographic distance from the tweet's coordinates.
     """

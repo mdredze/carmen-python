@@ -8,12 +8,13 @@ import warnings
 
 from ..location import Location, EARTH
 from ..names import ALTERNATIVE_COUNTRY_NAMES, US_STATE_ABBREVIATIONS
+from ..resolver import AbstractResolver
 
 
 STATE_RE = re.compile(r'.+,\s*(\w+)')
 
 
-class PlaceResolver(object):
+class PlaceResolver(AbstractResolver):
     """A resolver that locates a tweet by matching Twitter Place
     information with a known location.  If *allow_unknown_locations* is
     True, unknown Places are added as new locations.  Otherwise, if

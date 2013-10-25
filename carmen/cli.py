@@ -8,7 +8,7 @@ import sys
 import warnings
 
 from .location import Location, LocationEncoder
-from .resolver import LocationResolver
+from .resolver import Resolver
 from .resolvers import *
 
 
@@ -76,7 +76,7 @@ def main():
         resolvers.append(GeocodeResolver(args.max_distance))
     if args.use_user_profile:
         resolvers.append(ProfileResolver())
-    resolver = LocationResolver(resolvers)
+    resolver = Resolver(resolvers)
     for i, location_line in enumerate(args.locations_file):
         def showwarning(message, category, filename, lineno,
                         file=sys.stderr, line=None):
