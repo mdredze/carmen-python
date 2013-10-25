@@ -38,8 +38,6 @@ class Location(object):
         self.id = -1
         """For known locations, the database ID.  For other locations, a
         unique ID is arbitrarily assigned for each run."""
-        self.parent_id = -1
-        """The database ID of this location's parent."""
 
         self.twitter_url = None
         """The Twitter URL corresponding to this Place."""
