@@ -25,7 +25,7 @@ class PlaceResolver(AbstractResolver):
 
     _unknown_id_start = 1000000
 
-    def __init__(self, allow_unknown_locations=True,
+    def __init__(self, allow_unknown_locations=False,
                        resolve_to_known_ancestor=False):
         self.allow_unknown_locations = allow_unknown_locations
         self.resolve_to_known_ancestor = resolve_to_known_ancestor

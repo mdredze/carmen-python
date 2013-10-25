@@ -40,9 +40,9 @@ def parse_args():
     parser.add_argument('--ignore-user-profile',
         action='store_false', dest='use_user_profile',
         help="don't use location field of tweet author's profile")
-    parser.add_argument('--disallow-unknown-locations',
-        action='store_false', dest='allow_unknown_locations',
-        help='disallow resolution to unknown locations')
+    parser.add_argument('--allow-unknown-locations',
+        action='store_true',
+        help='allow resolution to unknown locations')
     parser.add_argument('--resolve-to-known-ancestor',
         action='store_true',
         help='attempt to find a known ancestor for unknown locations '
