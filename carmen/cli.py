@@ -7,9 +7,8 @@ import json
 import sys
 import warnings
 
+from . import get_resolver
 from .location import Location, LocationEncoder
-from .resolver import Resolver
-from .resolvers import *
 
 
 class MaybeGzipFileType(argparse.FileType):
@@ -31,29 +30,19 @@ def parse_args():
     parser.add_argument('-s', '--statistics',
         action='store_true',
         help='show summary statistics')
-    parser.add_argument('--ignore-geocodes',
-        action='store_false', dest='use_geocodes',
-        help="don't use tweet geographic coordinates")
-    parser.add_argument('--ignore-places',
-        action='store_false', dest='use_places',
-        help="don't use tweet place fields")
-    parser.add_argument('--ignore-user-profile',
-        action='store_false', dest='use_user_profile',
-        help="don't use location field of tweet author's profile")
-    parser.add_argument('--allow-unknown-locations',
-        action='store_true',
-        help='allow resolution to unknown locations')
-    parser.add_argument('--resolve-to-known-ancestor',
-        action='store_true',
-        help='attempt to find a known ancestor for unknown locations '
-             'when --disallow-unknown-locations is specified')
-    parser.add_argument('--max-distance',
-        type=float, metavar='MILES', default=25,
-        help='maximum distance to look from the position specified by '
-             'a geographic coordinate pair for matching locations')
-    parser.add_argument('locations_file', metavar='locations_path',
-        type=MaybeGzipFileType('r'),
-        help='file containing location database')
+    include_exclude = parser.add_mutually_exclusive_group()
+    include_exclude.add_argument('--include',
+        metavar='RESOLVERS', default='',
+        help='only use the given resolvers (comma-separated)')
+    include_exclude.add_argument('--exclude',
+        metavar='RESOLVERS', default='',
+        help='use all but the given resolvers (comma-separated)')
+    parser.add_argument('--options',
+        default='{}',
+        help='JSON dictionary of resolver options')
+    parser.add_argument('--locations',
+        metavar='PATH', dest='location_file', type=MaybeGzipFileType('r'),
+        help='path to alternative location database')
     parser.add_argument('input_file', metavar='input_path',
         nargs='?', type=MaybeGzipFileType('r'), default=sys.stdin,
         help='file containing tweets to locate with geolocation field '
@@ -68,24 +57,10 @@ def parse_args():
 def main():
     args = parse_args()
     warnings.simplefilter('always')
-    resolvers = []
-    if args.use_places:
-        resolvers.append(PlaceResolver(
-            args.allow_unknown_locations, args.resolve_to_known_ancestor))
-    if args.use_geocodes:
-        resolvers.append(GeocodeResolver(args.max_distance))
-    if args.use_user_profile:
-        resolvers.append(ProfileResolver())
-    resolver = Resolver(resolvers)
-    for i, location_line in enumerate(args.locations_file):
-        def showwarning(message, category, filename, lineno,
-                        file=sys.stderr, line=None):
-            sys.stderr.write(warnings.formatwarning(
-                message, category, args.locations_file.name, i+1,
-                line=''))
-        warnings.showwarning = showwarning
-        resolver.add_location(
-            Location(known=True, **json.loads(location_line)))
+    resolver = get_resolver(include=filter(None, args.include.split(',')),
+                            exclude=filter(None, args.exclude.split(',')),
+                            options=json.loads(args.options))
+    resolver.load_locations(location_file=args.location_file)
     # Variables for statistics.
     city_found = county_found = state_found = country_found = 0
     has_place = has_coordinates = has_geo = has_profile_location = 0
@@ -115,7 +90,7 @@ def main():
         if tweet.get('user', {}).get('location', ''):
             has_profile_location += 1
         # Perform the actual resolution.
-        location = resolver.resolve_tweet(tweet)
+        confidence, location = resolver.resolve_tweet(tweet)
         if location:
             tweet['location'] = location
             # More statistics.

@@ -8,19 +8,19 @@ from geopy import Point
 from geopy.distance import distance as geopy_distance
 
 from ..location import EARTH
-from ..resolver import AbstractResolver
+from ..resolver import AbstractResolver, register
 
 
+@register('geocode')
 class GeocodeResolver(AbstractResolver):
     """A resolver that locates a tweet by finding the known location
     with the shortest geographic distance from the tweet's coordinates.
     """
 
-    name = 'geocode'
     cell_size = 100.0
 
     def __init__(self, max_distance=25):
-        self.max_distance = max_distance
+        self.max_distance = float(max_distance)
         self.location_map = defaultdict(list)
 
     def _cells_for(self, latitude, longitude):
@@ -37,10 +37,7 @@ class GeocodeResolver(AbstractResolver):
                        int(longitude_cell / self.cell_size))
 
     def add_location(self, location):
-        if not (location == EARTH or
-                location.latitude and location.longitude):
-            warnings.warn('Attempted to add location missing either a '
-                          'latitude or longitude to geocoder')
+        if not location.latitude and location.longitude:
             return
         for cell in self._cells_for(location.latitude, location.longitude):
             self.location_map[cell].append(location)

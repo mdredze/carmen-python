@@ -5,7 +5,7 @@ import re
 import warnings
 
 from ..names import *
-from ..resolver import AbstractResolver
+from ..resolver import AbstractResolver, register
 
 
 STATE_RE = re.compile(r'.+,\s*(\w+)')
@@ -22,6 +22,7 @@ def normalize(location_name, preserve_commas=False):
     return NORMALIZATION_RE.sub(replace, location_name).strip().lower()
 
 
+@register('profile')
 class ProfileResolver(AbstractResolver):
     """A resolver that locates a tweet by matching the tweet author's
     profile location against known locations."""

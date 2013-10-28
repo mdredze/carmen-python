@@ -1,4 +1,5 @@
 """Carmen, a library for geolocating tweets."""
 
-from .location import Location
-from .resolver import Resolver
+__version__ = '0.0.2'
+
+from .resolver import get_resolver

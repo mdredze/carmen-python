@@ -1,5 +1,5 @@
 project = 'Carmen'
-release = '0.0.1'
+release = '0.0.2'
 copyright = '2013, Roger Que and Mark Dredze'
 
 master_doc = 'index'

@@ -39,11 +39,13 @@ Using the Python API
 Python applications can use the Carmen API
 to directly retrieve location information for tweets::
 
-    import carmen
     import json
+    import carmen
 
     tweet = json.loads(tweet_json)
-    location = carmen.get_resolver().resolve_tweet(tweet)
+    resolver = carmen.get_resolver()
+    resolver.load_locations()
+    location = resolver.resolve_tweet(tweet)
 
 The ``resolve_tweet`` method returns a :py:class:`.Location` object:
 
