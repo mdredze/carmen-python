@@ -15,16 +15,15 @@ class AbstractResolver(object):
 
     @abstractmethod
     def add_location(self, location):
-        """Add *location* to this resolver's set of known locations.
-        Resolvers may create lookup tables or other caches depending on
-        how they resolve individual tweets."""
+        """Add an individual :py:class:`.Location` object to this
+        resolver's set of known locations."""
         pass
 
     def load_locations(self, location_file=None):
-        """Load locations from the given *location_file*, which should
-        contain one JSON object per line representing a location.  If
-        *location_file* is not specified, an internal location database
-        is used."""
+        """Load locations into this resolver from the given
+        *location_file*, which should contain one JSON object per line
+        representing a location.  If *location_file* is not specified,
+        an internal location database is used."""
         if location_file is None:
             contents = pkgutil.get_data(__package__, 'data/locations.json')
             locations = contents.split('\n')
@@ -38,8 +37,9 @@ class AbstractResolver(object):
     def resolve_tweet(self, tweet):
         """Find the best known location for the given *tweet*, which
         is provided as a deserialized JSON object, and return a tuple
-        containing a confidence value and the location object.  If no
-        suitable locations are found, None may be returned."""
+        containing a confidence value and a :py:class:`.Location`
+        object.  If no suitable locations are found, ``None`` may be
+        returned."""
         pass
 
 
@@ -87,9 +87,9 @@ def register(name):
 
 
 def get_resolver(include=None, exclude=None, options=None, modules=None):
-    """Return an object implementing :py:class:`AbstractResolver` whose
-    :py:meth:`resolve_tweet` method returns the best resolution found by
-    any available resolver.  Only one of the *include* and *exclude*
+    """Return an object implementing :py:class:`.AbstractResolver` whose
+    :py:meth:`.resolve_tweet` method returns the best resolution found
+    by any available resolver.  Only one of the *include* and *exclude*
     arguments may be given; they should be lists of resolver names.  If
     *include* is given, only the named resolvers are used; if *exclude*
     is given, all resolvers except for the ones named are used.  The

@@ -47,9 +47,12 @@ to directly retrieve location information for tweets::
     resolver.load_locations()
     location = resolver.resolve_tweet(tweet)
 
-The ``resolve_tweet`` method returns a :py:class:`.Location` object:
+The :py:meth:`.resolve_tweet` method
+returns a :py:class:`.Location` object:
 
 .. class:: carmen.Location
+
+   Contains information about a location and how it was identified.
 
    .. attribute:: latitude
                   longitude
@@ -61,7 +64,7 @@ The ``resolve_tweet`` method returns a :py:class:`.Location` object:
                   county
                   city
 
-      Basic location information.  A value of None for a particular
+      Basic location information.  A value of ``None`` for a particular
       field indicates that it does not apply for that specific location.
 
    .. attribute:: aliases
@@ -87,3 +90,11 @@ The ``resolve_tweet`` method returns a :py:class:`.Location` object:
 
       For locations with information based solely on Twitter Place
       information, the URL and ID of the associated Place.
+
+The other functions and methods of the public API take various arguments
+that invoking applications can use to control their behavior:
+
+.. autofunction:: carmen.get_resolver
+
+.. autoclass:: carmen.resolver.AbstractResolver
+   :members: load_locations, add_location, resolve_tweet

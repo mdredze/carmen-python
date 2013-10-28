@@ -21,9 +21,9 @@ class Location(object):
         self.state = None
         self.county = None
         self.city = None
-        """Basic location information.  A value of None for a particular
-        field indicates that it does not apply for that specific
-        location."""
+        """Basic location information.  A value of ``None`` for a
+        particular field indicates that it does not apply for that
+        specific location."""
 
         self.aliases = []
         """An iterable containing alternative names for this location."""
