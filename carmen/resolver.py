@@ -98,18 +98,16 @@ def get_resolver(include=None, exclude=None, options=None, modules=None):
 
         {'geocode': {'max_distance': 50}}
 
-    The *modules* argument can be used to specify a list of modules to
-    look for resolvers in.  If it is not specified, it defaults to
-    :py:mod:`carmen.resolvers`.
+    The *modules* argument can be used to specify a list of additional
+    modules to look for resolvers in.  See :doc:`/develop` for details.
     """
     if include and exclude:
         raise ValueError('cannot specify both include and exclude arguments')
     if not known_resolvers:
-        if modules is None:
-            from . import resolvers as carmen_resolvers
-            modules = [carmen_resolvers]
+        from . import resolvers as carmen_resolvers
+        modules = [carmen_resolvers] + (modules or [])
         for module in modules:
-            for loader, name, is_package in pkgutil.iter_modules(module.__path__):
+            for loader, name, _ in pkgutil.iter_modules(module.__path__):
                 full_name = module.__name__ + '.' + name
                 loader.find_module(name).load_module(full_name)
     if include:
