@@ -13,4 +13,5 @@ tweets over what Twitter provides.
    :maxdepth: 2
 
    quickstart
+   resolvers
    develop

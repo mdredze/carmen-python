@@ -45,3 +45,6 @@ These defaults may be overridden
 with an *options* dictionary containing::
 
     {'custom': {'allow_foo': False, 'allow_bar': True}}
+
+Locations may then be added, and tweets resolved, as with Carmen's
+built-in resolvers.
