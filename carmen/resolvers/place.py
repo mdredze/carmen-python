@@ -84,7 +84,7 @@ class PlaceResolver(AbstractResolver):
 
         location = self._find_by_name(**name)
         if location:
-            return (10, location)
+            return (False, location)
         location = Location(
             id=next(self._unknown_ids),
             twitter_url=place['url'], twitter_id=place['id'],
@@ -92,7 +92,7 @@ class PlaceResolver(AbstractResolver):
         if self.allow_unknown_locations:
             # Remember this location for future lookups.
             self.add_location(location)
-            return (10, location)
+            return (False, location)
         if self.resolve_to_known_ancestor:
             ancestor = location
             while True:
@@ -101,5 +101,5 @@ class PlaceResolver(AbstractResolver):
                     break
                 known_ancestor = self._find_by_location(ancestor)
                 if known_ancestor:
-                    return (1, known_ancestor)
+                    return (True, known_ancestor)
         return None

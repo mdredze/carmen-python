@@ -47,8 +47,9 @@ to directly retrieve location information for tweets::
     resolver.load_locations()
     location = resolver.resolve_tweet(tweet)
 
-The :py:meth:`.resolve_tweet` method
-returns a :py:class:`.Location` object:
+The resolver's :py:meth:`.resolve_tweet` method is the central API call:
+
+.. automethod:: carmen.resolver.AbstractResolver.resolve_tweet
 
 .. class:: carmen.Location
 
@@ -91,10 +92,12 @@ returns a :py:class:`.Location` object:
       For locations with information based solely on Twitter Place
       information, the URL and ID of the associated Place.
 
-The other functions and methods of the public API take various arguments
-that invoking applications can use to control their behavior:
+The resolver's default location database can be added to or overridden
+using its :py:meth:`.add_location` and :py:meth:`.load_locations` methods:
+
+.. automethod:: carmen.resolver.AbstractResolver.add_location
+.. automethod:: carmen.resolver.AbstractResolver.load_locations
+
+Finally, the behavior of the resolver itself can be customized:
 
 .. autofunction:: carmen.get_resolver
-
-.. autoclass:: carmen.resolver.AbstractResolver
-   :members: load_locations, add_location, resolve_tweet

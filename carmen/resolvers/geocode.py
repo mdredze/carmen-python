@@ -61,5 +61,5 @@ class GeocodeResolver(AbstractResolver):
                     closest_candidate = candidate
                     closest_distance = distance
         if closest_distance < self.max_distance:
-            return (9, closest_candidate)
+            return (False, closest_candidate)
         return None

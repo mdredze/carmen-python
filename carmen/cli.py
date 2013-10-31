@@ -30,13 +30,9 @@ def parse_args():
     parser.add_argument('-s', '--statistics',
         action='store_true',
         help='show summary statistics')
-    include_exclude = parser.add_mutually_exclusive_group()
-    include_exclude.add_argument('--include',
-        metavar='RESOLVERS', default='',
-        help='only use the given resolvers (comma-separated)')
-    include_exclude.add_argument('--exclude',
-        metavar='RESOLVERS', default='',
-        help='use all but the given resolvers (comma-separated)')
+    parser.add_argument('--order',
+        metavar='RESOLVERS',
+        help='preferred resolver order (comma-separated)')
     parser.add_argument('--options',
         default='{}',
         help='JSON dictionary of resolver options')
@@ -57,9 +53,12 @@ def parse_args():
 def main():
     args = parse_args()
     warnings.simplefilter('always')
-    resolver = get_resolver(include=filter(None, args.include.split(',')),
-                            exclude=filter(None, args.exclude.split(',')),
-                            options=json.loads(args.options))
+    resolver_kwargs = {}
+    if args.order is not None:
+        resolver_kwargs['order'] = args.order.split(',')
+    if args.options is not None:
+        resolver_kwargs['options'] = json.loads(args.options)
+    resolver = get_resolver(**resolver_kwargs)
     resolver.load_locations(location_file=args.location_file)
     # Variables for statistics.
     city_found = county_found = state_found = country_found = 0
@@ -90,8 +89,9 @@ def main():
         if tweet.get('user', {}).get('location', ''):
             has_profile_location += 1
         # Perform the actual resolution.
-        confidence, location = resolver.resolve_tweet(tweet)
-        if location:
+        resolution = resolver.resolve_tweet(tweet)
+        if resolution:
+            location = resolution[1]
             tweet['location'] = location
             # More statistics.
             resolution_method_counts[location.resolution_method] += 1

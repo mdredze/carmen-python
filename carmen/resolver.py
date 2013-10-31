@@ -35,11 +35,18 @@ class AbstractResolver(object):
 
     @abstractmethod
     def resolve_tweet(self, tweet):
-        """Find the best known location for the given *tweet*, which
-        is provided as a deserialized JSON object, and return a tuple
-        containing a confidence value and a :py:class:`.Location`
-        object.  If no suitable locations are found, ``None`` may be
-        returned."""
+        """Find the best known location for the given *tweet*, which is
+        provided as a deserialized JSON object, and return a tuple
+        containing two elements: a boolean indicating whether the
+        resolution is *provisional*, and a :py:class:`.Location` object.
+        Provisional resolutions may be overridden by non-provisional
+        resolutions returned by a less preferred resolver (i.e., one
+        that comes later in the resolver order), and should be used when
+        returning locations with low confidence, such as those found by
+        using larger "backed-off" administrative units.
+
+        If no suitable locations are found, ``None`` may be returned.
+        """
         pass
 
 
@@ -49,26 +56,34 @@ class ResolverCollection(AbstractResolver):
     resolution with the highest priority."""
 
     def __init__(self, resolvers=None):
-        self.resolvers = resolvers if resolvers else {}
+        self.resolvers = resolvers if resolvers else []
         self.add_location(EARTH)
 
     def add_location(self, location):
         # Inform our child resolvers of this location.
-        for resolver in self.resolvers.itervalues():
+        for resolver_name, resolver in self.resolvers:
             resolver.add_location(location)
 
     def resolve_tweet(self, tweet):
-        best_resolution = (-1, None)
-        best_resolver_name = None
-        for resolver_name, resolver in self.resolvers.iteritems():
+        provisional_resolution = None
+        for resolver_name, resolver in self.resolvers:
             resolution = resolver.resolve_tweet(tweet)
-            if resolution > best_resolution:
-                best_resolution = resolution
-                best_resolver_name = resolver_name
-        location = best_resolution[1]
-        if location:
-            location.resolution_method = best_resolver_name
-        return best_resolution
+            if resolution is None:
+                continue
+            is_provisional, location = resolution
+            location.resolution_method = resolver_name
+            # If we only got a provisional resolution, hold on to it
+            # as long as we don't already have a more preferred one,
+            # and see if we get a non-provisional one later.
+            if is_provisional:
+                if provisional_resolution is None:
+                    provisional_resolution = resolution
+            else:
+                return resolution
+        # We didn't find any non-provisional resolutions; return the
+        # best provisional resolution.  This will be None if we didn't
+        # find any provisional resolutions, either.
+        return provisional_resolution
 
 
 ### Resolver importation functions.
@@ -86,23 +101,20 @@ def register(name):
     return decorator
 
 
-def get_resolver(include=None, exclude=None, options=None, modules=None):
-    """Return an object implementing :py:class:`.AbstractResolver` whose
-    :py:meth:`.resolve_tweet` method returns the best resolution found
-    by any available resolver.  Only one of the *include* and *exclude*
-    arguments may be given; they should be lists of resolver names.  If
-    *include* is given, only the named resolvers are used; if *exclude*
-    is given, all resolvers except for the ones named are used.  The
-    *options* argument should be a dictionary mapping resolver names to
-    keyword arguments; for instance::
+def get_resolver(order=None, options=None, modules=None):
+    """Return a location resolver.  The *order* argument, if given,
+    should be a list of resolver names; results from resolvers named
+    earlier in the list are preferred over later ones.  For a list of
+    built-in resolver names, see :doc:`/resolvers`.  The *options*
+    argument can be used to pass configuration options to individual
+    resolvers, in the form of a dictionary mapping resolver names to
+    keyword arguments::
 
         {'geocode': {'max_distance': 50}}
 
     The *modules* argument can be used to specify a list of additional
     modules to look for resolvers in.  See :doc:`/develop` for details.
     """
-    if include and exclude:
-        raise ValueError('cannot specify both include and exclude arguments')
     if not known_resolvers:
         from . import resolvers as carmen_resolvers
         modules = [carmen_resolvers] + (modules or [])
@@ -110,16 +122,17 @@ def get_resolver(include=None, exclude=None, options=None, modules=None):
             for loader, name, _ in pkgutil.iter_modules(module.__path__):
                 full_name = module.__name__ + '.' + name
                 loader.find_module(name).load_module(full_name)
-    if include:
-        resolver_names = include
+    if order is None:
+        order = ('place', 'geocode', 'profile')
     else:
-        resolver_names = set(known_resolvers.keys()).difference(exclude or [])
+        order = tuple(order)
     if options is None:
         options = {}
-    resolvers = {}
-    for resolver_name in resolver_names:
+    resolvers = []
+    for resolver_name in order:
         if resolver_name not in known_resolvers:
             raise ValueError('unknown resolver name "%s"' % resolver_name)
-        resolvers[resolver_name] = \
-            known_resolvers[resolver_name](**options.get(resolver_name, {}))
+        resolvers.append((
+            resolver_name,
+            known_resolvers[resolver_name](**options.get(resolver_name, {}))))
     return ResolverCollection(resolvers)
