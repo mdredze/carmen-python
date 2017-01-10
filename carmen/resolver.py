@@ -26,7 +26,7 @@ class AbstractResolver(ABC):
         an internal location database is used."""
         if location_file is None:
             contents = pkgutil.get_data(__package__, 'data/locations.json')
-            contents_string = contents.decode("utf-8")
+            contents_string = contents.decode("ascii")
             locations = contents_string.split('\n')
         else:
             from .cli import open_file

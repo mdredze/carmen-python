@@ -53,8 +53,6 @@ class ProfileResolver(AbstractResolver):
     def resolve_tweet(self, tweet):
         import sys
         location_string = tweet.get('user', {}).get('location', '')
-        if sys.version_info[0] < 3:
-            location_string = location_string.encode('utf-8')
             
         if not location_string:
             return None
