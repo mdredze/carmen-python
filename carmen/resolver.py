@@ -7,11 +7,11 @@ import pkgutil
 
 from .location import Location, EARTH
 
+ABC = ABCMeta('ABC', (object,), {}) # compatible with Python 2 *and* 3 
 
-class AbstractResolver(object):
+class AbstractResolver(ABC):
     """An abstract base class for *resolvers* that match tweets to known
     locations."""
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def add_location(self, location):
@@ -26,9 +26,13 @@ class AbstractResolver(object):
         an internal location database is used."""
         if location_file is None:
             contents = pkgutil.get_data(__package__, 'data/locations.json')
-            locations = contents.split('\n')
+            contents_string = contents.decode("utf-8")
+            locations = contents_string.split('\n')
         else:
-            locations = location_file
+            from .cli import open_file
+            with open_file(location_file, 'rb') as input:
+                locations = input.readlines()
+        
         for location in locations:
             if location.strip():
                 self.add_location(Location(known=True, **json.loads(location)))
@@ -121,7 +125,7 @@ def get_resolver(order=None, options=None, modules=None):
         for module in modules:
             for loader, name, _ in pkgutil.iter_modules(module.__path__):
                 full_name = module.__name__ + '.' + name
-                loader.find_module(name).load_module(full_name)
+                loader.find_module(full_name).load_module(full_name)
     if order is None:
         order = ('place', 'geocode', 'profile')
     else:

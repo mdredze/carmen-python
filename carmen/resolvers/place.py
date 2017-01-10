@@ -41,10 +41,10 @@ class PlaceResolver(AbstractResolver):
         self._locations_by_name[location.canonical()] = location
 
     def resolve_tweet(self, tweet):
-        place = tweet['place']
+        place = tweet.get('place', None)
         if not place:
             return
-        country = place['country']
+        country = place.get('country', None)
         if not country:
             warnings.warn('Tweet has Place with no country')
             return None

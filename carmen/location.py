@@ -44,8 +44,14 @@ class Location(object):
         self.twitter_id = None
         """The Twitter ID of this Place."""
 
+        # Support for Python3
+        try:
+            iterator = kwargs.iteritems()
+        except:
+            iterator = kwargs.items()
+
         # We're all adults, right?
-        for k, v in kwargs.iteritems():
+        for k, v in iterator:
             if hasattr(self, k):
                 setattr(self, k, v)
 
@@ -63,19 +69,30 @@ class Location(object):
         return 'Location({})'.format(', '.join(attrs))
 
     def __unicode__(self):
-        return u', '.join(itertools.ifilter(None, reversed(self.name())))
+        try:
+            return u', '.join(itertools.ifilter(None, reversed(self.name())))
+        except:
+            return ', '.join(filter(None, reversed(self.name())))
 
     def canonical(self):
         """Return a tuple containing a canonicalized version of this
         location's country, state, county, and city names."""
-        return tuple(map(lambda x: x.lower(), self.name()))
+        try:
+            return tuple(map(lambda x: x.lower(), self.name()))
+        except:
+            return tuple([x.lower() for x in self.name()])
 
     def name(self):
         """Return a tuple containing this location's country, state,
         county, and city names."""
-        return tuple(
-            getattr(self, x) if getattr(self, x) else u''
-            for x in ('country', 'state', 'county', 'city'))
+        try:
+            return tuple(
+                getattr(self, x) if getattr(self, x) else u''
+                for x in ('country', 'state', 'county', 'city'))
+        except:
+            return tuple(
+                getattr(self, x) if getattr(self, x) else ''
+                for x in ('country', 'state', 'county', 'city'))
 
     def parent(self):
         """Return a location representing the administrative unit above
@@ -97,7 +114,7 @@ other locations."""
 
 class LocationEncoder(json.JSONEncoder):
     """JSON encoder supporting `Location` objects."""
-
+    encoding = 'utf-8'
     def default(self, obj):
         if isinstance(obj, Location):
             to_encode = {}
@@ -107,8 +124,10 @@ class LocationEncoder(json.JSONEncoder):
                 # None values; the attributes themselves always exist.
                 v = getattr(obj, k)
                 if v:
-                    if isinstance(v, unicode):
-                        v = v.encode(self.encoding)
+                    import sys
+                    if sys.version_info[0] < 3:
+                        if isinstance(v, unicode):
+                            v = v.encode(self.encoding)
                     to_encode[k] = v
             return to_encode
         return json.JSONEncoder.default(self, obj)

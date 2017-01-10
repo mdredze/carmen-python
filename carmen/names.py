@@ -473,7 +473,7 @@ COUNTRY_CODES = {
     "zm": "zambia",
     "zw": "zimbabwe",
 }
-COUNTRIES = frozenset(COUNTRY_CODES.itervalues())
+COUNTRIES = frozenset(COUNTRY_CODES.values())
 
 US_STATE_ABBREVIATIONS = {
     "al": "alabama",
@@ -527,4 +527,4 @@ US_STATE_ABBREVIATIONS = {
     "wi": "wisconsin",
     "wy": "wyoming",
 }
-US_STATES = frozenset(US_STATE_ABBREVIATIONS.itervalues())
+US_STATES = frozenset(US_STATE_ABBREVIATIONS.values())
