@@ -51,10 +51,16 @@ class ProfileResolver(AbstractResolver):
             aliases_already_added.add(alias)
 
     def resolve_tweet(self, tweet):
+        import sys
         location_string = tweet.get('user', {}).get('location', '')
+        if sys.version_info[0] < 3:
+            location_string = location_string.encode('utf-8')
+            
         if not location_string:
             return None
+
         normalized = normalize(location_string)
+
         if normalized in self.location_name_to_location:
             return (False, self.location_name_to_location[normalized])
         # Try again with commas.
