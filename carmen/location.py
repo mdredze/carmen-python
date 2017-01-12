@@ -38,7 +38,8 @@ class Location(object):
         self.id = -1
         """For known locations, the database ID.  For other locations, a
         unique ID is arbitrarily assigned for each run."""
-
+        self.parent_id = -1
+        
         self.twitter_url = None
         """The Twitter URL corresponding to this Place."""
         self.twitter_id = None
@@ -56,6 +57,7 @@ class Location(object):
                 setattr(self, k, v)
 
         self.id = int(self.id)
+        self.parent_id = int(self.parent_id)
         self.latitude = float(self.latitude)
         self.longitude = float(self.longitude)
 

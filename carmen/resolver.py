@@ -12,7 +12,7 @@ ABC = ABCMeta('ABC', (object,), {}) # compatible with Python 2 *and* 3
 class AbstractResolver(ABC):
     """An abstract base class for *resolvers* that match tweets to known
     locations."""
-
+    location_id_to_location = {}
     @abstractmethod
     def add_location(self, location):
         """Add an individual :py:class:`.Location` object to this
@@ -33,9 +33,11 @@ class AbstractResolver(ABC):
             with open_file(location_file, 'rb') as input:
                 locations = input.readlines()
         
-        for location in locations:
-            if location.strip():
-                self.add_location(Location(known=True, **json.loads(location)))
+        for location_string in locations:
+            if location_string.strip():
+                location = Location(known=True, **json.loads(location))
+                self.location_id_to_location[location.id] = location
+                self.add_location(location)
 
     @abstractmethod
     def resolve_tweet(self, tweet):
@@ -52,6 +54,9 @@ class AbstractResolver(ABC):
         If no suitable locations are found, ``None`` may be returned.
         """
         pass
+
+    def get_location_by_id(self, location_id):
+        return self.location_id_to_location[location_id]
 
 
 class ResolverCollection(AbstractResolver):
