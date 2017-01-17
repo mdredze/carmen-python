@@ -67,12 +67,13 @@ class ResolverCollection(AbstractResolver):
     def __init__(self, resolvers=None):
         self.resolvers = resolvers if resolvers else []
         self.add_location(EARTH)
-        self.load_locations()
+
 
     def add_location(self, location):
         # Inform our child resolvers of this location.
         for resolver_name, resolver in self.resolvers:
             resolver.add_location(location)
+
 
     def resolve_tweet(self, tweet):
         provisional_resolution = None
