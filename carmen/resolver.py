@@ -35,7 +35,7 @@ class AbstractResolver(ABC):
         
         for location_string in locations:
             if location_string.strip():
-                location = Location(known=True, **json.loads(location))
+                location = Location(known=True, **json.loads(location_string))
                 self.location_id_to_location[location.id] = location
                 self.add_location(location)
 
