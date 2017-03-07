@@ -1,5 +1,8 @@
 *.py[cdo]
 
+# Virtual Environment
+env/
+
 # Packages
 *.egg
 *.egg-info
