@@ -8,3 +8,9 @@ dist
 
 # Documentation
 doc/_build
+
+# Geonames Data
+carmen/data/dump/
+
+# Mac OSX Files
+.DS_Store

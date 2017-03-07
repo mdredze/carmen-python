@@ -10,6 +10,11 @@ geolocation decisions.
 It's not perfect, but this greatly increases the number of geolocated
 tweets over what Twitter provides.
 
+To set up the database, create a PostgreSQL database named `carmen` and
+do the following:
+
+    $ psql -f carmen/sql/populate_db.sql carmen
+
 To install, simply run:
 
     $ python setup.py install
