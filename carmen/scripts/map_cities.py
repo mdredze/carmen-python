@@ -13,9 +13,9 @@ def main():
     carmen_filename = '../data/locations.json'
     carmen_data = open(carmen_filename)
 
-    num_success           = 0
-    invalid_country_names = 0
-    nonexistent_names     = 0
+    num_success           = 0  # these numbers are used to track
+    invalid_country_names = 0  # statistics of how good our mapping
+    nonexistent_names     = 0  # is
 
     for line in carmen_data:
         data = json.loads(line)
@@ -31,26 +31,34 @@ def main():
             else:
                 # otherwise, we can try to look up the country code
                 country = data['country']
-                cur.execute("SELECT iso FROM country_info WHERE country = %s;", (country,))
+                cur.execute(
+                    "SELECT iso FROM country_info "
+                    "WHERE country = %s;", 
+                    (country,)
+                )
                 x = cur.fetchone()
 
                 if x == None:
                     # if the country code does not exist in Geonames, then we have a problem
-                    sys.stderr.write("%s does not have a valid country_code in Geonames\n" % (country))
+                    sys.stderr.write(
+                        "%s does not have a valid country_code in Geonames\n" 
+                        % (country)
+                    )
                     invalid_country_names += 1
                     continue
                 else:
                     country_code = x[0]
             
-            if data['state'] != '':
-                region = data['state']
-            else:
-                region = data['county']
+            if data['state'] != '':       # we will attempt to use the Carmen 'state' field as
+                region = data['state']    # the encapsulating region.
+            else:                         # if it doesn't exist, then we use the 'county' field
+                region = data['county']   # instead.
 
             cur.execute(
                 "SELECT admin1_code FROM admin1_codes "
-                "WHERE name = %s AND country_code = %s;", (region, country_code)
-            );
+                "WHERE name = %s AND country_code = %s;", 
+                (region, country_code)
+            )
             x = cur.fetchone()
             if x == None:
                 admin1_code = "N/A"
@@ -72,13 +80,53 @@ def main():
                 )
                 x = cur.fetchone()
     
-            # if we couldn't find it, then obviously it doesn't exist in Geonames. Otherwise write it to STDOUT
+            # if we couldn't find it, then maybe we should try to check for alternative names.
+            # if we STILL can't find it, then we will say it doesn't exist in Geonames.
             if (x == None):
-                sys.stderr.write(
-                    "%s, %s (%s), %s does not exist in Geonames\n" 
-                    % (city, region, admin1_code, country_code)
+
+                latitude  = data['latitude']
+                longitude = data['longitude']
+
+                cur.execute(
+                    "SELECT id, alternatenames FROM cities WHERE "
+                    "latitude  >= %s AND "
+                    "latitude  <  %s AND "
+                    "longitude >= %s AND "
+                    "longitude <  %s AND "
+                    "alternatenames IS NOT NULL AND "
+                    "country_code = %s;",
+                    (
+                        str(float(latitude)-1),
+                        str(float(latitude)+1), 
+                        str(float(longitude)-1), 
+                        str(float(longitude)+1),
+                        country_code 
+                    )
                 )
-                nonexistent_names += 1
+                possible_locations = cur.fetchall()
+
+                name_found = False
+                for t in possible_locations:
+                    alternatenames = t[1].split(',')
+                    for n in alternatenames:
+                        if city == n:
+                            geonames_id = t[0]
+                            name_found = True
+                    if name_found:
+                        break
+                
+                if name_found:
+                    sys.stdout.write(
+                        "%s -> %d    (%s, %s, %s)\n" 
+                        % (carmen_id, geonames_id, city, region, country_code)
+                    )
+                    num_success += 1
+                else:
+                    sys.stderr.write(
+                        "%s, %s (%s), %s does not exist in Geonames\n" 
+                        % (city, region, admin1_code, country_code)
+                    )
+                    nonexistent_names += 1
             else:
                 geonames_id = x[0]
                 sys.stdout.write(
