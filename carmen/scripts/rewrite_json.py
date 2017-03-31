@@ -4,8 +4,8 @@ import sys
 
 carmen_filename  = '../data/locations.json'
 new_filename     = '../data/new.json'
-cities_filename  = 'cities.txt'
-regions_filename = 'regions.txt'
+cities_filename  = '../mappings/cities.txt'
+regions_filename = '../mappings/regions.txt'
 
 
 def rewrite_json(old_filename, new_filename, cities_mapping, regions_mapping):
@@ -28,7 +28,7 @@ def rewrite_json(old_filename, new_filename, cities_mapping, regions_mapping):
             except KeyError:
                 num_errors += 1
                 sys.stderr.write(
-                    "%s (%s, %s, %s) is not valid\n" 
+                    "%s (%s, %s, %s) is not a valid Geonames ID\n" 
                     % (data['id'], data['city'], data['state'], data['country'])
                 )
                 continue
@@ -42,17 +42,17 @@ def rewrite_json(old_filename, new_filename, cities_mapping, regions_mapping):
                 num_errors += 1
                 if ( data['county'] != '' ):
                     sys.stderr.write(
-                        "%s (%s, %s) is not valid\n" 
+                        "%s (%s, %s) is not a valid Geonames ID\n" 
                         % (data['id'], data['county'], data['country'])
                     )
                 elif ( data['state'] != '' ):
                     sys.stderr.write(
-                        "%s (%s, %s) is not valid\n" 
+                        "%s (%s, %s) is not a valid Geonames ID\n" 
                         % (data['id'], data['state'], data['country'])
                     )
                 else:
                     sys.stderr.write(
-                        "%s (%s) is not valid\n" 
+                        "%s (%s) is not a valid Geonames ID\n" 
                         % (data['id'], data['country'])
                     )
                 continue
@@ -64,7 +64,7 @@ def rewrite_json(old_filename, new_filename, cities_mapping, regions_mapping):
                 data['parent_id'] = regions_mapping[parent_id] # their Geonames IDs
         except KeyError:
             num_errors += 1
-            sys.stderr.write("parent ID " + data['parent_id'] + " is not valid\n")
+            sys.stderr.write("parent ID " + data['parent_id'] + " is not a valid Geonames ID\n")
             continue
 
         json.dump(data, new_file)               # write result to file
