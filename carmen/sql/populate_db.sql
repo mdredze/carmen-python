@@ -32,6 +32,14 @@ CREATE TABLE admin1_codes(
 	id                 INTEGER                     NOT NULL 
 );
 
+CREATE TABLE admin2_codes(
+	country_code       CHAR(2)                     NOT NULL ,
+	admin2_code        VARCHAR(20)                 NOT NULL ,
+	name               VARCHAR(200)                         ,
+	asciiname          VARCHAR(200)                         ,
+	id                 INTEGER                     NOT NULL 
+);
+
 CREATE TABLE country_info(
 	iso                  CHAR(2)                   NOT NULL ,
 	iso3                 CHAR(3)                   NOT NULL ,
@@ -57,4 +65,5 @@ CREATE TABLE country_info(
 -- COPY cities FROM :cities_file DELIMITER E'\t' NULL AS '';
 COPY cities       FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/cities1000.txt'  DELIMITER E'\t' NULL AS '';
 COPY admin1_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin1Codes.txt' DELIMITER E'\t' NULL AS '';
+COPY admin2_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin2Codes.txt' DELIMITER E'\t' NULL AS '';
 COPY country_info FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/country_info.txt'  DELIMITER E'\t' NULL AS '';

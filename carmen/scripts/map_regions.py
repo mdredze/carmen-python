@@ -33,6 +33,7 @@ def main():
     carmen_filename = '../data/locations.json'
     carmen_data = open(carmen_filename)
 
+    num_ignored           = 0
     num_success           = 0
     invalid_country_names = 0
     nonexistent_names     = 0
@@ -42,14 +43,15 @@ def main():
 
         if ( data['city'] == '' and (
                 (data['county'] == '' and data['state'] != '') or 
-                (data['county'] != '' and data['state'] == '')
+                # (data['county'] != '' and data['state'] == '') or
+                (data['county'] != '')
             )
         ):
-            carmen_id    = data['id']
-            if data['state'] != '':
-                name = data['state']
-            else:
+            carmen_id = data['id']
+            if data['county'] != '':
                 name = data['county']
+            else:
+                name = data['state']
 
             # first check if this has a country code
             if 'countrycode' in data:
@@ -71,12 +73,59 @@ def main():
 
             # if we couldn't find it, then obviously it doesn't exist in Geonames. Otherwise write it to STDOUT
             if (x == None):
-                sys.stderr.write("%s, %s does not exist in Geonames\n" % (name, country_code))
-                nonexistent_names += 1
+                cur.execute("SELECT id FROM admin2_codes WHERE name = %s AND country_code = %s;", (name, country_code))
+                x = cur.fetchone()
+                if (x == None):
+                    sys.stderr.write("%s, %s does not exist in Geonames\n" % (name, country_code))
+                    nonexistent_names += 1
+                else:
+                    geonames_id = x[0]
+                    sys.stdout.write("%s -> %d    (%s, %s)\n" % (carmen_id, geonames_id, name, country_code))
+                    num_success += 1
             else:
                 geonames_id = x[0]
                 sys.stdout.write("%s -> %d    (%s, %s)\n" % (carmen_id, geonames_id, name, country_code))
                 num_success += 1
+
+        elif (
+            data['city']    == '' and
+            data['county']  == '' and
+            data['state']   == '' and
+            data['country'] != ''
+        ):
+
+            carmen_id = data['id']
+            country   = data['country']
+
+            # first check if this has a country code
+            if 'countrycode' in data:
+                country_code = data['countrycode']
+            else:
+                # otherwise, we can try to look up the country code
+                if country in country_ids:
+                    country_code = country_ids[country]
+                else:
+                    # if the country code does not exist in Geonames, then we have a problem
+                    sys.stderr.write("%s does not have a valid country_code in Geonames\n" % (country))
+                    invalid_country_names += 1
+                    continue
+            
+            # now try to find the Geoname ID of the state/county that we're looking at
+            cur.execute("SELECT geoname_id FROM country_info WHERE iso = %s;", (country_code,))
+            x = cur.fetchone()
+
+            # if we couldn't find it, then obviously it doesn't exist in Geonames. Otherwise write it to STDOUT
+            if (x == None):
+                sys.stderr.write("%s (%s) does not exist in Geonames\n" % (country, country_code))
+                nonexistent_names += 1
+            else:
+                geonames_id = x[0]
+                sys.stdout.write("%s -> %d    (%s (%s))\n" % (carmen_id, geonames_id, country, country_code))
+                num_success += 1
+        
+        else:
+            num_ignored += 1
+
 
     carmen_data.close()
 
@@ -84,6 +133,7 @@ def main():
     sys.stderr.write("invalid country names          : %d\n" % (invalid_country_names))
     sys.stderr.write("nonexistent Geonames locations : %d\n" % (nonexistent_names))
     sys.stderr.write("successful mappings            : %d\n" % (num_success))
+    sys.stderr.write("ignored mappings               : %d\n" % (num_ignored))
 
 
 if __name__ == '__main__':

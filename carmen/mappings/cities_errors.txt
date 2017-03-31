@@ -1,0 +1,888 @@
+Mangaung, Free State (N/A), ZA does not exist in Geonames
+Dale, Texas (TX), US does not exist in Geonames
+Woodland, Alabama (AL), US does not exist in Geonames
+Alger, Michigan (MI), US does not exist in Geonames
+Concepcion, Texas (TX), US does not exist in Geonames
+Concord, Arkansas (AR), US does not exist in Geonames
+Hammond, Illinois (IL), US does not exist in Geonames
+Helsingfors, Uusimaa (01), FI does not exist in Geonames
+Edgewater, Maryland (13), US does not exist in Geonames
+Nelson, California (CA), US does not exist in Geonames
+Barnet, Vermont (VT), US does not exist in Geonames
+Chiang Mai, Roi Et (25), TH does not exist in Geonames
+Fair Haven, Michigan (MI), US does not exist in Geonames
+Orange Park, Florida (054), US does not exist in Geonames
+Spencer, Idaho (ID), US does not exist in Geonames
+Bolton, Ontario (08), CA does not exist in Geonames
+Galway, New York (NY), US does not exist in Geonames
+Kissimmee, Florida (054), US does not exist in Geonames
+Orangeville, Illinois (IL), US does not exist in Geonames
+Meridian, California (CA), US does not exist in Geonames
+Baroda, Michigan (MI), US does not exist in Geonames
+District Heights, Maryland (13), US does not exist in Geonames
+Bucks, Ohio (OH), US does not exist in Geonames
+Neptune, New Jersey (NJ), US does not exist in Geonames
+Norborne, Missouri (MO), US does not exist in Geonames
+Waterloo, Alabama (AL), US does not exist in Geonames
+Cascadia, Oregon (OR), US does not exist in Geonames
+Rockwood, Illinois (IL), US does not exist in Geonames
+Boynton Beach, Florida (054), US does not exist in Geonames
+San Antonio la Paz, El Progreso (05), GT does not exist in Geonames
+Riverview, Florida (054), US does not exist in Geonames
+Riverview, Alabama (AL), US does not exist in Geonames
+Euclid, Minnesota (MN), US does not exist in Geonames
+Apopka, Florida (054), US does not exist in Geonames
+Bozeman, Montana (47), US does not exist in Geonames
+Altamonte Springs, Florida (054), US does not exist in Geonames
+Rockland, Idaho (ID), US does not exist in Geonames
+Ekurhuleni, Gauteng (06), ZA does not exist in Geonames
+Bradenton, Florida (054), US does not exist in Geonames
+Katutura Central, Khomas (21), NA does not exist in Geonames
+Mentor, Kentucky (KY), US does not exist in Geonames
+Bradford, Arkansas (AR), US does not exist in Geonames
+Florissant, Colorado (CO), US does not exist in Geonames
+New Amsterdam, Indiana (IN), US does not exist in Geonames
+^CTraceback (most recent call last):
+  File "/usr/local/Cellar/python3/3.6.0_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/encodings/utf_8.py", line 15, in decode
+    def decode(input, errors='strict'):
+KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "map_cities.py", line 96, in <module>
+    main()
+  File "map_cities.py", line 68, in main
+    (city, admin1_code, country_code)
+  File "/usr/local/Cellar/python3/3.6.0_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/encodings/utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+SystemError: <built-in function utf_8_decode> returned a result with an error set
+ ~/Desktop/carmen-python/carmen/scripts   master ● ?  python3 map_cities.py > cities.txt
+Mangaung, Free State (N/A), ZA does not exist in Geonames
+Dale, Texas (TX), US does not exist in Geonames
+Woodland, Alabama (AL), US does not exist in Geonames
+Alger, Michigan (MI), US does not exist in Geonames
+Concepcion, Texas (TX), US does not exist in Geonames
+Concord, Arkansas (AR), US does not exist in Geonames
+Hammond, Illinois (IL), US does not exist in Geonames
+Helsingfors, Uusimaa (01), FI does not exist in Geonames
+Nelson, California (CA), US does not exist in Geonames
+Barnet, Vermont (VT), US does not exist in Geonames
+Chiang Mai, Roi Et (25), TH does not exist in Geonames
+Fair Haven, Michigan (MI), US does not exist in Geonames
+Spencer, Idaho (ID), US does not exist in Geonames
+Bolton, Ontario (08), CA does not exist in Geonames
+Galway, New York (NY), US does not exist in Geonames
+Orangeville, Illinois (IL), US does not exist in Geonames
+Meridian, California (CA), US does not exist in Geonames
+Baroda, Michigan (MI), US does not exist in Geonames
+Bucks, Ohio (OH), US does not exist in Geonames
+Neptune, New Jersey (NJ), US does not exist in Geonames
+Norborne, Missouri (MO), US does not exist in Geonames
+Waterloo, Alabama (AL), US does not exist in Geonames
+Cascadia, Oregon (OR), US does not exist in Geonames
+Rockwood, Illinois (IL), US does not exist in Geonames
+San Antonio la Paz, El Progreso (05), GT does not exist in Geonames
+Riverview, Alabama (AL), US does not exist in Geonames
+Euclid, Minnesota (MN), US does not exist in Geonames
+Rockland, Idaho (ID), US does not exist in Geonames
+Ekurhuleni, Gauteng (06), ZA does not exist in Geonames
+Katutura Central, Khomas (21), NA does not exist in Geonames
+Mentor, Kentucky (KY), US does not exist in Geonames
+Bradford, Arkansas (AR), US does not exist in Geonames
+Florissant, Colorado (CO), US does not exist in Geonames
+New Amsterdam, Indiana (IN), US does not exist in Geonames
+New Bedford, Illinois (IL), US does not exist in Geonames
+Topeka, Illinois (IL), US does not exist in Geonames
+Gidi, Jharkhand (38), IN does not exist in Geonames
+Bartonsville, Pennsylvania (PA), US does not exist in Geonames
+Oak Ridge, Louisiana (LA), US does not exist in Geonames
+Castleford, Idaho (ID), US does not exist in Geonames
+Evansville, Arkansas (AR), US does not exist in Geonames
+Abington, Pennsylvania (PA), US does not exist in Geonames
+Garland, Kansas (KS), US does not exist in Geonames
+Pineville, Arkansas (AR), US does not exist in Geonames
+Garner, Arkansas (AR), US does not exist in Geonames
+Georgetown, Ontario (08), CA does not exist in Geonames
+Delco, North Carolina (NC), US does not exist in Geonames
+University Park, Pennsylvania (PA), US does not exist in Geonames
+Knoxville, Alabama (AL), US does not exist in Geonames
+Philippine, Zeeland (10), NL does not exist in Geonames
+Bark River, Michigan (MI), US does not exist in Geonames
+New Fairfield, Connecticut (CT), US does not exist in Geonames
+Tangamandapio, Michoacan (N/A), MX does not exist in Geonames
+Ewa Beach, Hawaii (HI), US does not exist in Geonames
+Millstone, West Virginia (WV), US does not exist in Geonames
+Rochdale, Massachusetts (MA), US does not exist in Geonames
+Clyde, Kansas (KS), US does not exist in Geonames
+St Clair Shores, Michigan (MI), US does not exist in Geonames
+Backus, Minnesota (MN), US does not exist in Geonames
+New York, New York (NY), US does not exist in Geonames
+Irvington, Alabama (AL), US does not exist in Geonames
+Worthing, South Dakota (SD), US does not exist in Geonames
+Transylvania, Louisiana (LA), US does not exist in Geonames
+Dorchester, Illinois (IL), US does not exist in Geonames
+Webster, Florida (FL), US does not exist in Geonames
+Dorchester, Massachusetts (MA), US does not exist in Geonames
+Middleton, Georgia (GA), US does not exist in Geonames
+Oak Ridge, New Jersey (NJ), US does not exist in Geonames
+Huntingdon Valley, Pennsylvania (PA), US does not exist in Geonames
+Bellwood, Alabama (AL), US does not exist in Geonames
+Commercial Area, Al Manama (N/A), BH does not exist in Geonames
+Dorset, Ohio (OH), US does not exist in Geonames
+Sparta, New Jersey (NJ), US does not exist in Geonames
+Powell, Alabama (AL), US does not exist in Geonames
+Choa Chu Kang, Singapore (N/A), SG does not exist in Geonames
+Cordova, Tennessee (TN), US does not exist in Geonames
+Hatfield, Arkansas (AR), US does not exist in Geonames
+Trenton, Alabama (AL), US does not exist in Geonames
+Fukuoka-shi, Fukuoka Prefecture (N/A), JP does not exist in Geonames
+Villanova, Pennsylvania (PA), US does not exist in Geonames
+Howell, Georgia (GA), US does not exist in Geonames
+La Crosse, Florida (FL), US does not exist in Geonames
+Crawford, Tennessee (TN), US does not exist in Geonames
+Douglas, Alabama (AL), US does not exist in Geonames
+Istanbul, Istanbul (34), TR does not exist in Geonames
+Izmir, Izmir (N/A), TR does not exist in Geonames
+Wynnewood, Pennsylvania (PA), US does not exist in Geonames
+Eau Claire, Michigan (MI), US does not exist in Geonames
+Milford, California (CA), US does not exist in Geonames
+Ampang, Kuala Lumpur (14), MY does not exist in Geonames
+Olanta, Pennsylvania (PA), US does not exist in Geonames
+Shawnee, Colorado (CO), US does not exist in Geonames
+Vernon, Connecticut (CT), US does not exist in Geonames
+La Push, Washington (WA), US does not exist in Geonames
+Beaconsfield, Iowa (IA), US does not exist in Geonames
+Bruges, West-Vlaanderen (N/A), BE does not exist in Geonames
+Djibouti City, Djibouti (07), DJ does not exist in Geonames
+Sandy Level, Virginia (VA), US does not exist in Geonames
+Magnolia, Alabama (AL), US does not exist in Geonames
+Wells, Maine (ME), US does not exist in Geonames
+Caldwell, Arkansas (AR), US does not exist in Geonames
+Mil-e Kurki, Nimruz (N/A), AF does not exist in Geonames
+Midway, Alabama (AL), US does not exist in Geonames
+Brick, New Jersey (NJ), US does not exist in Geonames
+Akron, Alabama (AL), US does not exist in Geonames
+Port Elizabeth, New Jersey (NJ), US does not exist in Geonames
+Renfrewshire, Scotland (SCT), GB does not exist in Geonames
+Fairport, Missouri (MO), US does not exist in Geonames
+Colevale, Queensland (04), AU does not exist in Geonames
+Eastern, Kentucky (KY), US does not exist in Geonames
+Nicolaus, California (CA), US does not exist in Geonames
+McDowell, Kentucky (KY), US does not exist in Geonames
+L?ng S?n, Lang Son (N/A), VN does not exist in Geonames
+Ellenwood, Georgia (GA), US does not exist in Geonames
+Stirling, New Jersey (NJ), US does not exist in Geonames
+Coney Island, Missouri (MO), US does not exist in Geonames
+Minsk, Minsk (05), BY does not exist in Geonames
+Hyde Park, Massachusetts (MA), US does not exist in Geonames
+Bridgeton, Indiana (IN), US does not exist in Geonames
+Ethekwini, Kwazulu Natal (N/A), ZA does not exist in Geonames
+Yawkey, West Virginia (WV), US does not exist in Geonames
+Blacklick, Ohio (OH), US does not exist in Geonames
+Rocky Hill, Connecticut (CT), US does not exist in Geonames
+Port St Lucie, Florida (FL), US does not exist in Geonames
+Glenwood, Alabama (AL), US does not exist in Geonames
+Corvallis, Montana (MT), US does not exist in Geonames
+Stockport, Iowa (IA), US does not exist in Geonames
+Cornwall, New York (NY), US does not exist in Geonames
+Grand Island, Florida (FL), US does not exist in Geonames
+Riverside, New Jersey (NJ), US does not exist in Geonames
+Rocky Mount, Missouri (MO), US does not exist in Geonames
+Sumatra, Montana (MT), US does not exist in Geonames
+Truro, Iowa (IA), US does not exist in Geonames
+Stockton, Alabama (AL), US does not exist in Geonames
+Cosmos, Minnesota (MN), US does not exist in Geonames
+Virginia, Lempira (13), HN does not exist in Geonames
+Beaufort, Missouri (MO), US does not exist in Geonames
+Pacoima, California (CA), US does not exist in Geonames
+Cookstown, New Jersey (NJ), US does not exist in Geonames
+Mililani, Hawaii (HI), US does not exist in Geonames
+Caledonia, Illinois (IL), US does not exist in Geonames
+Roxbury, Connecticut (CT), US does not exist in Geonames
+Ludhiana, Punjab (23), IN does not exist in Geonames
+Faridabad, Haryana (10), IN does not exist in Geonames
+Beaver, Alaska (AK), US does not exist in Geonames
+Hyderabad, Andhra Pradesh (02), IN does not exist in Geonames
+Minnesund, Akershus Fylke (N/A), NO does not exist in Geonames
+Mill Creek, California (CA), US does not exist in Geonames
+Bangalore, Karnataka (19), IN does not exist in Geonames
+Kochi, Kerala (13), IN does not exist in Geonames
+Yolo, California (CA), US does not exist in Geonames
+Brighton, Massachusetts (MA), US does not exist in Geonames
+Rajkot, Gujarat (09), IN does not exist in Geonames
+Bailey Town, Bimini (05), BS does not exist in Geonames
+Hartsville, Indiana (IN), US does not exist in Geonames
+Ludlow, California (CA), US does not exist in Geonames
+Ilid?a, Federacija Bosne I Hercegovine (N/A), BA does not exist in Geonames
+Paisley, Florida (FL), US does not exist in Geonames
+Marcola, Oregon (OR), US does not exist in Geonames
+Albion, California (CA), US does not exist in Geonames
+Beaverton, Alabama (AL), US does not exist in Geonames
+Portsmouth, Iowa (IA), US does not exist in Geonames
+Yorktown, Arkansas (AR), US does not exist in Geonames
+Palestine, Arkansas (AR), US does not exist in Geonames
+Harvey, Arkansas (AR), US does not exist in Geonames
+Couch, Missouri (MO), US does not exist in Geonames
+Matlosana, North West (N/A), ZA does not exist in Geonames
+Newfoundland, Pennsylvania (PA), US does not exist in Geonames
+Whitsett, North Carolina (NC), US does not exist in Geonames
+Benton, Pennsylvania (PA), US does not exist in Geonames
+Pollok, Texas (TX), US does not exist in Geonames
+West Chester, Ohio (OH), US does not exist in Geonames
+West Chester, Iowa (IA), US does not exist in Geonames
+Garden City, Alabama (AL), US does not exist in Geonames
+West City, Illinois (IL), US does not exist in Geonames
+Weston, Georgia (GA), US does not exist in Geonames
+Zelenodol'sk, Tatarstan (73), RU does not exist in Geonames
+Bristow, Virginia (VA), US does not exist in Geonames
+Beaver Falls, New York (NY), US does not exist in Geonames
+Cal, Takhar (26), AF does not exist in Geonames
+Hastings, Florida (FL), US does not exist in Geonames
+Alur Setar, Kedah (02), MY does not exist in Geonames
+Beverly, Kansas (KS), US does not exist in Geonames
+Salix, Iowa (IA), US does not exist in Geonames
+Dudley, Georgia (GA), US does not exist in Geonames
+Newry, Maine (ME), US does not exist in Geonames
+Masan-Si, Gyeongsangnam-Do (N/A), KR does not exist in Geonames
+Poughkeepsie, Arkansas (AR), US does not exist in Geonames
+Thornhill, Ontario (08), CA does not exist in Geonames
+St. Paul, Minnesota (MN), US does not exist in Geonames
+Fargo, Arkansas (AR), US does not exist in Geonames
+Zanesville, Indiana (IN), US does not exist in Geonames
+San Jose, San Jose (N/A), CR does not exist in Geonames
+Bethel, Vermont (VT), US does not exist in Geonames
+Paluxy, Texas (TX), US does not exist in Geonames
+Lynchburg, Missouri (MO), US does not exist in Geonames
+Havertown, Pennsylvania (PA), US does not exist in Geonames
+Vestal, New York (NY), US does not exist in Geonames
+Kampong Sungai Gelugor, Penang (09), MY does not exist in Geonames
+Bel Air, California (CA), US does not exist in Geonames
+County Line, Alabama (AL), US does not exist in Geonames
+Bromley, Kentucky (KY), US does not exist in Geonames
+Mayfield, Kansas (KS), US does not exist in Geonames
+Farnham, New York (NY), US does not exist in Geonames
+Indore, West Virginia (WV), US does not exist in Geonames
+Reykjavik, Höfu?borgarsvæ?i (N/A), IS does not exist in Geonames
+Duncanville, Alabama (AL), US does not exist in Geonames
+Allentown, Georgia (GA), US does not exist in Geonames
+Street, Maryland (MD), US does not exist in Geonames
+Rose City, Michigan (MI), US does not exist in Geonames
+Prairie View, Kansas (KS), US does not exist in Geonames
+Coventry, Connecticut (CT), US does not exist in Geonames
+St Charles, Illinois (IL), US does not exist in Geonames
+Nicktown, Pennsylvania (PA), US does not exist in Geonames
+West Valley, New York (NY), US does not exist in Geonames
+Dunfermline, Illinois (IL), US does not exist in Geonames
+Stoney Creek, Ontario (08), CA does not exist in Geonames
+Shiloh, Alabama (AL), US does not exist in Geonames
+Dungannon, Virginia (VA), US does not exist in Geonames
+Racine, Minnesota (MN), US does not exist in Geonames
+West Baden Springs, Indiana (IN), US does not exist in Geonames
+Burke, New York (NY), US does not exist in Geonames
+Oak Hill, Alabama (AL), US does not exist in Geonames
+Hayes, Louisiana (LA), US does not exist in Geonames
+West Bloomfield, Michigan (MI), US does not exist in Geonames
+Castle, Oklahoma (OK), US does not exist in Geonames
+St Joseph, Illinois (IL), US does not exist in Geonames
+Marina Del Rey, California (CA), US does not exist in Geonames
+Fay, Oklahoma (OK), US does not exist in Geonames
+MacClesfield, North Carolina (NC), US does not exist in Geonames
+Allston, Massachusetts (MA), US does not exist in Geonames
+Ayrshire, Iowa (IA), US does not exist in Geonames
+Jetson, Kentucky (KY), US does not exist in Geonames
+Perote, Alabama (AL), US does not exist in Geonames
+Middletown, New Jersey (NJ), US does not exist in Geonames
+Welling, Oklahoma (OK), US does not exist in Geonames
+Noatak, Alaska (AK), US does not exist in Geonames
+Venice Beach, California (CA), US does not exist in Geonames
+Leroy, Alabama (AL), US does not exist in Geonames
+Pompey, New York (NY), US does not exist in Geonames
+Idlewild, Michigan (MI), US does not exist in Geonames
+Shirley, Arkansas (AR), US does not exist in Geonames
+Tyler, Alabama (AL), US does not exist in Geonames
+Indianola, Illinois (IL), US does not exist in Geonames
+North Lanarkshire, Scotland (SCT), GB does not exist in Geonames
+Success, Arkansas (AR), US does not exist in Geonames
+Montville, Connecticut (CT), US does not exist in Geonames
+Hanover, Lower-Saxony (N/A), DE does not exist in Geonames
+Watts, Oklahoma (OK), US does not exist in Geonames
+Bayside, New York (NY), US does not exist in Geonames
+Belleville, Arkansas (AR), US does not exist in Geonames
+Nomad, Michigan (MI), US does not exist in Geonames
+Johnson City, Kansas (KS), US does not exist in Geonames
+Charlestown, Massachusetts (MA), US does not exist in Geonames
+Rosewood, Ohio (OH), US does not exist in Geonames
+Queenstown, Maryland (MD), US does not exist in Geonames
+La Lomota, Santiago (25), DO does not exist in Geonames
+St Croix, Indiana (IN), US does not exist in Geonames
+Newton Falls, New York (NY), US does not exist in Geonames
+Charlottetown, Newfoundland and Labrador (05), CA does not exist in Geonames
+Ponce, Puerto Rico (N/A), US does not exist in Geonames
+Princeton, Alabama (AL), US does not exist in Geonames
+Pangburn, Arkansas (AR), US does not exist in Geonames
+St Charles, Missouri (MO), US does not exist in Geonames
+Norfolk, Connecticut (CT), US does not exist in Geonames
+Baguio City, Cordillera Administrative Region (N/A), PH does not exist in Geonames
+North, Virginia (VA), US does not exist in Geonames
+Irving, Illinois (IL), US does not exist in Geonames
+Batangas City, Calabarzon (40), PH does not exist in Geonames
+Fort Campbell, Kentucky (KY), US does not exist in Geonames
+North Attleboro, Massachusetts (MA), US does not exist in Geonames
+Fall River, Kansas (KS), US does not exist in Geonames
+Waverly, Alabama (AL), US does not exist in Geonames
+Tashkent, Toshkent (14), UZ does not exist in Geonames
+Crawley, West Virginia (WV), US does not exist in Geonames
+Moorhead, Iowa (IA), US does not exist in Geonames
+Fairview, Alabama (AL), US does not exist in Geonames
+Missouri City, Missouri (MO), US does not exist in Geonames
+Island, Kentucky (KY), US does not exist in Geonames
+Garfield, Arkansas (AR), US does not exist in Geonames
+Middleboro, Massachusetts (MA), US does not exist in Geonames
+Littlefork, Minnesota (MN), US does not exist in Geonames
+Independence, California (CA), US does not exist in Geonames
+Chattanooga, Oklahoma (OK), US does not exist in Geonames
+Mt Pleasant, South Carolina (SC), US does not exist in Geonames
+North Bay, New York (NY), US does not exist in Geonames
+Brownsville, California (CA), US does not exist in Geonames
+Cebu, Central Visayas (07), PH does not exist in Geonames
+Crenshaw, Mississippi (MS), US does not exist in Geonames
+General Santos City, Soccsksargen (12), PH does not exist in Geonames
+Lancing, Tennessee (TN), US does not exist in Geonames
+Davao City, Davao Region (N/A), PH does not exist in Geonames
+Dumaguete City, Central Visayas (07), PH does not exist in Geonames
+Charlottesville, Indiana (IN), US does not exist in Geonames
+Findlay, Illinois (IL), US does not exist in Geonames
+Mafikeng, North West (N/A), ZA does not exist in Geonames
+Cheltenham, Maryland (MD), US does not exist in Geonames
+Western, Nebraska (NE), US does not exist in Geonames
+Clifton Park, New York (NY), US does not exist in Geonames
+Godwin, North Carolina (NC), US does not exist in Geonames
+Roxbury, Massachusetts (MA), US does not exist in Geonames
+Sudbury, Ontario (08), CA does not exist in Geonames
+Amherst, Massachusetts (MA), US does not exist in Geonames
+Amherst, Colorado (CO), US does not exist in Geonames
+Westerville, Nebraska (NE), US does not exist in Geonames
+Westfield, Illinois (IL), US does not exist in Geonames
+Malden, Illinois (IL), US does not exist in Geonames
+St. Marys, Indiana (IN), US does not exist in Geonames
+Tupelo, Arkansas (AR), US does not exist in Geonames
+Pullman, Michigan (MI), US does not exist in Geonames
+Winter Park, Colorado (CO), US does not exist in Geonames
+United, Pennsylvania (PA), US does not exist in Geonames
+Henderson, Arkansas (AR), US does not exist in Geonames
+Royal Oak, Maryland (MD), US does not exist in Geonames
+East Boston, Massachusetts (MA), US does not exist in Geonames
+Bedrock, Colorado (CO), US does not exist in Geonames
+Maple, Ontario (08), CA does not exist in Geonames
+Laoag City, Ilocos Region (N/A), PH does not exist in Geonames
+Kampong Baru Subang, Selangor (12), MY does not exist in Geonames
+Universal, Indiana (IN), US does not exist in Geonames
+Caledon, Ontario (08), CA does not exist in Geonames
+Carthage, Arkansas (AR), US does not exist in Geonames
+Langley, Arkansas (AR), US does not exist in Geonames
+Hunchy, Queensland (04), AU does not exist in Geonames
+Litchfield, Maine (ME), US does not exist in Geonames
+Ghent, Kentucky (KY), US does not exist in Geonames
+San Sebastián, Basque (N/A), ES does not exist in Geonames
+Lurgan, Pennsylvania (PA), US does not exist in Geonames
+Bensalem, Pennsylvania (PA), US does not exist in Geonames
+Patterson, Arkansas (AR), US does not exist in Geonames
+Manassas, Georgia (GA), US does not exist in Geonames
+Marikina, National Capital Region (N/A), PH does not exist in Geonames
+Upper Darby, Pennsylvania (PA), US does not exist in Geonames
+Chesapeake, Ohio (OH), US does not exist in Geonames
+Montreal, Quebec (10), CA does not exist in Geonames
+Andover, Connecticut (CT), US does not exist in Geonames
+North Hills, California (CA), US does not exist in Geonames
+Berne, Berne (N/A), CH does not exist in Geonames
+Central, Indiana (IN), US does not exist in Geonames
+Westport, California (CA), US does not exist in Geonames
+Monroe, Connecticut (CT), US does not exist in Geonames
+Hereford, Arizona (AZ), US does not exist in Geonames
+Buckhead, Georgia (GA), US does not exist in Geonames
+Chester, Arkansas (AR), US does not exist in Geonames
+Camp Lejeune, North Carolina (NC), US does not exist in Geonames
+Chesterfield, Illinois (IL), US does not exist in Geonames
+Dreher Twp, Pennsylvania (PA), US does not exist in Geonames
+Westville, Florida (FL), US does not exist in Geonames
+Buckingham, Illinois (IL), US does not exist in Geonames
+Quantico, Virginia (VA), US does not exist in Geonames
+Hockley, Texas (TX), US does not exist in Geonames
+Berkshire, Massachusetts (MA), US does not exist in Geonames
+Anguilla, Mississippi (MS), US does not exist in Geonames
+Eastlake, Michigan (MI), US does not exist in Geonames
+Panama City, Panama (N/A), PA does not exist in Geonames
+Queen City, Missouri (MO), US does not exist in Geonames
+Herndon, Kansas (KS), US does not exist in Geonames
+Sanctuary, Texas (TX), US does not exist in Geonames
+Annapolis, California (CA), US does not exist in Geonames
+Latham, New York (NY), US does not exist in Geonames
+Randolph, Alabama (AL), US does not exist in Geonames
+Utopia, Texas (TX), US does not exist in Geonames
+Wexford, Pennsylvania (PA), US does not exist in Geonames
+Clinton Twp, Michigan (MI), US does not exist in Geonames
+Millersville, Maryland (MD), US does not exist in Geonames
+Mesopotamia, Ohio (OH), US does not exist in Geonames
+Quinton, Virginia (VA), US does not exist in Geonames
+Gosport, Indiana (IN), US does not exist in Geonames
+Essington, Pennsylvania (PA), US does not exist in Geonames
+Jefferson, Arkansas (AR), US does not exist in Geonames
+Antioch, Tennessee (TN), US does not exist in Geonames
+Gotham, Wisconsin (WI), US does not exist in Geonames
+East Randolph, New York (NY), US does not exist in Geonames
+Zamora, California (CA), US does not exist in Geonames
+Lorman, Mississippi (MS), US does not exist in Geonames
+Radcliffe, Iowa (IA), US does not exist in Geonames
+Square Lake, Maine (ME), US does not exist in Geonames
+East Side, Pennsylvania (PA), US does not exist in Geonames
+Ripley, Illinois (IL), US does not exist in Geonames
+Sofia, Sofia (58), BG does not exist in Geonames
+Hougang, Singapore (N/A), SG does not exist in Geonames
+Tampines, Singapore (N/A), SG does not exist in Geonames
+Montrose, Alabama (AL), US does not exist in Geonames
+Santa Fe, Santa Fe (21), AR does not exist in Geonames
+Elmira, Michigan (MI), US does not exist in Geonames
+Sheely Hills, Mississippi (MS), US does not exist in Geonames
+Pristina, Kosovo (N/A), RS does not exist in Geonames
+Anderson, Alabama (AL), US does not exist in Geonames
+Ozone, Arkansas (AR), US does not exist in Geonames
+Junction City, Arkansas (AR), US does not exist in Geonames
+Jennings, Florida (FL), US does not exist in Geonames
+Sutton, Alaska (AK), US does not exist in Geonames
+Tucuman, Tucuman (24), AR does not exist in Geonames
+Bethlehem, Connecticut (CT), US does not exist in Geonames
+Moon, Virginia (VA), US does not exist in Geonames
+Elgin, Arizona (AZ), US does not exist in Geonames
+Maputo, Maputo (04), MZ does not exist in Geonames
+Springerton, Illinois (IL), US does not exist in Geonames
+Lawrence, New Jersey (NJ), US does not exist in Geonames
+Quebec, Quebec (10), CA does not exist in Geonames
+Geneva, Geneva (GE), CH does not exist in Geonames
+Raleigh, Illinois (IL), US does not exist in Geonames
+Chocowinity, North Carolina (NC), US does not exist in Geonames
+Abidjan, Lagunes (82), CI does not exist in Geonames
+Lawton, Iowa (IA), US does not exist in Geonames
+Sligo, Pennsylvania (PA), US does not exist in Geonames
+Millville, California (CA), US does not exist in Geonames
+Jersey, Arkansas (AR), US does not exist in Geonames
+Whitby, Ontario (08), CA does not exist in Geonames
+Cologne, North-Rhine-Westphalia (N/A), DE does not exist in Geonames
+Carroll, Ohio (OH), US does not exist in Geonames
+Powell, Tennessee (TN), US does not exist in Geonames
+Cumnock, North Carolina (NC), US does not exist in Geonames
+St Albans, West Virginia (WV), US does not exist in Geonames
+St Albans, Maine (ME), US does not exist in Geonames
+Mooresville, Alabama (AL), US does not exist in Geonames
+Easton, Connecticut (CT), US does not exist in Geonames
+Morgantown, Indiana (IN), US does not exist in Geonames
+Yokohama-shi, Kanagawa Prefecture (N/A), JP does not exist in Geonames
+Flushing, New York (NY), US does not exist in Geonames
+Weston, Colorado (CO), US does not exist in Geonames
+Seville, Andalucía (N/A), ES does not exist in Geonames
+Nagla, Uttarakhand (39), IN does not exist in Geonames
+Northwest, North Carolina (NC), US does not exist in Geonames
+Limerick, County Limerick (N/A), IE does not exist in Geonames
+St Charles, Arkansas (AR), US does not exist in Geonames
+Eastvale, Pennsylvania (PA), US does not exist in Geonames
+Chestnut Hill, Massachusetts (MA), US does not exist in Geonames
+Preston, Connecticut (CT), US does not exist in Geonames
+St Cloud, Florida (FL), US does not exist in Geonames
+Natchez, Louisiana (LA), US does not exist in Geonames
+Roslindale, Massachusetts (MA), US does not exist in Geonames
+St Cloud, Minnesota (MN), US does not exist in Geonames
+Crossroads, New Mexico (NM), US does not exist in Geonames
+Altoona, Alabama (AL), US does not exist in Geonames
+Fond Du Lac, Wisconsin (WI), US does not exist in Geonames
+Garden Grove, Iowa (IA), US does not exist in Geonames
+Trona, California (CA), US does not exist in Geonames
+High Point, Missouri (MO), US does not exist in Geonames
+Smithfield, Illinois (IL), US does not exist in Geonames
+Brookfield, Connecticut (CT), US does not exist in Geonames
+St George, Utah (UT), US does not exist in Geonames
+St Helens, Oregon (OR), US does not exist in Geonames
+Marlborough, Connecticut (CT), US does not exist in Geonames
+St John, Indiana (IN), US does not exist in Geonames
+Vaughan, Mississippi (MS), US does not exist in Geonames
+Marlow, New Hampshire (NH), US does not exist in Geonames
+Rosedale, New York (NY), US does not exist in Geonames
+Forest, Indiana (IN), US does not exist in Geonames
+Cheras (Selangor), Selangor (12), MY does not exist in Geonames
+Bloomfield, Connecticut (CT), US does not exist in Geonames
+St Joseph, Missouri (MO), US does not exist in Geonames
+Wooster, Arkansas (AR), US does not exist in Geonames
+Cisco, Georgia (GA), US does not exist in Geonames
+Minde, Santarém (18), PT does not exist in Geonames
+Marquette, Iowa (IA), US does not exist in Geonames
+St Louis, Missouri (MO), US does not exist in Geonames
+Coolin, Idaho (ID), US does not exist in Geonames
+Nova, Ohio (OH), US does not exist in Geonames
+Gettysburg, Ohio (OH), US does not exist in Geonames
+St Louis Park, Minnesota (MN), US does not exist in Geonames
+Noxapater, Mississippi (MS), US does not exist in Geonames
+Venice, California (CA), US does not exist in Geonames
+Newbury, Massachusetts (MA), US does not exist in Geonames
+Niagara, New York (NY), US does not exist in Geonames
+Arlington, Alabama (AL), US does not exist in Geonames
+Norwood, Colorado (CO), US does not exist in Geonames
+Luxembourg City, Luxemburg (N/A), LU does not exist in Geonames
+Laredo, Missouri (MO), US does not exist in Geonames
+Eden, Arizona (AZ), US does not exist in Geonames
+Marshall, Alaska (AK), US does not exist in Geonames
+Parkersburg, Illinois (IL), US does not exist in Geonames
+Forest Hills, New York (NY), US does not exist in Geonames
+Highland Park, Florida (FL), US does not exist in Geonames
+Armagh, Pennsylvania (PA), US does not exist in Geonames
+Venus, Florida (FL), US does not exist in Geonames
+Whitewater, Colorado (CO), US does not exist in Geonames
+Goodrich, Texas (TX), US does not exist in Geonames
+St Paul, Arkansas (AR), US does not exist in Geonames
+Perry, Arkansas (AR), US does not exist in Geonames
+St Paul, Minnesota (MN), US does not exist in Geonames
+Papeari, Windward Islands (N/A), PF does not exist in Geonames
+Washington Twp, New Jersey (NJ), US does not exist in Geonames
+Deptford Twp, New Jersey (NJ), US does not exist in Geonames
+Morristown, Arizona (AZ), US does not exist in Geonames
+North Brunswick, New Jersey (NJ), US does not exist in Geonames
+Howell, New Jersey (NJ), US does not exist in Geonames
+St Petersburg, Florida (FL), US does not exist in Geonames
+Rock City, Illinois (IL), US does not exist in Geonames
+Bayamón, Puerto Rico (N/A), US does not exist in Geonames
+Lynn, Alabama (AL), US does not exist in Geonames
+Leigh, Nebraska (NE), US does not exist in Geonames
+Vernon, New Jersey (NJ), US does not exist in Geonames
+St Thomas, Missouri (MO), US does not exist in Geonames
+Sinaloa, Sinaloa (25), MX does not exist in Geonames
+Whittier, Alaska (AK), US does not exist in Geonames
+Reading, Kansas (KS), US does not exist in Geonames
+Oak Creek, Colorado (CO), US does not exist in Geonames
+Salem, Alabama (AL), US does not exist in Geonames
+Courtice, Ontario (08), CA does not exist in Geonames
+Torreon, New Mexico (NM), US does not exist in Geonames
+Williamsfield, Ohio (OH), US does not exist in Geonames
+Bangi, Selangor (12), MY does not exist in Geonames
+Martinsburg, Iowa (IA), US does not exist in Geonames
+Westside, Iowa (IA), US does not exist in Geonames
+Island Pond, Vermont (VT), US does not exist in Geonames
+Nazareth, Kentucky (KY), US does not exist in Geonames
+Flushing, Zeeland (10), NL does not exist in Geonames
+Sylmar, California (CA), US does not exist in Geonames
+Solo, Missouri (MO), US does not exist in Geonames
+Brasilia, Distrito Federal (N/A), BR does not exist in Geonames
+Rio De Janeiro, Rio De Janeiro (N/A), BR does not exist in Geonames
+Upper Salford Twp, Pennsylvania (PA), US does not exist in Geonames
+Sao Paulo, Sao Paulo (N/A), BR does not exist in Geonames
+Lincoln, Rhode Island (RI), US does not exist in Geonames
+Cheltenham, Pennsylvania (PA), US does not exist in Geonames
+Bridgewater, Connecticut (CT), US does not exist in Geonames
+Medford, New Jersey (NJ), US does not exist in Geonames
+Green Bay, Virginia (VA), US does not exist in Geonames
+Juiz De Fora, Minas Gerais (15), BR does not exist in Geonames
+Salisbury, Connecticut (CT), US does not exist in Geonames
+Gaza City, Gaza (N/A), PS does not exist in Geonames
+Lagrange, Georgia (GA), US does not exist in Geonames
+Guayama, Puerto Rico (N/A), US does not exist in Geonames
+Tampico, Illinois (IL), US does not exist in Geonames
+Edmond, Kansas (KS), US does not exist in Geonames
+Wahiawa, Hawaii (HI), US does not exist in Geonames
+Llandinam, Wales (WLS), GB does not exist in Geonames
+New York, New York (NY), US does not exist in Geonames
+Versailles, Illinois (IL), US does not exist in Geonames
+Thornhill, Kentucky (KY), US does not exist in Geonames
+Masana, Maseru (14), LS does not exist in Geonames
+Hillsboro, Alabama (AL), US does not exist in Geonames
+Tacloban City, Eastern Visayas (08), PH does not exist in Geonames
+Hillsborough, New Jersey (NJ), US does not exist in Geonames
+Edwardsville, Alabama (AL), US does not exist in Geonames
+Newcastle Upon Tyne, England (ENG), GB does not exist in Geonames
+Cadiz, Indiana (IN), US does not exist in Geonames
+Hill City, South Dakota (SD), US does not exist in Geonames
+Holt, Florida (FL), US does not exist in Geonames
+Chestnut Hill, Massachusetts (MA), US does not exist in Geonames
+Tunbridge Wells, England (ENG), GB does not exist in Geonames
+Darlington, Indiana (IN), US does not exist in Geonames
+Iasi, Iasi (N/A), RO does not exist in Geonames
+Humacao, Puerto Rico (N/A), US does not exist in Geonames
+Kingston, New Brunswick (04), CA does not exist in Geonames
+Tshwane, Gauteng (06), ZA does not exist in Geonames
+Valley, Washington (WA), US does not exist in Geonames
+Kailua Kona, Hawaii (HI), US does not exist in Geonames
+Dartmouth, Massachusetts (MA), US does not exist in Geonames
+Darwin, California (CA), US does not exist in Geonames
+Wall Twp, New Jersey (NJ), US does not exist in Geonames
+Mt Juliet, Tennessee (TN), US does not exist in Geonames
+Mt Laurel, New Jersey (NJ), US does not exist in Geonames
+Davenport, California (CA), US does not exist in Geonames
+Jurong East, Singapore (N/A), SG does not exist in Geonames
+Jurong, Singapore (N/A), SG does not exist in Geonames
+Cheras (Kuala Lumpur), Wilayah Persekutuan (N/A), MY does not exist in Geonames
+Pickering, Missouri (MO), US does not exist in Geonames
+San Cristobal, New Mexico (NM), US does not exist in Geonames
+Tavistock, New Jersey (NJ), US does not exist in Geonames
+Hilton Head Island, South Carolina (SC), US does not exist in Geonames
+Ujungpandang, South Sulawesi (38), ID does not exist in Geonames
+Delhi, Madhya Pradesh (35), IN does not exist in Geonames
+Astoria, New York (NY), US does not exist in Geonames
+Goldsboro, Maryland (MD), US does not exist in Geonames
+Concepcion, Biobio (N/A), CL does not exist in Geonames
+Valparaiso, Valparaiso (N/A), CL does not exist in Geonames
+Fukuroi-shi, Shizuoka Prefecture (N/A), JP does not exist in Geonames
+Mt Olive, North Carolina (NC), US does not exist in Geonames
+Gefle, Gavleborg (N/A), SE does not exist in Geonames
+Lexington, Alabama (AL), US does not exist in Geonames
+Senai, Johor (01), MY does not exist in Geonames
+Ang Mo Kio, Singapore (N/A), SG does not exist in Geonames
+Carolina, Alabama (AL), US does not exist in Geonames
+Violet Hill, Arkansas (AR), US does not exist in Geonames
+Williamsburg, Colorado (CO), US does not exist in Geonames
+Xalapa, Veracruz (30), MX does not exist in Geonames
+Taylorsville, California (CA), US does not exist in Geonames
+Hermitage, Tennessee (TN), US does not exist in Geonames
+Asuncion, Asunción (22), PY does not exist in Geonames
+Marrakech, Marrakech-Tensift-El Haouz (N/A), MA does not exist in Geonames
+El Paso, Arkansas (AR), US does not exist in Geonames
+Barakin Ladi, Plateau (49), NG does not exist in Geonames
+Weybridge, Vermont (VT), US does not exist in Geonames
+Mt Pleasant, Michigan (MI), US does not exist in Geonames
+New York, New York (NY), US does not exist in Geonames
+Liberty, Illinois (IL), US does not exist in Geonames
+Ste.-Catherine, Quebec (10), CA does not exist in Geonames
+Drakenstein, Western Cape (11), ZA does not exist in Geonames
+Regina, Kentucky (KY), US does not exist in Geonames
+Ojo Caliente, New Mexico (NM), US does not exist in Geonames
+Gresham, Nebraska (NE), US does not exist in Geonames
+Hoboken, Georgia (GA), US does not exist in Geonames
+San Miquel, San Miguel (09), SV does not exist in Geonames
+Den Bosch, North Brabant (06), NL does not exist in Geonames
+Dayton, Alabama (AL), US does not exist in Geonames
+Haworth, Oklahoma (OK), US does not exist in Geonames
+Moorestown, New Jersey (NJ), US does not exist in Geonames
+Saipan, Northern Mariana Islands (N/A), US does not exist in Geonames
+Humboldt, Arizona (AZ), US does not exist in Geonames
+Cambridge, Idaho (ID), US does not exist in Geonames
+Dekalb, Illinois (IL), US does not exist in Geonames
+Mt Vernon, Alabama (AL), US does not exist in Geonames
+Vulcan, Michigan (MI), US does not exist in Geonames
+Maysville, Arkansas (AR), US does not exist in Geonames
+West Liberty, Illinois (IL), US does not exist in Geonames
+Mt Vernon, Washington (WA), US does not exist in Geonames
+Mt Vernon, New York (NY), US does not exist in Geonames
+Iron City, Tennessee (TN), US does not exist in Geonames
+Renfrew, Pennsylvania (PA), US does not exist in Geonames
+Bliss, Idaho (ID), US does not exist in Geonames
+Waco, Georgia (GA), US does not exist in Geonames
+Deadwood, Oregon (OR), US does not exist in Geonames
+Cameron, North Carolina (NC), US does not exist in Geonames
+Govan Mbeki, Mpumalanga (07), ZA does not exist in Geonames
+Studio City, California (CA), US does not exist in Geonames
+Lakeside, Arizona (AZ), US does not exist in Geonames
+Jackson Heights, New York (NY), US does not exist in Geonames
+Elizabeth, Arkansas (AR), US does not exist in Geonames
+Deal, New Jersey (NJ), US does not exist in Geonames
+Dugway, Utah (UT), US does not exist in Geonames
+Reseda, California (CA), US does not exist in Geonames
+Manalapan, Florida (FL), US does not exist in Geonames
+Sandy, Utah (UT), US does not exist in Geonames
+Queens Village, New York (NY), US does not exist in Geonames
+Dedham, Iowa (IA), US does not exist in Geonames
+Bronx, New York (NY), US does not exist in Geonames
+Elkhart, Illinois (IL), US does not exist in Geonames
+Wilmington, California (CA), US does not exist in Geonames
+Foxboro, Massachusetts (MA), US does not exist in Geonames
+Queens, New York (NY), US does not exist in Geonames
+Kelso, Missouri (MO), US does not exist in Geonames
+Death Valley, California (CA), US does not exist in Geonames
+Campbell, Alabama (AL), US does not exist in Geonames
+St Augustine, Florida (FL), US does not exist in Geonames
+Wakefield, Kansas (KS), US does not exist in Geonames
+North Devon District, England (ENG), GB does not exist in Geonames
+Cyberjaya, Selangor (12), MY does not exist in Geonames
+Ava, Illinois (IL), US does not exist in Geonames
+Abingdon, Maryland (MD), US does not exist in Geonames
+Persia, Iowa (IA), US does not exist in Geonames
+Forest of Dean District, England (ENG), GB does not exist in Geonames
+Zurich, Zurich (ZH), CH does not exist in Geonames
+Wilson, Arkansas (AR), US does not exist in Geonames
+Sanford, Alabama (AL), US does not exist in Geonames
+Compton, Illinois (IL), US does not exist in Geonames
+St Peters, Missouri (MO), US does not exist in Geonames
+Deer Park, Alabama (AL), US does not exist in Geonames
+Baroda, Gujarat (09), IN does not exist in Geonames
+Midlothian, Virginia (VA), US does not exist in Geonames
+Benfleet, England (ENG), GB does not exist in Geonames
+Al Mansurah, Ad Daqahliyah (N/A), EG does not exist in Geonames
+Dodge City, Alabama (AL), US does not exist in Geonames
+Coatesville, Indiana (IN), US does not exist in Geonames
+Frankford, Delaware (DE), US does not exist in Geonames
+Fleetwood, North Carolina (NC), US does not exist in Geonames
+València, Valencia (60), ES does not exist in Geonames
+Blue Springs, Alabama (AL), US does not exist in Geonames
+Vikmanshyttan, Dalarna (10), SE does not exist in Geonames
+Gorham, Illinois (IL), US does not exist in Geonames
+Southfield, Massachusetts (MA), US does not exist in Geonames
+Santa Fe, Missouri (MO), US does not exist in Geonames
+Drifting, Pennsylvania (PA), US does not exist in Geonames
+Franklin, Alabama (AL), US does not exist in Geonames
+North Lincolnshire, England (ENG), GB does not exist in Geonames
+Avon, Alabama (AL), US does not exist in Geonames
+Defiance, Iowa (IA), US does not exist in Geonames
+Buckingham Twp, Pennsylvania (PA), US does not exist in Geonames
+Winchester, Arkansas (AR), US does not exist in Geonames
+Medway, England (ENG), GB does not exist in Geonames
+Aberdeenshire, Scotland (SCT), GB does not exist in Geonames
+Kensington, Kansas (KS), US does not exist in Geonames
+Moray, Scotland (SCT), GB does not exist in Geonames
+West Lothian, Scotland (SCT), GB does not exist in Geonames
+Richfield, Idaho (ID), US does not exist in Geonames
+Southwest, Pennsylvania (PA), US does not exist in Geonames
+Grove City, Minnesota (MN), US does not exist in Geonames
+Long Lane, Missouri (MO), US does not exist in Geonames
+Hollywood, Alabama (AL), US does not exist in Geonames
+Erskine, Minnesota (MN), US does not exist in Geonames
+Saratoga, Arkansas (AR), US does not exist in Geonames
+Melrose, Florida (FL), US does not exist in Geonames
+Muncie, Illinois (IL), US does not exist in Geonames
+Spalding, Michigan (MI), US does not exist in Geonames
+Enfield, England (ENG), GB does not exist in Geonames
+Lodojo, East Java (08), ID does not exist in Geonames
+The Rock, Georgia (GA), US does not exist in Geonames
+Two Rivers, Alaska (AK), US does not exist in Geonames
+Fredericksburg, Indiana (IN), US does not exist in Geonames
+Montgomery, Texas (TX), US does not exist in Geonames
+Tanjungredep, East Kalimantan (14), ID does not exist in Geonames
+Villenova, New York (NY), US does not exist in Geonames
+Lubukbasung, West Sumatra (24), ID does not exist in Geonames
+Sidaredja, Central Java (07), ID does not exist in Geonames
+Querétaro, Queretaro (N/A), MX does not exist in Geonames
+Lower Allen Twp, Pennsylvania (PA), US does not exist in Geonames
+Canterbury, Connecticut (CT), US does not exist in Geonames
+Avenue, Maryland (MD), US does not exist in Geonames
+Canton, Connecticut (CT), US does not exist in Geonames
+Guernsey, Iowa (IA), US does not exist in Geonames
+Avera, Georgia (GA), US does not exist in Geonames
+Maple, North Carolina (NC), US does not exist in Geonames
+Thetford, Vermont (VT), US does not exist in Geonames
+Saugus, California (CA), US does not exist in Geonames
+Canyon Country, California (CA), US does not exist in Geonames
+Murray, Idaho (ID), US does not exist in Geonames
+Serdang Lama, Selangor (12), MY does not exist in Geonames
+Seri Kembangan, Selangor (12), MY does not exist in Geonames
+Lane, South Carolina (SC), US does not exist in Geonames
+Keswick, Iowa (IA), US does not exist in Geonames
+Suhar, Al Batinah (N/A), OM does not exist in Geonames
+Macomb, Michigan (MI), US does not exist in Geonames
+Washington Twp, Michigan (MI), US does not exist in Geonames
+Central, Alaska (AK), US does not exist in Geonames
+German, New York (NY), US does not exist in Geonames
+Odessa, Delaware (DE), US does not exist in Geonames
+Elyria, Nebraska (NE), US does not exist in Geonames
+Caimanera, Guantanamo (N/A), CU does not exist in Geonames
+Capitol, Montana (MT), US does not exist in Geonames
+Cataula, Georgia (GA), US does not exist in Geonames
+Burgh-Haamstede, Zeeland (10), NL does not exist in Geonames
+Bismarck, Illinois (IL), US does not exist in Geonames
+Somerset, California (CA), US does not exist in Geonames
+Winona, Kansas (KS), US does not exist in Geonames
+Spokane, Missouri (MO), US does not exist in Geonames
+Vasa, Pohjanmaa (N/A), FI does not exist in Geonames
+Burnt Ranch, California (CA), US does not exist in Geonames
+Goshen, Alabama (AL), US does not exist in Geonames
+Winston, Georgia (GA), US does not exist in Geonames
+Dent, Minnesota (MN), US does not exist in Geonames
+Lucena City, Calabarzon (40), PH does not exist in Geonames
+Denton, Georgia (GA), US does not exist in Geonames
+Rutland, Illinois (IL), US does not exist in Geonames
+Thornton, Arkansas (AR), US does not exist in Geonames
+Kingwood, Texas (TX), US does not exist in Geonames
+Blackstone, Illinois (IL), US does not exist in Geonames
+Gunnison, Mississippi (MS), US does not exist in Geonames
+Jurong West, Singapore (N/A), SG does not exist in Geonames
+Flatwoods, West Virginia (WV), US does not exist in Geonames
+Kildare, Oklahoma (OK), US does not exist in Geonames
+Granada Hills, California (CA), US does not exist in Geonames
+Kiev, Kiev (13), UA does not exist in Geonames
+Kilkenny, Minnesota (MN), US does not exist in Geonames
+Winthrop, Arkansas (AR), US does not exist in Geonames
+Hope, Alaska (AK), US does not exist in Geonames
+Hackensack, Minnesota (MN), US does not exist in Geonames
+San Isidro, Texas (TX), US does not exist in Geonames
+Southington, Connecticut (CT), US does not exist in Geonames
+La Follette, Tennessee (TN), US does not exist in Geonames
+Southeast, New York (NY), US does not exist in Geonames
+Emfuleni, Gauteng (06), ZA does not exist in Geonames
+Rainbow, Maine (ME), US does not exist in Geonames
+Bellefontaine, Mississippi (MS), US does not exist in Geonames
+Ahmadabad, Bihar (34), IN does not exist in Geonames
+Wareham, Massachusetts (MA), US does not exist in Geonames
+Encino, California (CA), US does not exist in Geonames
+Hoogvliet, South Holland (11), NL does not exist in Geonames
+Derry, New Mexico (NM), US does not exist in Geonames
+Warminster, Pennsylvania (PA), US does not exist in Geonames
+Boone, Colorado (CO), US does not exist in Geonames
+Livonia, Indiana (IN), US does not exist in Geonames
+Boonton Twp, New Jersey (NJ), US does not exist in Geonames
+Goose Creek, Kentucky (KY), US does not exist in Geonames
+Oldham, South Dakota (SD), US does not exist in Geonames
+Thorofare, New Jersey (NJ), US does not exist in Geonames
+West Point, Alabama (AL), US does not exist in Geonames
+Spring Lake, Indiana (IN), US does not exist in Geonames
+Hopewell, Illinois (IL), US does not exist in Geonames
+Hanover, Illinois (IL), US does not exist in Geonames
+Londonderry, Northern Ireland (NIR), GB does not exist in Geonames
+Hell, Nord-Trondelag (N/A), NO does not exist in Geonames
+Somerville, Alabama (AL), US does not exist in Geonames
+Narragansett, Rhode Island (RI), US does not exist in Geonames
+Minerva, New York (NY), US does not exist in Geonames
+Desoto, Texas (TX), US does not exist in Geonames
+Bogota, Distrito Especial (N/A), CO does not exist in Geonames
+Alberton, Montana (MT), US does not exist in Geonames
+Warrington, Pennsylvania (PA), US does not exist in Geonames
+Gainesville, Alabama (AL), US does not exist in Geonames
+Olive Branch, Illinois (IL), US does not exist in Geonames
+Bowmanville, Ontario (08), CA does not exist in Geonames
+Opa-Locka, Florida (FL), US does not exist in Geonames
+Warwick, Georgia (GA), US does not exist in Geonames
+Leamington, Utah (UT), US does not exist in Geonames
+Kinston, Alabama (AL), US does not exist in Geonames
+Johor Baharu, Johor (01), MY does not exist in Geonames
+Lockridge, Iowa (IA), US does not exist in Geonames
+Bangor, California (CA), US does not exist in Geonames
+Thurrock, England (ENG), GB does not exist in Geonames
+Cilegon, Banten (33), ID does not exist in Geonames
+Ashford, Washington (WA), US does not exist in Geonames
+Loco, Oklahoma (OK), US does not exist in Geonames
+Brasov, Brasov (N/A), RO does not exist in Geonames
+Olympia, Kentucky (KY), US does not exist in Geonames
+Hickory, Kentucky (KY), US does not exist in Geonames
+Springfield, Arkansas (AR), US does not exist in Geonames
+Bowie, Arizona (AZ), US does not exist in Geonames
+Omaha, Arkansas (AR), US does not exist in Geonames
+Columbia, Alabama (AL), US does not exist in Geonames
+Bandar Kuala Terengganu, Terengganu (13), MY does not exist in Geonames
+Longford, Kansas (KS), US does not exist in Geonames
+Scranton, Arkansas (AR), US does not exist in Geonames
+East Lothian, Scotland (SCT), GB does not exist in Geonames
+West End, North Carolina (NC), US does not exist in Geonames
+Nanjemoy, Maryland (MD), US does not exist in Geonames
+East St Louis, Illinois (IL), US does not exist in Geonames
+Perryville, Alaska (AK), US does not exist in Geonames
+Melaka, Melaka (04), MY does not exist in Geonames
+Tanjungkarang, Lampung (15), ID does not exist in Geonames
+Eskasoni, Nova Scotia (07), CA does not exist in Geonames
+Riverdale, Maryland (MD), US does not exist in Geonames
+Donegal, Pennsylvania (PA), US does not exist in Geonames
+Springs, Pennsylvania (PA), US does not exist in Geonames
+House, New Mexico (NM), US does not exist in Geonames
+Logan, Alabama (AL), US does not exist in Geonames
+Kinross, Iowa (IA), US does not exist in Geonames
+Cordoba, Cordoba (05), AR does not exist in Geonames
+Antwerp, Antwerp (N/A), BE does not exist in Geonames
+Compton, Arkansas (AR), US does not exist in Geonames
+Proctor, Oklahoma (OK), US does not exist in Geonames
+Utica, Indiana (IN), US does not exist in Geonames
+Como, Colorado (CO), US does not exist in Geonames
+Bang Phli, Samut Prakan (42), TH does not exist in Geonames
+Red Level, Alabama (AL), US does not exist in Geonames
+invalid country names          : 0
+nonexistent Geonames locations : 825
+successful mappings            : 3576
