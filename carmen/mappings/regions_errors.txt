@@ -2,116 +2,465 @@ Kampala, UG does not exist in Geonames
 Delhi, IN does not exist in Geonames
 County Laois, IE does not exist in Geonames
 Espirito Santo, BR does not exist in Geonames
+Saint Thomas Island, US does not exist in Geonames
 Coahuila de Zaragoza, MX does not exist in Geonames
+Baleares, ES does not exist in Geonames
 Hokkaido Prefecture, JP does not exist in Geonames
-County Carlow, IE does not exist in Geonames
 Autonomous City of Buenos Aires, AR does not exist in Geonames
+Fairfax City, US does not exist in Geonames
 DKI Jakarta, ID does not exist in Geonames
+South Sikkim, IN does not exist in Geonames
+Cheshire, GB does not exist in Geonames
+Greater Manchester, GB does not exist in Geonames
+Merseyside, GB does not exist in Geonames
+Bedfordshire, GB does not exist in Geonames
+Cornwall and Isles of Scilly, GB does not exist in Geonames
+South Yorkshire, GB does not exist in Geonames
+Pembrokeshire County, GB does not exist in Geonames
 Kanagawa Prefecture, JP does not exist in Geonames
 Okinawa Prefecture, JP does not exist in Geonames
 Mexico, MX does not exist in Geonames
 Ile-de-France, FR does not exist in Geonames
+San Francisco County, US does not exist in Geonames
 National Capital Region, PH does not exist in Geonames
 Yukon Territory, CA does not exist in Geonames
 Guam, US does not exist in Geonames
 Isle of Man, GB does not exist in Geonames
+Jersey, GB does not exist in Geonames
 Puerto Rico, US does not exist in Geonames
 US Virgin Islands, US does not exist in Geonames
 County Kerry, IE does not exist in Geonames
+Palmas, ES does not exist in Geonames
 District of Columbia, US does not exist in Geonames
-Gaza, PS does not exist in Geonames
+Antartica Chilena Province, CL does not exist in Geonames
 County Roscommon, IE does not exist in Geonames
+Auckland City, NZ does not exist in Geonames
 Curacao, AN does not exist in Geonames
+Saint Croix Island, US does not exist in Geonames
+Tomohon, ID does not exist in Geonames
+Majalengka, ID does not exist in Geonames
+Sleman, ID does not exist in Geonames
+Motheo, ZA does not exist in Geonames
+Temanggung, ID does not exist in Geonames
+Radford City, US does not exist in Geonames
+Barcelona, ES does not exist in Geonames
+Dupage County, US does not exist in Geonames
+Seremban, MY does not exist in Geonames
+Cirebon Kabupaten, ID does not exist in Geonames
+Lanarkshire, GB does not exist in Geonames
+Turin, IT does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
+Wellington, CA does not exist in Geonames
+Pho Chai, TH does not exist in Geonames
+St Clair County, US does not exist in Geonames
+City of Ballarat, AU does not exist in Geonames
+Magetan, ID does not exist in Geonames
+Wonosobo, ID does not exist in Geonames
+Toowoomba Regional, AU does not exist in Geonames
+Hampton City, US does not exist in Geonames
+Grad Beograd, RS does not exist in Geonames
+Townsville City, AU does not exist in Geonames
+Berkshire, GB does not exist in Geonames
+Sanarate, GT does not exist in Geonames
+City of Rockdale, AU does not exist in Geonames
+Cáceres, ES does not exist in Geonames
+Ekurhuleni, ZA does not exist in Geonames
+Greater Vancouver, CA does not exist in Geonames
+Moselle, FR does not exist in Geonames
+Cleveland, GB does not exist in Geonames
+Roanoke City, US does not exist in Geonames
+Kota Pekan Baru, ID does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
+Pontevedra, ES does not exist in Geonames
+Johannesburg, ZA does not exist in Geonames
+Hazaribagh, IN does not exist in Geonames
+Waterloo, CA does not exist in Geonames
+Simcoe, CA does not exist in Geonames
+Karaikal, IN does not exist in Geonames
+Squamish-Lillooet, CA does not exist in Geonames
+Semarang Kota, ID does not exist in Geonames
+North Humberside, GB does not exist in Geonames
+Terneuzen, NL does not exist in Geonames
+West Midlands, GB does not exist in Geonames
+County Antrim, GB does not exist in Geonames
+Strathcona, CA does not exist in Geonames
 Republic of Latvia does not have a valid country_code in Geonames
+St Louis County, US does not exist in Geonames
 Greater Casablanca, MA does not exist in Geonames
+Caroni, VE does not exist in Geonames
 Tunis, TN does not exist in Geonames
 Al Manama, BH does not exist in Geonames
+Saint John, CA does not exist in Geonames
+Dekalb County, US does not exist in Geonames
+Jember, ID does not exist in Geonames
+Rome, IT does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
+Singapore, SG does not exist in Geonames
 Fukuoka Prefecture, JP does not exist in Geonames
 Izmir, TR does not exist in Geonames
+Bruges, BE does not exist in Geonames
+Metropolitan Manila, PH does not exist in Geonames
+Fraser-Fort George, CA does not exist in Geonames
+St Francis County, US does not exist in Geonames
+Nueva Ecija, PH does not exist in Geonames
 Brussels-Capital Region, BE does not exist in Geonames
+Santa Rosa, AR does not exist in Geonames
+Strathclyde, GB does not exist in Geonames
+Dekalb County, US does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
 Tsarrbuus, LY does not exist in Geonames
 Lang Son, VN does not exist in Geonames
+Thompson-Nicola, CA does not exist in Geonames
+City of Johannesburg, ZA does not exist in Geonames
+St Joseph County, US does not exist in Geonames
+West Yorkshire, GB does not exist in Geonames
+Harrisonburg City, US does not exist in Geonames
+Ethekwini, ZA does not exist in Geonames
+Dekalb County, US does not exist in Geonames
+St Lucie County, US does not exist in Geonames
+St Charles County, US does not exist in Geonames
+Saint Petersburg, RU does not exist in Geonames
 Jammu & Kashmir, IN does not exist in Geonames
+Nanaimo, CA does not exist in Geonames
+Fraser Valley, CA does not exist in Geonames
+Faridabad, IN does not exist in Geonames
+Toronto, CA does not exist in Geonames
+Lambton, CA does not exist in Geonames
+Eidsvoll Kommune, NO does not exist in Geonames
+Capital, CA does not exist in Geonames
+Central Okanagan, CA does not exist in Geonames
+Surat, IN does not exist in Geonames
+Calabar-Municipal, NG does not exist in Geonames
+Dekalb County, US does not exist in Geonames
 The Bahamas does not have a valid country_code in Geonames
+Okanagan-Similkameen, CA does not exist in Geonames
+Stuttgart, DE does not exist in Geonames
+Sarajevski Kanton, BA does not exist in Geonames
 Rio De Janeiro, BR does not exist in Geonames
+Portsmouth City, US does not exist in Geonames
 Nordjylland, DK does not exist in Geonames
+Ciudad de Buenos Aires, AR does not exist in Geonames
+Muskoka, CA does not exist in Geonames
+Southern, ZA does not exist in Geonames
+St Landry Parish, US does not exist in Geonames
+Côte-d'Or, FR does not exist in Geonames
 Distrito Federal, MX does not exist in Geonames
+Falls Church City, US does not exist in Geonames
+Laishevsky, RU does not exist in Geonames
+Nord, FR does not exist in Geonames
+Bangi, AF does not exist in Geonames
+Alexandria City, US does not exist in Geonames
+Republic of Lithuania does not have a valid country_code in Geonames
+St Johns County, US does not exist in Geonames
+St Lawrence County, US does not exist in Geonames
+Kota Setar, MY does not exist in Geonames
+Czech Republic does not have a valid country_code in Geonames
+Newport News City, US does not exist in Geonames
+Masan-Si, KR does not exist in Geonames
+Libertador, VE does not exist in Geonames
+Elqui, CL does not exist in Geonames
+Lynchburg City, US does not exist in Geonames
+St Louis County, US does not exist in Geonames
+Cadiz, ES does not exist in Geonames
+Timur Laut, MY does not exist in Geonames
+Bureysky, RU does not exist in Geonames
+St Francois County, US does not exist in Geonames
+Cadiz, ES does not exist in Geonames
 Tierra Del Fuego, AR does not exist in Geonames
+Zaanstad, NL does not exist in Geonames
 Höfu?borgarsvæ?i, IS does not exist in Geonames
+Beirut, LB does not exist in Geonames
+St Clair County, US does not exist in Geonames
+Cape Town, ZA does not exist in Geonames
+Ciudad Real, ES does not exist in Geonames
 County Westmeath, IE does not exist in Geonames
+Rhondda Cynon Taff County Borough, GB does not exist in Geonames
+Colombo, LK does not exist in Geonames
 Midtjylland, DK does not exist in Geonames
+Halifax, CA does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
+Tyne and Wear, GB does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
+Santa Cruz de Tenerife, ES does not exist in Geonames
+Hanover, DE does not exist in Geonames
 Hong Kong Island, HK does not exist in Geonames
+Suffolk City, US does not exist in Geonames
 Distrito Nacional, DO does not exist in Geonames
+Ponce, US does not exist in Geonames
 Saint Andrew, JM does not exist in Geonames
+Cavite, PH does not exist in Geonames
+Norfolk City, US does not exist in Geonames
+Benguet, PH does not exist in Geonames
+Charlottesville City, US does not exist in Geonames
 'Amman, JO does not exist in Geonames
+Batangas, PH does not exist in Geonames
+Bratislava, SK does not exist in Geonames
+Rhone, FR does not exist in Geonames
+Kerawang Kabupaten, ID does not exist in Geonames
+Macau-China does not have a valid country_code in Geonames
+Agra, IN does not exist in Geonames
+Cairns Regional, AU does not exist in Geonames
 Almaty, KZ does not exist in Geonames
 Värmlands Län, SE does not exist in Geonames
+Cebu, PH does not exist in Geonames
+Heidelberg, DE does not exist in Geonames
+South Cotabato, PH does not exist in Geonames
+Davao del Sur, PH does not exist in Geonames
+Negros Oriental, PH does not exist in Geonames
+Central, ZA does not exist in Geonames
+Greater Sudbury, CA does not exist in Geonames
+St. Joseph County, US does not exist in Geonames
 Australian Capital Territory, AU does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
+Ilocos Norte, PH does not exist in Geonames
 Pohjois-Pohjanmaa, FI does not exist in Geonames
-County Cork, IE does not exist in Geonames
+Gatineau, CA does not exist in Geonames
+Sunshine Coast Regional, AU does not exist in Geonames
+Anchorage Borough, US does not exist in Geonames
+London, GB does not exist in Geonames
+St John the Baptist Parish, US does not exist in Geonames
+Stirlingshire, GB does not exist in Geonames
+Chesapeake City, US does not exist in Geonames
+Montreal, CA does not exist in Geonames
+Bern-Mittelland, CH does not exist in Geonames
 County Mayo, IE does not exist in Geonames
+Division Pantai Barat Selatan, MY does not exist in Geonames
+County Down, GB does not exist in Geonames
 Federated States of Micronesia does not have a valid country_code in Geonames
+Dubbo, AU does not exist in Geonames
+Dona Ana County, US does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
 County Dublin, IE does not exist in Geonames
+Cape Breton, CA does not exist in Geonames
+Antigonish, CA does not exist in Geonames
+Westmorland, CA does not exist in Geonames
+County Fermanagh, GB does not exist in Geonames
 Liège, BE does not exist in Geonames
 Channel Islands, GB does not exist in Geonames
+District of Columbia, US does not exist in Geonames
+Middlesex, CA does not exist in Geonames
+Manassas City, US does not exist in Geonames
+Essex, CA does not exist in Geonames
+Hastings, CA does not exist in Geonames
+Niagara, CA does not exist in Geonames
 Rift Valley, KE does not exist in Geonames
+Frontenac, CA does not exist in Geonames
 County Kildare, IE does not exist in Geonames
+Mid Glamorgan, GB does not exist in Geonames
 Kosovo, RS does not exist in Geonames
+Tucumán, AR does not exist in Geonames
 Tokyo Prefecture, JP does not exist in Geonames
-County Limerick, IE does not exist in Geonames
+Down, GB does not exist in Geonames
+Hopewell City, US does not exist in Geonames
+Richmond City, US does not exist in Geonames
+Kotamadya Bogor, ID does not exist in Geonames
+Sittard-Geleen, NL does not exist in Geonames
+Waynesboro City, US does not exist in Geonames
+St Tammany Parish, US does not exist in Geonames
+St. Tammany Parish, US does not exist in Geonames
+Northumberland, CA does not exist in Geonames
+Lolland, DK does not exist in Geonames
+Cologne, DE does not exist in Geonames
+La Porte County, US does not exist in Geonames
+Seville, ES does not exist in Geonames
 North Khorasan, IR does not exist in Geonames
+Málaga, ES does not exist in Geonames
+Santiago, CL does not exist in Geonames
+Fond Du Lac County, US does not exist in Geonames
+Staunton City, US does not exist in Geonames
 Nairobi, KE does not exist in Geonames
+St Louis City, US does not exist in Geonames
+Baltimore City, US does not exist in Geonames
+Luxemburg, LU does not exist in Geonames
 Skåne Län, SE does not exist in Geonames
+Verona, IT does not exist in Geonames
 Stockholms Län, SE does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
 Windward Islands, PF does not exist in Geonames
+North Okanagan, CA does not exist in Geonames
+Madiun, ID does not exist in Geonames
+Munich, DE does not exist in Geonames
+Beijing Shi, CN does not exist in Geonames
+Bayamón, US does not exist in Geonames
+Pedro Domingo Murillo, BO does not exist in Geonames
+Stadtkreis Karlsruhe, DE does not exist in Geonames
+Petersburg City, US does not exist in Geonames
+Salem City, US does not exist in Geonames
 The Netherlands does not have a valid country_code in Geonames
 Parana, BR does not exist in Geonames
 Rio Grande Do Sul, BR does not exist in Geonames
 Sao Paulo, BR does not exist in Geonames
 Ceara, BR does not exist in Geonames
 Piaui, BR does not exist in Geonames
+Lebak, ID does not exist in Geonames
 Paraiba, BR does not exist in Geonames
+Byron, AU does not exist in Geonames
+Palestinian Territories does not have a valid country_code in Geonames
+Guayama, US does not exist in Geonames
+Skara, SE does not exist in Geonames
+Powys County, GB does not exist in Geonames
+Bronx County, US does not exist in Geonames
 County Waterford, IE does not exist in Geonames
+Qeme, LS does not exist in Geonames
+Leyte, PH does not exist in Geonames
+Danville City, US does not exist in Geonames
+Juneau Borough, US does not exist in Geonames
+Cautín, CL does not exist in Geonames
+Attiki, GR does not exist in Geonames
+Shanghai Shi, CN does not exist in Geonames
+Palestinian Territories does not have a valid country_code in Geonames
 Iasi, RO does not exist in Geonames
+Humacao, US does not exist in Geonames
+Kings, CA does not exist in Geonames
+Tshwane, ZA does not exist in Geonames
+Milan, IT does not exist in Geonames
 Chisinau, MD does not exist in Geonames
+West Rand, ZA does not exist in Geonames
+Makassar, ID does not exist in Geonames
+City of Bristol, GB does not exist in Geonames
+Probolinggo, ID does not exist in Geonames
+Concepción, CL does not exist in Geonames
 Shizuoka Prefecture, JP does not exist in Geonames
+Cachapoal, CL does not exist in Geonames
+Gävle, SE does not exist in Geonames
+Lexington City, US does not exist in Geonames
+Johor Bahru, MY does not exist in Geonames
+Pampanga, PH does not exist in Geonames
+Purbalingga, ID does not exist in Geonames
+St Mary's County, US does not exist in Geonames
 Skopski, MK does not exist in Geonames
+Virginia Beach City, US does not exist in Geonames
+Williamsburg City, US does not exist in Geonames
+Roussillon, CA does not exist in Geonames
+Cape Winelands, ZA does not exist in Geonames
+Luque, PY does not exist in Geonames
 Paphos District, CY does not exist in Geonames
 Hovedstaden, DK does not exist in Geonames
+'s-Hertogenbosch, NL does not exist in Geonames
+San Juan, US does not exist in Geonames
+Landes, FR does not exist in Geonames
+Saipan, US does not exist in Geonames
 Ciudad de la Habana, CU does not exist in Geonames
 Saint Ann, JM does not exist in Geonames
+Kotamadya Bekasi, ID does not exist in Geonames
+Division Bintulu, MY does not exist in Geonames
 Magallanes and Antartica Chilena Region, CL does not exist in Geonames
+Eti-Osa, NG does not exist in Geonames
+Gert Sibande, ZA does not exist in Geonames
 T´bilisi, GE does not exist in Geonames
 The Bahamas does not have a valid country_code in Geonames
+Haute-Garonne, FR does not exist in Geonames
+Kerawang Kabupaten, ID does not exist in Geonames
 Al Qahirah, EG does not exist in Geonames
+Indre-et-Loire, FR does not exist in Geonames
 Riyadh, SA does not exist in Geonames
 Al Iskandariyah, EG does not exist in Geonames
+Naples, IT does not exist in Geonames
+Smallingerland, NL does not exist in Geonames
 Ad Daqahliyah, EG does not exist in Geonames
+Martinsville City, US does not exist in Geonames
+Hedemora, SE does not exist in Geonames
+Kodya Yogyakarta, ID does not exist in Geonames
+Como, IT does not exist in Geonames
+Stadtkreis Augsburg, DE does not exist in Geonames
+Winchester City, US does not exist in Geonames
+Boyolali, ID does not exist in Geonames
+Grampian, GB does not exist in Geonames
+Balikpapan, ID does not exist in Geonames
+Banjarmasin, ID does not exist in Geonames
+Bandung Kota, ID does not exist in Geonames
+Lothian, GB does not exist in Geonames
 Sharjah, AE does not exist in Geonames
+Mueang Phuket, TH does not exist in Geonames
+Lampung Timur, ID does not exist in Geonames
+Middlesex, GB does not exist in Geonames
+Blitar, ID does not exist in Geonames
+Kutai Timur, ID does not exist in Geonames
+Antananarivo Avaradrano, MG does not exist in Geonames
+Fredericksburg City, US does not exist in Geonames
+Sidoarjo Kabupaten, ID does not exist in Geonames
+Agam, ID does not exist in Geonames
+South Glamorgan, GB does not exist in Geonames
+Cilacap, ID does not exist in Geonames
+Denpasar, ID does not exist in Geonames
+Ourense, ES does not exist in Geonames
+St Mary Parish, US does not exist in Geonames
+Quito, EC does not exist in Geonames
+Guayaquil, EC does not exist in Geonames
+Machala, EC does not exist in Geonames
+Indramayu Kabupaten, ID does not exist in Geonames
+Jayapura, ID does not exist in Geonames
+Jepara, ID does not exist in Geonames
 Democratic Republic of Congo does not have a valid country_code in Geonames
+As Suwaiq, OM does not exist in Geonames
+Ji'nan, CN does not exist in Geonames
+Landkreis Fulda, DE does not exist in Geonames
 Guantanamo, CU does not exist in Geonames
 Doha, QA does not exist in Geonames
+Surabaya Kota, ID does not exist in Geonames
+Nyarugenge, RW does not exist in Geonames
+Klaten, ID does not exist in Geonames
 Ho Chi Minh, VN does not exist in Geonames
+Parma, IT does not exist in Geonames
+Jepara, ID does not exist in Geonames
+Ciamis, ID does not exist in Geonames
+Kuningan, ID does not exist in Geonames
 Pohjanmaa, FI does not exist in Geonames
+Queens, CA does not exist in Geonames
+Quezon, PH does not exist in Geonames
 Tehran, IR does not exist in Geonames
+Gironde, FR does not exist in Geonames
 Islamabad, PK does not exist in Geonames
+Lumajang, ID does not exist in Geonames
+Kodya Magelang, ID does not exist in Geonames
+Wajo, ID does not exist in Geonames
+Malang Kota, ID does not exist in Geonames
+Abuja Municipal Area Council, NG does not exist in Geonames
+Manado, ID does not exist in Geonames
+Sedibeng, ZA does not exist in Geonames
+Dresden, DE does not exist in Geonames
+Franklin City, US does not exist in Geonames
+Medan, ID does not exist in Geonames
+Rotterdam, NL does not exist in Geonames
 Lilongwe, MW does not exist in Geonames
+Meurthe-et-Moselle, FR does not exist in Geonames
+Londonderry, GB does not exist in Geonames
+Stjørdal Kommune, NO does not exist in Geonames
+Lincoln, US does not exist in Geonames
 Splitsko-Dalmatinska Zupanija, HR does not exist in Geonames
+Santafe de Bogota D.c., CO does not exist in Geonames
+Bangka Tengah, ID does not exist in Geonames
+Batu Pahat, MY does not exist in Geonames
+Banyuwangi, ID does not exist in Geonames
+Pematang Siantar, ID does not exist in Geonames
+Pontianak, ID does not exist in Geonames
 Ha Noi, VN does not exist in Geonames
+Kinta, MY does not exist in Geonames
+Purwakarta Kabupaten, ID does not exist in Geonames
+Purwokerto, ID does not exist in Geonames
+Purworejo, ID does not exist in Geonames
+Warsaw, PL does not exist in Geonames
+Cilegon Kota, ID does not exist in Geonames
 Brasov, RO does not exist in Geonames
+Pandeglang, ID does not exist in Geonames
+Samarinda, ID does not exist in Geonames
+Cimahi, ID does not exist in Geonames
+Kuala Terengganu, MY does not exist in Geonames
+Kuantan, MY does not exist in Geonames
+Port Dickson, MY does not exist in Geonames
+St Clair County, US does not exist in Geonames
+Melaka Tengah, MY does not exist in Geonames
+Alpes-Maritimes, FR does not exist in Geonames
+Granada, ES does not exist in Geonames
+Gral Pueyrredon, AR does not exist in Geonames
 Bucharest, RO does not exist in Geonames
+Ogan Komering Ulu, ID does not exist in Geonames
 Antwerp, BE does not exist in Geonames
 Al Khartum, SD does not exist in Geonames
+Kotamadya Tangerang, ID does not exist in Geonames
 La Condamine, MC does not exist in Geonames
+West Glamorgan, GB does not exist in Geonames
+Bang Phli, TH does not exist in Geonames
 D.I. Yogyakarta, ID does not exist in Geonames
 Free State, ZA does not exist in Geonames
 Jawa Tengah, ID does not exist in Geonames
@@ -120,9 +469,9 @@ Jawa Timur, ID does not exist in Geonames
 Centralna Srbija, RS does not exist in Geonames
 Lorraine, FR does not exist in Geonames
 Tsentral'Niy Federal'Niy Okrug, RU does not exist in Geonames
-Puducherry, IN does not exist in Geonames
 Lima Metropolitan Area, PE does not exist in Geonames
 Michoacan, MX does not exist in Geonames
+Republic of Latvia does not have a valid country_code in Geonames
 Bolivar, VE does not exist in Geonames
 Singapore, SG does not exist in Geonames
 West-Vlaanderen, BE does not exist in Geonames
@@ -154,6 +503,7 @@ Davao Region, PH does not exist in Geonames
 Ilocos Region, PH does not exist in Geonames
 Basque, ES does not exist in Geonames
 Berne, CH does not exist in Geonames
+Federated States of Micronesia does not have a valid country_code in Geonames
 Nuevo Leon, MX does not exist in Geonames
 Panama, PA does not exist in Geonames
 Rabat-Salé-Zemmour-Zaer, MA does not exist in Geonames
@@ -181,6 +531,7 @@ Phnum Penh, KH does not exist in Geonames
 Special Region of Yogyakarta, ID does not exist in Geonames
 Antananarivo, MG does not exist in Geonames
 Queretaro, MX does not exist in Geonames
+Democratic Republic of Congo does not have a valid country_code in Geonames
 Al Batinah, OM does not exist in Geonames
 Sicilia, IT does not exist in Geonames
 Kigali Province, RW does not exist in Geonames
@@ -194,6 +545,8 @@ Atlantico, CO does not exist in Geonames
 Ciudad Autónoma de Ceuta, ES does not exist in Geonames
 Mazowieckie, PL does not exist in Geonames
 Sumatera Selatan, ID does not exist in Geonames
-invalid country names          : 18
-nonexistent Geonames locations : 178
-successful mappings            : 333
+Republic of Lithuania does not have a valid country_code in Geonames
+Macau-China does not have a valid country_code in Geonames
+invalid country names          : 28
+nonexistent Geonames locations : 521
+successful mappings            : 2091
