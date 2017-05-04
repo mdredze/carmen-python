@@ -8,7 +8,7 @@ conn = psycopg2.connect("dbname='carmen' user='hhan' password=''")
 cur  = conn.cursor()
 
 # This is the name of the Carmen data file
-carmen_filename = '../data/locations.json'
+carmen_filename = '../data/africa_middle_east.json'
 
 
 def find_countrycode(country_name):

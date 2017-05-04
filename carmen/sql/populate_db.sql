@@ -18,10 +18,10 @@ CREATE TABLE cities(
 	admin3_code        VARCHAR(20)                          ,
 	admin4_code        VARCHAR(20)                          ,
 	population         BIGINT                               ,
-        elevation          INTEGER                              ,
+    elevation          INTEGER                              ,
 	dem                INTEGER                              ,
-        timezone           VARCHAR(40)                 NOT NULL ,
-        modification_date  DATE                        NOT NULL
+    timezone           VARCHAR(40)                 NOT NULL ,
+    modification_date  DATE                        NOT NULL
 );
 
 CREATE TABLE admin1_codes(
