@@ -43,17 +43,17 @@ for profile_line, true_line in zip(profile_locations_file, true_locations_file):
             num_correct_cities += 1
         num_cities += 1
 
-    elif 'county' in true_location:
+    if 'county' in true_location:
         if 'county' in profile_location and profile_location['county'] == true_location['county']:
             num_correct_counties += 1
         num_counties += 1
 
-    elif 'state' in true_location:
+    if 'state' in true_location:
         if 'state' in profile_location and profile_location['state'] == true_location['state']:
             num_correct_states += 1
         num_states += 1
 
-    elif 'country' in true_location:
+    if 'country' in true_location:
         if 'country' in profile_location and profile_location['country'] == true_location['country']:
             num_correct_countries += 1
         num_countries += 1
