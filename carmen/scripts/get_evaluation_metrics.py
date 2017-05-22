@@ -74,26 +74,26 @@ for profile_line, true_line in zip(profile_locations_file, true_locations_file):
 
 sys.stdout.write(
     """
-        ======================== STATISTICS ========================
-        (ACC = accuracy, PRC = precision, COV = coverage)
+    ======================== STATISTICS ========================
+    (ACC = accuracy, PRC = precision, COV = coverage)
 
-        CITIES    ACC, num_correct_cities    / num_cities    : %d / %d (%.2f%%)
-        COUNTIES  ACC, num_correct_counties  / num_counties  : %d / %d (%.2f%%)
-        STATES    ACC, num_correct_states    / num_states    : %d / %d (%.2f%%)
-        COUNTRIES ACC, num_correct_countries / num_countries : %d / %d (%.2f%%)
+    CITIES    ACC, num_correct_cities    / num_cities    : %d / %d (%.2f%%)
+    COUNTIES  ACC, num_correct_counties  / num_counties  : %d / %d (%.2f%%)
+    STATES    ACC, num_correct_states    / num_states    : %d / %d (%.2f%%)
+    COUNTRIES ACC, num_correct_countries / num_countries : %d / %d (%.2f%%)
 
-        CITIES    PRC, num_correct_cities    / num_predicted_cities    : %d / %d (%.2f%%)
-        COUNTIES  PRC, num_correct_counties  / num_predicted_counties  : %d / %d (%.2f%%)
-        STATES    PRC, num_correct_states    / num_predicted_states    : %d / %d (%.2f%%)
-        COUNTRIES PRC, num_correct_countries / num_predicted_countries : %d / %d (%.2f%%)
+    CITIES    PRC, num_correct_cities    / num_predicted_cities    : %d / %d (%.2f%%)
+    COUNTIES  PRC, num_correct_counties  / num_predicted_counties  : %d / %d (%.2f%%)
+    STATES    PRC, num_correct_states    / num_predicted_states    : %d / %d (%.2f%%)
+    COUNTRIES PRC, num_correct_countries / num_predicted_countries : %d / %d (%.2f%%)
 
-        CITIES    COV, num_predicted_cities    / num_cities    : %d / %d (%.2f%%)
-        COUNTIES  COV, num_predicted_counties  / num_counties  : %d / %d (%.2f%%)
-        STATES    COV, num_predicted_states    / num_states    : %d / %d (%.2f%%)
-        COUNTRIES COV, num_predicted_countries / num_countries : %d / %d (%.2f%%)
-        
-        num_resolved          / num_locations : %d / %d (%.2f%%)
-        ============================================================
+    CITIES    COV, num_predicted_cities    / num_cities    : %d / %d (%.2f%%)
+    COUNTIES  COV, num_predicted_counties  / num_counties  : %d / %d (%.2f%%)
+    STATES    COV, num_predicted_states    / num_states    : %d / %d (%.2f%%)
+    COUNTRIES COV, num_predicted_countries / num_countries : %d / %d (%.2f%%)
+    
+    num_resolved          / num_locations : %d / %d (%.2f%%)
+    ============================================================
     """ 
     % (
         # ACCURACY
