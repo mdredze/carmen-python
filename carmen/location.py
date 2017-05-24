@@ -28,6 +28,9 @@ class Location(object):
         self.aliases = []
         """An iterable containing alternative names for this location."""
 
+        self.time_zone = None
+        """A string containing the name of the time-zone for this location."""
+
         self.resolution_method = None
         """The method used to resolve this location's data from the
         tweet that originally contained it."""

@@ -89,10 +89,14 @@ class PlaceResolver(AbstractResolver):
             id=next(self._unknown_ids),
             twitter_url=place['url'], twitter_id=place['id'],
             **name)
+
+        # TODO: don't need this anymore. Test to make sure no error
         if self.allow_unknown_locations:
             # Remember this location for future lookups.
             self.add_location(location)
             return (False, location)
+
+        # TODO: get rid of this
         if self.resolve_to_known_ancestor:
             ancestor = location
             while True:
@@ -103,3 +107,5 @@ class PlaceResolver(AbstractResolver):
                 if known_ancestor:
                     return (True, known_ancestor)
         return None
+
+        # TODO: try to find state or country if can't find city

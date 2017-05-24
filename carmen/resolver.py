@@ -25,7 +25,7 @@ class AbstractResolver(ABC):
         representing a location.  If *location_file* is not specified,
         an internal location database is used."""
         if location_file is None:
-            contents = pkgutil.get_data(__package__, 'data/locations.json')
+            contents = pkgutil.get_data(__package__, 'data/new.json')
             contents_string = contents.decode("ascii")
             locations = contents_string.split('\n')
         else:
