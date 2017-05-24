@@ -98,36 +98,36 @@ sys.stdout.write(
     % (
         # ACCURACY
         num_correct_cities, num_cities, 
-            float(num_correct_cities)/float(num_cities),
+            100*float(num_correct_cities)/float(num_cities),
         num_correct_counties, num_counties, 
-            float(num_correct_counties)/float(num_counties),
+            100*float(num_correct_counties)/float(num_counties),
         num_correct_states, num_states, 
-            float(num_correct_states)/float(num_states),
+            100*float(num_correct_states)/float(num_states),
         num_correct_countries, num_countries, 
-            float(num_correct_countries)/float(num_countries),
+            100*float(num_correct_countries)/float(num_countries),
         
         # PRECISION
         num_correct_cities, num_predicted_cities, 
-            float(num_correct_cities)/float(num_predicted_cities),
+            100*float(num_correct_cities)/float(num_predicted_cities),
         num_correct_counties, num_predicted_counties, 
-            float(num_correct_counties)/float(num_predicted_counties),
+            100*float(num_correct_counties)/float(num_predicted_counties),
         num_correct_states, num_predicted_states, 
-            float(num_correct_states)/float(num_predicted_states),
+            100*float(num_correct_states)/float(num_predicted_states),
         num_correct_countries, num_predicted_countries, 
-            float(num_correct_countries)/float(num_predicted_countries),
+            100*float(num_correct_countries)/float(num_predicted_countries),
 
         # COVERAGE
         num_predicted_cities, num_cities, 
-            float(num_predicted_cities)/float(num_cities),
+            100*float(num_predicted_cities)/float(num_cities),
         num_predicted_counties, num_counties, 
-            float(num_predicted_counties)/float(num_counties),
+            100*float(num_predicted_counties)/float(num_counties),
         num_predicted_states, num_states, 
-            float(num_predicted_states)/float(num_states),
+            100*float(num_predicted_states)/float(num_states),
         num_predicted_countries, num_countries, 
-            float(num_predicted_countries)/float(num_countries),
+            100*float(num_predicted_countries)/float(num_countries),
 
         # TOTAL
         num_resolved, num_locations, 
-            float(num_resolved)/float(num_locations)
+            100*float(num_resolved)/float(num_locations)
     )
 )
