@@ -62,8 +62,15 @@ CREATE TABLE country_info(
 	equivalent_fips_code CHAR(2)
 );
 
+CREATE TABLE hierarchy(
+	parent_id      INTEGER       NOT NULL ,
+	child_id       INTEGER       NOT NULL ,
+    location_type  VARCHAR(100)           
+);
+
 -- COPY cities FROM :cities_file DELIMITER E'\t' NULL AS '';
-COPY cities       FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/cities1000.txt'  DELIMITER E'\t' NULL AS '';
-COPY admin1_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin1Codes.txt' DELIMITER E'\t' NULL AS '';
-COPY admin2_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin2Codes.txt' DELIMITER E'\t' NULL AS '';
-COPY country_info FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/country_info.txt'  DELIMITER E'\t' NULL AS '';
+COPY cities       FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/cities1000.txt'   DELIMITER E'\t' NULL AS '';
+COPY admin1_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin1Codes.txt'  DELIMITER E'\t' NULL AS '';
+COPY admin2_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin2Codes.txt'  DELIMITER E'\t' NULL AS '';
+COPY country_info FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/country_info.txt' DELIMITER E'\t' NULL AS '';
+COPY hierarchy    FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/hierarchy.txt'    DELIMITER E'\t' NULL AS '';
