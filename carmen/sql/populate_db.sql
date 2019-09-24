@@ -10,7 +10,7 @@ CREATE TABLE cities(
 	latitude           FLOAT                       NOT NULL ,
 	longitude          FLOAT                       NOT NULL ,
 	feature_class      CHAR(1)                     NOT NULL ,
-	feature_code       VARCHAR(10)                 NOT NULL ,         
+	feature_code       VARCHAR(10)                          , -- removed to stop import error
 	country_code       CHAR(2)                     NOT NULL ,
 	cc2                VARCHAR(200)                         ,
 	admin1_code        VARCHAR(20)                          ,
@@ -69,8 +69,8 @@ CREATE TABLE hierarchy(
 );
 
 -- COPY cities FROM :cities_file DELIMITER E'\t' NULL AS '';
-COPY cities       FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/cities1000.txt'   DELIMITER E'\t' NULL AS '';
-COPY admin1_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin1Codes.txt'  DELIMITER E'\t' NULL AS '';
-COPY admin2_codes FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/admin2Codes.txt'  DELIMITER E'\t' NULL AS '';
-COPY country_info FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/country_info.txt' DELIMITER E'\t' NULL AS '';
-COPY hierarchy    FROM '/Users/hhan/Desktop/carmen-python/carmen/data/dump/hierarchy.txt'    DELIMITER E'\t' NULL AS '';
+COPY cities       FROM '/Users/alexandra/carmen-python/geonames_data/cities500.txt'   DELIMITER E'\t' NULL AS '';
+COPY admin1_codes FROM '/Users/alexandra/carmen-python/geonames_data/admin1Codes.txt'  DELIMITER E'\t' NULL AS '';
+COPY admin2_codes FROM '/Users/alexandra/carmen-python/geonames_data/admin2Codes.txt'  DELIMITER E'\t' NULL AS '';
+COPY country_info FROM '/Users/alexandra/carmen-python/geonames_data/countryInfo.txt_no_comments' DELIMITER E'\t' NULL AS '';
+COPY hierarchy    FROM '/Users/alexandra/carmen-python/geonames_data/hierarchy.txt'    DELIMITER E'\t' NULL AS '';

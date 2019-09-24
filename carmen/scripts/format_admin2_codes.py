@@ -3,8 +3,8 @@
 
 import sys
 
-input_filename  = '../data/dump/admin2CodesASCII.txt'
-output_filename = '../data/dump/admin2Codes.txt'
+input_filename  = '../../geonames_data/admin2CodesASCII.txt'
+output_filename = '../../geonames_data/admin2Codes.txt'
 
 input_file  = open(input_filename, 'r')
 output_file = open(output_filename, 'w')
