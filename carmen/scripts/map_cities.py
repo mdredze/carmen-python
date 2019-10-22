@@ -1,14 +1,17 @@
 import json
 import psycopg2
-import sys
+import logging
 
+# Config logging for debugging
+logging.basicConfig(filename="geoname_mapping.log", filemode='w', level=logging.DEBUG, format='%(levelname)s: %(message)s')
 
 # Connect to the database
-conn = psycopg2.connect("dbname='carmen' user='hhan' password=''")
-cur  = conn.cursor()
+conn = psycopg2.connect("dbname='carmen' user='alexandra' password='alexandra'")
+cur = conn.cursor()
 
 # This is the name of the Carmen data file
-carmen_filename = '../data/africa_middle_east.json'
+carmen_filename = "../data/error_locations.json"
+logging.info(f"Reading locations from {carmen_filename}")
 
 
 def find_countrycode(country_name):
@@ -57,10 +60,7 @@ def search_alternatenames(data, country_code):
 
 
 def write_output(carmen_id, geonames_id, city, region, country_code):
-    sys.stdout.write(
-        "%s -> %d    (%s, %s, %s)\n" 
-        % (carmen_id, geonames_id, city, region, country_code)
-    )
+    logging.info(f"{carmen_id} -> {geonames_id}\t({city}, {region}, {country_code})")
 
 
 def main():
@@ -74,23 +74,27 @@ def main():
     for line in carmen_data:
         data = json.loads(line)
 
+        logging.debug(f"On ID {data['id']}")
+
         if data['city'] != '':
-
             carmen_id = data['id']
-            city      = data['city']
-
+            city = data['city']
+            logging.debug(f"Identified as a city {city}")
             # first check if this has a country code
             if 'countrycode' in data:
                 country_code = data['countrycode']
+                logging.debug(f"Identified with country code {country_code}")
             else:
                 # otherwise, we can try to look up the country code
                 country = data['country']
                 country_code = find_countrycode(country)
+                logging.debug(f"Country code not in JSON. Identified with country code {country_code}")
             
             if data['state'] != '':       # we will attempt to use the Carmen 'state' field as
                 region = data['state']    # the encapsulating region.
             else:                         # if it doesn't exist, then we use the 'county' field
                 region = data['county']   # instead.
+            logging.debug(f"Identified with region {region}")
 
             cur.execute(
                 "SELECT admin1_code FROM admin1_codes "
@@ -107,8 +111,11 @@ def main():
                     (city, country_code)
                 )
                 x = cur.fetchone()
+                logging.debug(f"({region}, {country_code}) not found in Geonames."
+                              f"Executed ({city}, {country_code}) instead with results {x}")
             else:
                 admin1_code = x[0]
+                logging.info(f"Geonames admin code identified as {admin1_code}")
                 cur.execute(
                     "SELECT id FROM cities WHERE "      # this is the case that we found a
                     "name = %s AND "                    # region name, and so we can use it
@@ -120,13 +127,11 @@ def main():
     
             # if we couldn't find it, then maybe we should try to check for alternative names.
             # if we STILL can't find it, then we will say it doesn't exist in Geonames.
-            if (x == None):
-    
+            if x is None:
                 location = search_alternatenames(data, country_code)
-                if location == None:
-                    sys.stderr.write(
-                        "%s, %s (%s), %s does not exist in Geonames\n" 
-                        % (city, region, admin1_code, country_code)
+                if location is None:
+                    logging.warning(
+                        f"{city}, {region} ({admin1_code}), {country_code} was not found in Geonames\n"
                     )
                     nonexistent_names += 1
                 else:
@@ -141,9 +146,10 @@ def main():
     carmen_data.close()
 
     # Print out statistics
-    sys.stderr.write("invalid country names          : %d\n" % (invalid_country_names))
-    sys.stderr.write("nonexistent Geonames locations : %d\n" % (nonexistent_names))
-    sys.stderr.write("successful mappings            : %d\n" % (num_success))
+    logging.info(f"----- Completion Stats ------ \n"
+                 f"invalid country names: {invalid_country_names}\n"
+                 f"nonexistent Geonames locations: {nonexistent_names}\n"
+                 f"successful mappings: {num_success}\n")
 
 
 if __name__ == '__main__':
