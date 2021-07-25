@@ -1,6 +1,5 @@
 """Main location resolution classes and methods."""
 
-
 from abc import ABCMeta, abstractmethod
 import warnings
 import json
@@ -8,7 +7,8 @@ import pkgutil
 
 from .location import Location, EARTH
 
-ABC = ABCMeta('ABC', (object,), {}) # compatible with Python 2 *and* 3 
+ABC = ABCMeta('ABC', (object,), {})  # compatible with Python 2 *and* 3
+
 
 class AbstractResolver(ABC):
     """An abstract base class for *resolvers* that match tweets to known
@@ -104,7 +104,6 @@ class ResolverCollection(AbstractResolver):
 
 
 ### Resolver importation functions.
-#
 known_resolvers = {}
 
 

@@ -267,6 +267,7 @@ if __name__ == "__main__":
 
     # Map the Carmen entries
     for i, obj in tqdm(unmapped_carmen_locations_df.iterrows(), desc="Locations", total=len(unmapped_carmen_locations_df)):
+        break
         if obj.city != "":
             match = map_city(obj)
         elif obj.county != "":
@@ -331,6 +332,8 @@ if __name__ == "__main__":
                 new_entry["aliases"].add(carmen_loc[loc])
 
         combined_entries.append(new_entry)
+
+    # Add in the rest of the geonames entries
 
     # Write out to file
     combined_entries = pd.DataFrame(combined_entries)
