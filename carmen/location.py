@@ -48,15 +48,9 @@ class Location(object):
         self.twitter_id = None
         """The Twitter ID of this Place."""
 
-        # Support for Python3
-        try:
-            iterator = kwargs.iteritems()
-        except:
-            iterator = kwargs.items()
-
-        # We're all adults, right?
-        for k, v in iterator:
-            if hasattr(self, k):
+        # Assign the attributes to this location object
+        for k, v in kwargs.items():
+            if hasattr(self, k) and v:
                 setattr(self, k, v)
 
         self.id = int(self.id)

@@ -2,6 +2,7 @@
 
 
 from abc import ABCMeta, abstractmethod
+import warnings
 import json
 import pkgutil
 
@@ -25,19 +26,26 @@ class AbstractResolver(ABC):
         representing a location.  If *location_file* is not specified,
         an internal location database is used."""
         if location_file is None:
-            contents = pkgutil.get_data(__package__, 'data/new.json')
+            contents = pkgutil.get_data(__package__, 'data/locations.json')
             contents_string = contents.decode("ascii")
             locations = contents_string.split('\n')
         else:
             from .cli import open_file
             with open_file(location_file, 'rb') as input:
                 locations = input.readlines()
-        
-        for location_string in locations:
+        total_locations, skipped_locations = 0, 0
+        for i, location_string in enumerate(locations):
             if location_string.strip():
-                location = Location(known=True, **json.loads(location_string))
+                total_locations += 1
+                try:
+                    location = Location(known=True, **json.loads(location_string))
+                except ValueError as err:
+                    warnings.warn("Issue adding location from line {0}. Skipping. {1}".format(i, err))
+                    skipped_locations += 1
+                    continue
                 self.location_id_to_location[location.id] = location
                 self.add_location(location)
+        warnings.warn("Added {0} out of {1} locations".format(total_locations-skipped_locations, total_locations))
 
     @abstractmethod
     def resolve_tweet(self, tweet):
@@ -68,12 +76,10 @@ class ResolverCollection(AbstractResolver):
         self.resolvers = resolvers if resolvers else []
         self.add_location(EARTH)
 
-
     def add_location(self, location):
         # Inform our child resolvers of this location.
         for resolver_name, resolver in self.resolvers:
             resolver.add_location(location)
-
 
     def resolve_tweet(self, tweet):
         provisional_resolution = None

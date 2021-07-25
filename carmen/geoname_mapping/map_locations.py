@@ -70,6 +70,7 @@ for state, code in geoname_state_to_code.items():
 # Other settings
 DISTANCE_THRESHOLD = 5.0  # Miles
 NAME_THRESHOLD = 0.9
+mapping_file = "mapped_locations_dict.pkl"
 outfile = "../data/geonames_locations.json"
 
 
@@ -222,7 +223,7 @@ def convert_geonames_to_carmen(geonames_entry):
     }
     aliases = geonames_entry.get("alternatenames", "")
     if not pd.isna(aliases):
-        carmen_loc["aliases"] = set([i.strip() for i in aliases.split(",")])
+        carmen_loc["aliases"] = set([i.strip() for i in aliases.split(",") if i.strip() != ""])
     carmen_loc["id"] = str(geonames_entry.get("geonameid", geonames_entry.get("geonameId")))
     carmen_loc["countycode"] = geonames_entry.get("admin2 code") if not pd.isna(geonames_entry.get("admin2 code")) else ""
     carmen_loc["statecode"] = geonames_entry.get("admin1 code", "")
@@ -253,8 +254,8 @@ if __name__ == "__main__":
     )
 
     # Load previously mapped locations and drop ones that have already been done
-    if os.path.exists(outfile):
-        with open(outfile, "rb") as f:
+    if os.path.exists(mapping_file):
+        with open(mapping_file, "rb") as f:
             mapped_locations = pickle.load(f)
     else:
         mapped_locations = {}
@@ -276,16 +277,15 @@ if __name__ == "__main__":
             match = map_country(obj)
         else:
             logging.info(f"Skipping {obj}")
+            continue
         if match is not None:
             mapped_locations[obj.id] = match.to_dict()
         else:
             logging.info(f"No match for {obj.id},{obj.city},{obj.county},{obj.state}({obj.statecode}),{obj.countrycode}")
-        if obj.city == "Ada":
-            print(obj, match)
 
     num_mapped = len(mapped_locations)
     logging.info(f"Writing {num_mapped:,} out of {total_num_locations:,} ({num_mapped/total_num_locations:.2%}) mapped locations to file.")
-    with open("mapped_locations_dict.pkl", "wb") as f:
+    with open(mapping_file, "wb") as f:
         pickle.dump(mapped_locations, f)
     output = ""
     for i, item in enumerate(mapped_locations.items()):
@@ -312,22 +312,27 @@ if __name__ == "__main__":
         if new_entry["county"] == "":
             new_entry["county"] = carmen_loc.get("county", "")
 
+        if not new_entry["latitude"]:
+            new_entry["latitude"] = carmen_loc.get("latitude", "")
+        if not new_entry["longitude"]:
+            new_entry["longitude"] = carmen_loc.get("longitude", "")
+
         # Get the new parent ID
         c_parent = carmen_loc.get("parent_id")
         if c_parent in mapped_locations:
             parent = mapped_locations[c_parent]
             parent_id = parent.get("geonameid", parent.get("geonameId"))
-            new_entry["parent_id"] = parent_id
+            new_entry["parent_id"] = str(parent_id)
         else:
-            new_entry["parent_id"] = ""
+            new_entry["parent_id"] = "-1"
 
         for loc in ["city", "county", "state"]:
-            if carmen_loc[loc] != new_entry[loc]:
+            if carmen_loc[loc] != "" and carmen_loc[loc] != new_entry[loc]:
                 new_entry["aliases"].add(carmen_loc[loc])
 
         combined_entries.append(new_entry)
 
     # Write out to file
     combined_entries = pd.DataFrame(combined_entries)
-    print(combined_entries)
+    combined_entries.fillna("", inplace=True)
     combined_entries.to_json(outfile, lines=True, orient="records")
