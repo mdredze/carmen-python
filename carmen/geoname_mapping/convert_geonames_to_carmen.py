@@ -133,6 +133,7 @@ if __name__ == "__main__":
         converted_entries.append(new_entry)
     # 2. States / "admin1"
     for i, row in geonames_states_df.iterrows():
+        new_entry = convert_geonames_to_carmen(row)
         new_entry["parent_id"] = geoname_country_lookup[new_entry["countrycode"]]["geonameid"]
         converted_entries.append(new_entry)
     # 3. Counties / "admin2"

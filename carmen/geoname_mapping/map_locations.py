@@ -1,4 +1,9 @@
 """
+Map and combine entries from Carmen and Geonames. Assumes Geonames entries have already been converted
+to Carmen format with `convert_geonames_to_carmen.py` and is saved in `carmen/data/geonames_locations_only.json`.
+
+Output is `carmen/data/combined_locations.json`
+
 Author: Alexandra DeLucia
 """
 import pandas as pd
