@@ -159,6 +159,6 @@ if __name__ == "__main__":
 
     # Write out
     df = pd.DataFrame(converted_entries)
+    df.drop_duplicates(subset=["id"], inplace=True)
     df["polygon"] = df.id.map(lambda x: geonames_coordinates_lookup.get(x, {}))
-    print(df.head())
     df.to_json(outfile, orient="records", lines=True)
