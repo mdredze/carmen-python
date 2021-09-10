@@ -9,6 +9,6 @@ setup(
     url='https://github.com/mdredze/carmen-python',
     packages=find_packages(),
     package_data={'carmen': ['data/*']},
-    install_requires=['geopy'],
+    install_requires=['geopy', 'jsonlines'],
     license='2-clause BSD',
     zip_safe=True)
