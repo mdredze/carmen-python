@@ -43,12 +43,19 @@ class GeocodeResolver(AbstractResolver):
             self.location_map[cell].append(location)
 
     def resolve_tweet(self, tweet):
+        # 
+        # Update for APIv2: the coordinates are in the field
+        #       data->geo->coordinates->coordinates
+        # if they exist. The coordinates is a list with size 2.
+        # 
         # The Twitter API allows tweet['coordinates'] to both be absent
         # and None, such that the key exists but has a None value.
         # "tweet.get('coordinates', {})" would return None in the latter
         # case, with None.get() in turn causing an AttributeError. (None
         # or {}), on the other hand, is {}, and {}.get() is okay.
-        tweet_coordinates = (tweet.get('coordinates') or {}).get('coordinates')
+        data = tweet.get('data')
+        geo = data.get('geo') or {}
+        tweet_coordinates = (geo.get('coordinates') or {}).get('coordinates')
         if not tweet_coordinates:
             return None
         tweet_coordinates = Point(longitude=tweet_coordinates[0],
