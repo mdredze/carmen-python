@@ -56,8 +56,27 @@ class GeocodeResolver(AbstractResolver):
         data = tweet.get('data')
         geo = data.get('geo') or {}
         tweet_coordinates = (geo.get('coordinates') or {}).get('coordinates')
+
+        # Enhancement (Jack 09/15/21): another way to get coordinates is from 
+        #       includes->places->[0]->geo->bbox
+        # the bbox is a list of four coordinates. 
+        # Avg 0 and 2 to get 1st coord, and avg 1 & 3 to get the 2nd 
         if not tweet_coordinates:
-            return None
+            places = tweet.get('includes', {}).get('places', None)
+            if not places:
+                return None
+            place = places[0]
+            bbox = place.get('geo', {}).get('bbox')
+            if not bbox:
+                return None
+            float_coords = [
+                (float(bbox[0])+float(bbox[2]))/2,
+                (float(bbox[1])+float(bbox[3]))/2
+            ]
+            tweet_coordinates = [
+                float(f"{float_coords[0]:.7f}"), 
+                float(f"{float_coords[1]:.7f}")
+            ]
         tweet_coordinates = Point(longitude=tweet_coordinates[0],
                                   latitude=tweet_coordinates[1])
         closest_candidate = None
