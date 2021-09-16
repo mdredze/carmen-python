@@ -40,9 +40,10 @@ class PlaceResolver(AbstractResolver):
         self._locations_by_name[location.canonical()] = location
 
     def resolve_tweet(self, tweet):
-        place = tweet.get('place', None)
-        if not place:
+        places = tweet.get('includes', {}).get('places', None)
+        if not places:
             return
+        place = places[0]
         country = place.get('country', None)
         if not country:
             warnings.warn('Tweet has Place with no country')
@@ -84,9 +85,10 @@ class PlaceResolver(AbstractResolver):
         location = self._find_by_name(**name)
         if location:
             return (False, location)
+        
+        # NOTE: In APIv2, places don't have an url anymore
         location = Location(
-            id=next(self._unknown_ids),
-            twitter_url=place['url'], twitter_id=place['id'],
+            id=next(self._unknown_ids),twitter_id=place['id'],
             **name)
 
         # TODO: don't need this anymore. Test to make sure no error
