@@ -38,6 +38,9 @@ def parse_args():
         nargs='?', default=sys.stdout,
         help='file to write geolocated tweets to (defaults to standard '
              'output)')
+    parser.add_argument('--debug', '-d', 
+        action='store_true',
+        help='turn on debug (verbose) mode')
     return parser.parse_args()
 
 
@@ -75,6 +78,22 @@ def main():
         with jsonlines.Reader(fi) as reader:
             for i, tweet in enumerate(reader.iter(skip_invalid=True, skip_empty=True)):
                 total_tweets += 1
+                if args.debug:
+                    # DEBUGGING
+                    print('-'*70)
+                    print(json.dumps(tweet, indent=4, sort_keys=True))
+                    print(type(tweet))
+                    data = tweet.get("data")
+                    includes = tweet.get("includes")
+                    geo = tweet.get("data", {}).get("geo")
+                    print("\ndata")
+                    print(data)
+                    print("\nincludes")
+                    print(includes)
+                    print("\ngeo")
+                    print(geo)
+                    # break
+                    # END DEBUGGING
 
                 # Show warnings from the input file, not the Python source code.
                 def showwarning(message, category, filename, lineno, file=sys.stderr, line=None):
@@ -87,6 +106,7 @@ def main():
                     skipped_tweets += 1
                     continue
 
+                # TODO: in APIv2, statistics can't work like before since fields are different.
                 # Collect statistics on the tweet.
                 if tweet.get('place'):
                     has_place += 1
@@ -122,6 +142,7 @@ def main():
     fo.close()
 
     if args.statistics:
+        # TODO: change the statistics to correspond with the new API v2
         print('Skipped %d tweets.' % skipped_tweets, file=sys.stderr)
         print('Tweets with "place" key: %d; '
                                        '"coordinates" key: %d; '
