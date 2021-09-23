@@ -54,8 +54,13 @@ class GeocodeResolver(AbstractResolver):
         # case, with None.get() in turn causing an AttributeError. (None
         # or {}), on the other hand, is {}, and {}.get() is okay.
         data = tweet.get('data')
-        geo = data.get('geo') or {}
-        tweet_coordinates = (geo.get('coordinates') or {}).get('coordinates')
+        if data is None:
+            # API v1
+            tweet_coordinates = (tweet.get('coordinates') or {}).get('coordinates')
+        else:
+            # API v2
+            geo = data.get('geo') or {}
+            tweet_coordinates = (geo.get('coordinates') or {}).get('coordinates')
 
         # Enhancement (Jack 09/15/21): another way to get coordinates is from 
         #       includes->places->[0]->geo->bbox
