@@ -40,10 +40,18 @@ class PlaceResolver(AbstractResolver):
         self._locations_by_name[location.canonical()] = location
 
     def resolve_tweet(self, tweet):
-        places = tweet.get('includes', {}).get('places', None)
-        if not places:
-            return
-        place = places[0]
+        apiv2 = 'data' in tweet
+        if apiv2:
+            # API v2
+            places = tweet.get('includes', {}).get('places', None)
+            if not places:
+                return
+            place = places[0]
+        else:
+            # API v1
+            place = tweet.get('place', None)
+            if not place:
+                return
         country = place.get('country', None)
         if not country:
             warnings.warn('Tweet has Place with no country')
@@ -86,10 +94,16 @@ class PlaceResolver(AbstractResolver):
         if location:
             return (False, location)
         
-        # NOTE: In APIv2, places don't have an url anymore
-        location = Location(
-            id=next(self._unknown_ids),twitter_id=place['id'],
-            **name)
+        if apiv2:
+            # NOTE: In APIv2, places don't have an url anymore
+            location = Location(
+                id=next(self._unknown_ids),twitter_id=place['id'],
+                **name)
+        else:
+            location = Location(
+                id=next(self._unknown_ids),
+                twitter_url=place['url'], twitter_id=place['id'],
+                **name)
 
         # TODO: don't need this anymore. Test to make sure no error
         if self.allow_unknown_locations:
