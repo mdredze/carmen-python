@@ -86,11 +86,20 @@ def name_similarity(a, b):
     """
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
+# TODO: try with / wo county / city / state
+def name_sim_with_alts(a, b, alts_a, alts_b):
+    a_list = [a] + alts_a
+    b_list = [b] + alts_b
+    maxsim = name_similarity(a, b)
+    for aa in a_list:
+        for bb in b_list:
+            maxsim = max(maxsim, name_similarity(aa, bb))
+    return maxsim
 
 def map_city(carmen_obj):
     match = geonames_cities_df[
         geonames_cities_df.apply(
-            lambda x: _city_match(x, carmen_obj.city, carmen_obj.statecode, carmen_obj.countrycode, carmen_obj.coordinates),
+            lambda x: _city_match(x, carmen_obj.city, carmen_obj.statecode, carmen_obj.countrycode, carmen_obj.coordinates, carmen_obj.aliases),
             axis="columns")
     ]
     if len(match) == 1:
@@ -153,23 +162,32 @@ def map_country(carmen_obj):
     else:
         return
 
+def get_x_alts(x):
+    x_alts = x.alternatenames
+    if (not x_alts) or (not isinstance(x_alts, str)):
+        x_alts = []
+    else:
+        x_alts = x_alts.split(',')
+    return x_alts
 
 def _state_match(x, carmen_obj):
-    if x["country code"] != carmen_obj.countrycode:
+    # TODO do we really need these early terminations?
+    if carmen_obj.countrycode and (x["country code"] != carmen_obj.countrycode):
         return False
+    # TODO name_sim_with_alts
     name_sim = name_similarity(x["name ascii"], carmen_obj.state)
     if name_sim > NAME_THRESHOLD or x["admin1 code"] == carmen_obj.statecode:
         return True
     return False
 
 
-def _city_match(x, city_name, statecode, countrycode, coord):
-    if x["country code"] != countrycode:
+def _city_match(x, city_name, statecode, countrycode, coord, aliases):
+    if countrycode and (x["country code"] != countrycode):
         return False
-    if x["admin1 code"] != statecode:
+    if statecode and (x["admin1 code"] != statecode):
         return False
     dist = coordinate_distance(x.coordinates, coord)
-    name_sim = name_similarity(x.asciiname, city_name)
+    name_sim = name_sim_with_alts(x.asciiname, city_name, get_x_alts(x), aliases)
     if (name_sim >= NAME_THRESHOLD) and dist < DISTANCE_THRESHOLD:
         return True
     return False
@@ -177,15 +195,16 @@ def _city_match(x, city_name, statecode, countrycode, coord):
 
 def _county_match(x, carmen_obj, exact_match=False):
     # Check country and state
-    if x["country code"] != carmen_obj.countrycode:
+    if carmen_obj.countrycode and (x["country code"] != carmen_obj.countrycode):
         return False
-    if x["admin1 code"] != carmen_obj.statecode:
+    if carmen_obj.countrycode and (x["admin1 code"] != carmen_obj.statecode):
         return False
     # Check for best match or exact match
     if exact_match:
         thresh = 1.0
     else:
         thresh = NAME_THRESHOLD
+    # TODO name_sim_with_alts
     if name_similarity(x.asciiname, carmen_obj.county) >= thresh:
         return True
     return False
@@ -270,9 +289,15 @@ if __name__ == "__main__":
     )
     unmapped_carmen_locations_df.reset_index(drop=True)
 
+    # NOTE: DEBUG USE
+    # only do 10 examples
+    # print(unmapped_carmen_locations_df)
+    # unmapped_carmen_locations_df = unmapped_carmen_locations_df[:10]
+
     # Map the Carmen entries
     for i, obj in tqdm(unmapped_carmen_locations_df.iterrows(), desc="Locations", total=len(unmapped_carmen_locations_df)):
-        break
+        # NOTE: DEBUG USE
+        # print(obj)
         if obj.city != "":
             match = map_city(obj)
         elif obj.county != "":
@@ -286,7 +311,12 @@ if __name__ == "__main__":
             continue
         if match is not None:
             mapped_locations[obj.id] = match.to_dict()
+            # # NOTE: DEBUG USE
+            # print("Y")
+            # logging.debug(f"Match found for {match}")
         else:
+            # # NOTE: DEBUG USE
+            # print("N")
             logging.info(f"No match for {obj.id},{obj.city},{obj.county},{obj.state}({obj.statecode}),{obj.countrycode}")
 
     num_mapped = len(mapped_locations)
