@@ -1,0 +1,181 @@
+[7041 rows x 16 columns]
+city                                                       Depok
+uzip
+countrycode                                                   ID
+country                                                Indonesia
+longitude                                                110.419
+countycode
+county                                                    Sleman
+parent_id                                                   5242
+state                                            D.I. Yogyakarta
+radius                                                      5000
+statecode
+latitude                                                -7.78331
+postal
+id                                                             0
+aliases        [depok, depok indonesia, depok, indonesia, dep...
+coordinates                              (-7.783315, 110.419485)
+Name: 0, dtype: object
+N
+city                                             Mangaung
+uzip                                                 9301
+countrycode                                            ZA
+country                                      South Africa
+longitude                                         26.2253
+countycode
+county                                             Motheo
+parent_id                                            5243
+state                                          Free State
+radius                                              17900
+statecode
+latitude                                         -29.1134
+postal
+id                                                      1
+aliases        [bloemfontein, bloemfontein, south africa]
+coordinates                       (-29.113449, 26.225335)
+Name: 1, dtype: object
+N
+city                                                     Compton
+uzip                                                       90220
+countrycode                                                   US
+country                                            United States
+longitude                                               -118.224
+countycode
+county                                        Los Angeles County
+parent_id                                                   5244
+state                                                 California
+radius                                                      5700
+statecode                                                     CA
+latitude                                                 33.8953
+postal
+id                                                             2
+aliases        [compton, ca, compton, california, compton ca,...
+coordinates                             (33.895285, -118.224329)
+Name: 2, dtype: object
+Y
+city                          Mount Pleasant
+uzip                                   48858
+countrycode                               US
+country                        United States
+longitude                            -84.775
+countycode
+county                       Isabella County
+parent_id                               5245
+state                               Michigan
+radius                                   800
+statecode                                 MI
+latitude                             43.5914
+postal                                 48858
+id                                         3
+aliases        [central michigan university]
+coordinates          (43.591389, -84.775002)
+Name: 3, dtype: object
+Y
+city                                                     Trenton
+uzip
+countrycode                                                   US
+country                                            United States
+longitude                                               -74.6538
+countycode
+county                                             Mercer County
+parent_id                                                   5246
+state                                                 New Jersey
+radius                                                      3100
+statecode                                                     NJ
+latitude                                                 40.2271
+postal
+id                                                             4
+aliases        [ewing, new jersey, ewing, nj, ewing new jerse...
+coordinates                              (40.227112, -74.653816)
+Name: 4, dtype: object
+Y
+city                             Dale
+uzip                            78616
+countrycode                        US
+country                 United States
+longitude                    -97.6862
+countycode
+county                Caldwell County
+parent_id                        5247
+state                           Texas
+radius                           1200
+statecode                          TX
+latitude                      30.0048
+postal
+id                                  5
+aliases                     [mendoza]
+coordinates    (30.00481, -97.686204)
+Name: 5, dtype: object
+N
+city                                                      Fraser
+uzip                                                       48026
+countrycode                                                   US
+country                                            United States
+longitude                                               -82.9496
+countycode
+county                                             Macomb County
+parent_id                                                   5248
+state                                                   Michigan
+radius                                                      2400
+statecode                                                     MI
+latitude                                                  42.538
+postal
+id                                                             6
+aliases        [fraser, mi, fraser, michigan, fraser mi, fras...
+coordinates                               (42.53798, -82.949649)
+Name: 6, dtype: object
+N
+city                                                  Montgomery
+uzip                                                       60538
+countrycode                                                   US
+country                                            United States
+longitude                                               -88.3349
+countycode
+county                                               Kane County
+parent_id                                                   5249
+state                                                   Illinois
+radius                                                     32600
+statecode                                                     IL
+latitude                                                  41.729
+postal
+id                                                             7
+aliases        [montgomery, il, montgomery, illinois, montgom...
+coordinates                              (41.729035, -88.334864)
+Name: 7, dtype: object
+Y
+city                         Woodland
+uzip                            36280
+countrycode                        US
+country                 United States
+longitude                    -85.3971
+countycode
+county                Randolph County
+parent_id                        5250
+state                         Alabama
+radius                           1800
+statecode                          AL
+latitude                      33.3738
+postal
+id                                  8
+aliases                    [woodland]
+coordinates    (33.373776, -85.39714)
+Name: 8, dtype: object
+N
+city                        Temanggung
+uzip
+countrycode                         ID
+country                      Indonesia
+longitude                      110.158
+countycode
+county                      Temanggung
+parent_id                         5251
+state                      Jawa Tengah
+radius                            2300
+statecode
+latitude                       -7.3107
+postal
+id                                   9
+aliases                   [temanggung]
+coordinates    (-7.310704, 110.158277)
+Name: 9, dtype: object
+N
