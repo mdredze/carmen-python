@@ -18,6 +18,7 @@ class Location(object):
 
         # These should all be Unicode strings, not byte strings.
         self.country = None
+        self.countrycode = None
         self.state = None
         self.county = None
         self.city = None
