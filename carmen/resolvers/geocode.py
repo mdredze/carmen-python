@@ -21,7 +21,7 @@ class GeocodeResolver(AbstractResolver):
 
     def __init__(self, max_distance=25):
         self.max_distance = float(max_distance)
-        self.location_map = defaultdict(list)
+        self.location_map = defaultdict(dict)
 
     def _cells_for(self, latitude, longitude):
         """Return a list of cells containing the location at *latitude*
@@ -29,18 +29,20 @@ class GeocodeResolver(AbstractResolver):
         latitude = latitude * self.cell_size
         longitude = longitude * self.cell_size
         shift_size = self.cell_size / 2
+        cells = set()
         for latitude_cell in (latitude - shift_size,
                               latitude, latitude + shift_size):
             for longitude_cell in (longitude - shift_size,
                                    longitude, longitude + shift_size):
-                yield (int(latitude_cell / self.cell_size),
-                       int(longitude_cell / self.cell_size))
+                cells.add((int(latitude_cell / self.cell_size),
+                       int(longitude_cell / self.cell_size)))
+        return cells
 
     def add_location(self, location):
         if not location.latitude and location.longitude:
             return
         for cell in self._cells_for(location.latitude, location.longitude):
-            self.location_map[cell].append(location)
+            self.location_map[cell][location.id] = location
 
     def resolve_tweet(self, tweet):
         # 
@@ -105,7 +107,7 @@ class GeocodeResolver(AbstractResolver):
         closest_distance = float('inf')
         for cell in self._cells_for(tweet_coordinates.latitude,
                                     tweet_coordinates.longitude):
-            for candidate in self.location_map[cell]:
+            for candidate in self.location_map[cell].values():
                 candidate_coordinates = Point(
                     candidate.latitude, candidate.longitude)
                 distance = geopy_distance(
