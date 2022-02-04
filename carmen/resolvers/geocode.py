@@ -17,32 +17,24 @@ class GeocodeResolver(AbstractResolver):
     with the shortest geographic distance from the tweet's coordinates.
     """
 
-    cell_size = 100.0
+    cell_size = 3.1
 
     def __init__(self, max_distance=25):
         self.max_distance = float(max_distance)
         self.location_map = defaultdict(dict)
 
-    def _cells_for(self, latitude, longitude):
-        """Return a list of cells containing the location at *latitude*
-        and *longitude*."""
-        latitude = latitude * self.cell_size
-        longitude = longitude * self.cell_size
-        shift_size = self.cell_size / 2
-        cells = set()
-        for latitude_cell in (latitude - shift_size,
-                              latitude, latitude + shift_size):
-            for longitude_cell in (longitude - shift_size,
-                                   longitude, longitude + shift_size):
-                cells.add((int(latitude_cell / self.cell_size),
-                       int(longitude_cell / self.cell_size)))
-        return cells
+    def round_func(self, x):
+        return round(x / self.cell_size)
+
+    def _cell_for(self, latitude, longitude):
+        '''Return the corresponding cell (based on cell_size) for location at *latitude* and *longitude*'''
+        return (self.round_func(latitude), self.round_func(longitude))
+
 
     def add_location(self, location):
         if not location.latitude and location.longitude:
             return
-        for cell in self._cells_for(location.latitude, location.longitude):
-            self.location_map[cell][location.id] = location
+        self.location_map[self._cell_for(location.latitude,location.longitude)][location.id] = location
 
     def resolve_tweet(self, tweet):
         # 
@@ -105,16 +97,14 @@ class GeocodeResolver(AbstractResolver):
                                   latitude=tweet_coordinates[1])
         closest_candidate = None
         closest_distance = float('inf')
-        for cell in self._cells_for(tweet_coordinates.latitude,
-                                    tweet_coordinates.longitude):
-            for candidate in self.location_map[cell].values():
-                candidate_coordinates = Point(
-                    candidate.latitude, candidate.longitude)
-                distance = geopy_distance(
-                    tweet_coordinates, candidate_coordinates).miles
-                if closest_distance > distance:
-                    closest_candidate = candidate
-                    closest_distance = distance
+        for candidate in self.location_map[self._cell_for(tweet_coordinates.latitude,tweet_coordinates.longitude)].values():
+            candidate_coordinates = Point(
+                candidate.latitude, candidate.longitude)
+            distance = geopy_distance(
+                tweet_coordinates, candidate_coordinates).miles
+            if closest_distance > distance:
+                closest_candidate = candidate
+                closest_distance = distance
         if closest_distance < self.max_distance:
             return (False, closest_candidate)
         return None
