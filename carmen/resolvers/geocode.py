@@ -17,10 +17,9 @@ class GeocodeResolver(AbstractResolver):
     with the shortest geographic distance from the tweet's coordinates.
     """
 
-    cell_size = 3.1
-
-    def __init__(self, max_distance=25):
+    def __init__(self, max_distance=25, cell_size=0.5):
         self.max_distance = float(max_distance)
+        self.cell_size = float(cell_size)
         self.location_map = defaultdict(dict)
 
     def round_func(self, x):
@@ -30,11 +29,17 @@ class GeocodeResolver(AbstractResolver):
         '''Return the corresponding cell (based on cell_size) for location at *latitude* and *longitude*'''
         return (self.round_func(latitude), self.round_func(longitude))
 
+    def _neighbors(self, cell):
+        x,y = cell
+        for i in [x-1,x,x+1]:
+            for j in [y-1,y,y+1]:
+                yield (i,j)
 
     def add_location(self, location):
         if not location.latitude and location.longitude:
             return
-        self.location_map[self._cell_for(location.latitude,location.longitude)][location.id] = location
+        for cell in self._neighbors(self._cell_for(location.latitude,location.longitude)):
+            self.location_map[cell][location.id] = location
 
     def resolve_tweet(self, tweet):
         # 
