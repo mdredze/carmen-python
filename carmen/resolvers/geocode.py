@@ -10,6 +10,9 @@ from geopy.distance import distance as geopy_distance
 from ..location import EARTH
 from ..resolver import AbstractResolver, register
 
+def safe_get(dic, key):
+    temp = dic.get(key)
+    return {} if temp is None else temp
 
 @register('geocode')
 class GeocodeResolver(AbstractResolver):
@@ -88,7 +91,8 @@ class GeocodeResolver(AbstractResolver):
             else:
                 # v1:
                 #       place->bounding_box->coordinates->[0]->a list of lists of len 2 (long, lat)
-                coords = tweet.get('place', {}).get('bounding_box', {}).get('coordinates', None)
+                coords = safe_get(safe_get(tweet, 'place'), 'bounding_box').get('coordinates')
+                # coords = tweet.get('place', {}).get('bounding_box', {}).get('coordinates', None)
                 if not coords:
                     return None
                 coords = coords[0]
