@@ -4,7 +4,7 @@ setup(
     name='carmen',
     version='0.0.4',
     description='Geolocation for Twitter',
-    author='Roger Que and Mark Dredze',
+    author='Jack Jingyu Zhang, Alexandra DeLucia, Roger Que and Mark Dredze',
     author_email='mark@dredze.com',
     url='https://github.com/mdredze/carmen-python',
     packages=find_packages(),
