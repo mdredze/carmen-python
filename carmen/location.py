@@ -18,6 +18,7 @@ class Location(object):
 
         # These should all be Unicode strings, not byte strings.
         self.country = None
+        self.countrycode = None
         self.state = None
         self.county = None
         self.city = None
@@ -27,6 +28,9 @@ class Location(object):
 
         self.aliases = []
         """An iterable containing alternative names for this location."""
+
+        self.time_zone = None
+        """A string containing the name of the time-zone for this location."""
 
         self.resolution_method = None
         """The method used to resolve this location's data from the
@@ -45,15 +49,9 @@ class Location(object):
         self.twitter_id = None
         """The Twitter ID of this Place."""
 
-        # Support for Python3
-        try:
-            iterator = kwargs.iteritems()
-        except:
-            iterator = kwargs.items()
-
-        # We're all adults, right?
-        for k, v in iterator:
-            if hasattr(self, k):
+        # Assign the attributes to this location object
+        for k, v in kwargs.items():
+            if hasattr(self, k) and v:
                 setattr(self, k, v)
 
         self.id = int(self.id)

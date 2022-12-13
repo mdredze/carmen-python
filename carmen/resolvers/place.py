@@ -1,6 +1,4 @@
 """Resolvers based on Twitter Places."""
-
-
 from collections import defaultdict
 from itertools import count
 import re
@@ -24,8 +22,9 @@ class PlaceResolver(AbstractResolver):
 
     _unknown_id_start = 1000000
 
-    def __init__(self, allow_unknown_locations=False,
-                       resolve_to_known_ancestor=False):
+    def __init__(self,
+                 allow_unknown_locations=False,
+                 resolve_to_known_ancestor=False):
         self.allow_unknown_locations = allow_unknown_locations
         self.resolve_to_known_ancestor = resolve_to_known_ancestor
         self._locations_by_name = {}
@@ -41,9 +40,18 @@ class PlaceResolver(AbstractResolver):
         self._locations_by_name[location.canonical()] = location
 
     def resolve_tweet(self, tweet):
-        place = tweet.get('place', None)
-        if not place:
-            return
+        apiv2 = 'data' in tweet
+        if apiv2:
+            # API v2
+            places = tweet.get('includes', {}).get('places', None)
+            if not places:
+                return
+            place = places[0]
+        else:
+            # API v1
+            place = tweet.get('place', None)
+            if not place:
+                return
         country = place.get('country', None)
         if not country:
             warnings.warn('Tweet has Place with no country')
@@ -85,14 +93,25 @@ class PlaceResolver(AbstractResolver):
         location = self._find_by_name(**name)
         if location:
             return (False, location)
-        location = Location(
-            id=next(self._unknown_ids),
-            twitter_url=place['url'], twitter_id=place['id'],
-            **name)
+        
+        if apiv2:
+            # NOTE: In APIv2, places don't have an url anymore
+            location = Location(
+                id=next(self._unknown_ids),twitter_id=place['id'],
+                **name)
+        else:
+            location = Location(
+                id=next(self._unknown_ids),
+                twitter_url=place['url'], twitter_id=place['id'],
+                **name)
+
+        # TODO: don't need this anymore. Test to make sure no error
         if self.allow_unknown_locations:
             # Remember this location for future lookups.
             self.add_location(location)
             return (False, location)
+
+        # TODO: get rid of this
         if self.resolve_to_known_ancestor:
             ancestor = location
             while True:
@@ -103,3 +122,5 @@ class PlaceResolver(AbstractResolver):
                 if known_ancestor:
                     return (True, known_ancestor)
         return None
+
+        # TODO: try to find state or country if can't find city

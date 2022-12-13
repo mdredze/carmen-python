@@ -1,0 +1,10 @@
+name: twitter-dev
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    - pip
+    - numpy
+    - pandas
+    - pip:
+        python-twitter

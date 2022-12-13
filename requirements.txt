@@ -1,0 +1,10 @@
+appdirs==1.4.3
+geopy==1.11.0
+packaging==16.8
+psycopg2==2.7
+pyparsing==2.2.0
+six==1.10.0
+pandas
+jsonlines
+iso3166
+tqdm

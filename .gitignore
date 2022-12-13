@@ -1,4 +1,15 @@
+twitter-api/*
+jack/*
+test_examples/*
+test_out/*
+
 *.py[cdo]
+*.log
+
+
+# Virtual Environment
+env/
+venv/
 
 # Packages
 *.egg
@@ -8,3 +19,14 @@ dist
 
 # Documentation
 doc/_build
+
+# Geonames Data
+carmen/data/dump/
+/geonames_data
+geoname_mapping/Geonames
+
+# Mac OSX Files
+.DS_Store
+
+# PyCharm files
+/.idea

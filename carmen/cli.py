@@ -5,6 +5,7 @@ import argparse
 import collections
 import gzip
 import json
+import jsonlines
 import sys
 import warnings
 
@@ -37,10 +38,17 @@ def parse_args():
         nargs='?', default=sys.stdout,
         help='file to write geolocated tweets to (defaults to standard '
              'output)')
+    parser.add_argument('--debug', '-d', 
+        action='store_true',
+        help='turn on debug (verbose) mode')
     return parser.parse_args()
 
 
 def open_file(filename, mode):
+    # Check for stdin/stdout case
+    if "_io.TextIOWrapper" in str(filename.__class__):
+        return filename
+    # GZIP case
     if filename.endswith('.gz'):
         return gzip.open(filename, mode)
     else:
@@ -63,55 +71,78 @@ def main():
     has_place = has_coordinates = has_geo = has_profile_location = 0
     resolution_method_counts = collections.defaultdict(int)
     skipped_tweets = resolved_tweets = total_tweets = 0
-    
-    with open_file(args.input_file, 'rb') as input_file, open_file(args.output_file, 'wb') as output_file:
-        for i, input_line in enumerate(input_file):
-            # Show warnings from the input file, not the Python source code.
-            def showwarning(message, category, filename, lineno,
-                            file=sys.stderr, line=None):
-                sys.stderr.write(warnings.formatwarning(
-                    message, category, input_file.name, i+1,
-                    line=''))
-            warnings.showwarning = showwarning
-            try:
-                if len(input_line.strip()) == 0:
+
+    fi = open_file(args.input_file, "rb")
+    fo = open_file(args.output_file, 'wb')
+    with jsonlines.Writer(fo) as writer:
+        with jsonlines.Reader(fi) as reader:
+            for i, tweet in enumerate(reader.iter(skip_invalid=True, skip_empty=True)):
+                total_tweets += 1
+                if args.debug:
+                    # DEBUGGING
+                    print('-'*70)
+                    print(json.dumps(tweet, indent=4, sort_keys=True))
+                    print(type(tweet))
+                    data = tweet.get("data")
+                    includes = tweet.get("includes")
+                    geo = tweet.get("data", {}).get("geo")
+                    print("\ndata")
+                    print(data)
+                    print("\nincludes")
+                    print(includes)
+                    print("\ngeo")
+                    print(geo)
+                    # break
+                    # END DEBUGGING
+
+                # Show warnings from the input file, not the Python source code.
+                def showwarning(message, category, filename, lineno, file=sys.stderr, line=None):
+                    sys.stderr.write(
+                        warnings.formatwarning(message, category, args.input_file, i+1, line='')
+                    )
+                warnings.showwarning = showwarning
+                # Skip deleted and status_withheld tweets
+                if "delete" in tweet or "status_withheld" in tweet:
+                    skipped_tweets += 1
                     continue
-                tweet = json.loads(input_line)
-            except ValueError:
-                warnings.warn('Invalid JSON object')
-                skipped_tweets += 1
-                continue
-            # Collect statistics on the tweet.
-            if tweet.get('place'):
-                has_place += 1
-            if tweet.get('coordinates'):
-                has_coordinates += 1
-            if tweet.get('geo'):
-                has_geo += 1
-            if tweet.get('user', {}).get('location', ''):
-                has_profile_location += 1
-            # Perform the actual resolution.
-            resolution = resolver.resolve_tweet(tweet)
-            if resolution:
-                location = resolution[1]
-                tweet['location'] = location
-                # More statistics.
-                resolution_method_counts[location.resolution_method] += 1
-                if location.city:
-                    city_found += 1
-                elif location.county:
-                    county_found += 1
-                elif location.state:
-                    state_found += 1
-                elif location.country:
-                    country_found += 1
-                resolved_tweets += 1
-            json_output = json.dumps(tweet, cls=LocationEncoder).encode()
-            output_file.write(json_output)
-            output_file.write(bytes('\n'.encode(encoding='ascii')))
-            total_tweets += 1
-        
+
+                # TODO: in APIv2, statistics can't work like before since fields are different.
+                # Collect statistics on the tweet.
+                if tweet.get('place'):
+                    has_place += 1
+                if tweet.get('coordinates'):
+                    has_coordinates += 1
+                if tweet.get('geo'):
+                    has_geo += 1
+                if tweet.get('user', {}).get('location', ''):
+                    has_profile_location += 1
+                # Perform the actual resolution.
+                resolution = resolver.resolve_tweet(tweet)
+                if resolution:
+                    location = resolution[1]
+                    tweet['location'] = location
+                    # More statistics.
+                    resolution_method_counts[location.resolution_method] += 1
+                    if location.city:
+                        city_found += 1
+                    elif location.county:
+                        county_found += 1
+                    elif location.state:
+                        state_found += 1
+                    elif location.country:
+                        country_found += 1
+                    resolved_tweets += 1
+                try:
+                    json_output = json.dumps(tweet, cls=LocationEncoder).encode()
+                    writer.write(json_output)
+                except TypeError as err:
+                    json_output = json.dumps(tweet, cls=LocationEncoder)
+                    writer.write(json_output)
+    fi.close()
+    fo.close()
+
     if args.statistics:
+        # TODO: change the statistics to correspond with the new API v2
         print('Skipped %d tweets.' % skipped_tweets, file=sys.stderr)
         print('Tweets with "place" key: %d; '
                                        '"coordinates" key: %d; '
