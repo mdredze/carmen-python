@@ -57,4 +57,9 @@ the following.
 
     $ python3 rewrite_json.py
 
-    
+### building for release
+
+1. In the repo root folder, `python setup.py sdist bdist_wheel` to create the wheels in `dist/` directory
+2. `python -m twine upload --repository testpypi dist/*` to upload to testpypi
+3. **Create a brand new environment**, and do `pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple carmen` to make sure it can be installed correctly from testpypi
+4. After checking correctness, use `python -m twine upload dist/*` to publish on actual pypi
