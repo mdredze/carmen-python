@@ -2,7 +2,6 @@
 
 
 import re
-import warnings
 
 from ..names import *
 from ..resolver import AbstractResolver, register
@@ -11,10 +10,19 @@ from ..resolver import AbstractResolver, register
 STATE_RE = re.compile(r'.+,\s*(\w+)')
 NORMALIZATION_RE = re.compile(r'\s+|\W')
 
+# carmen seq2seq
+LOCATION_SPECIAL_TOKENS = ["<CITY>", "<ADMIN>", "<COUNTRY>"]
 
 def normalize(location_name, preserve_commas=False):
-    """Normalize *location_name* by stripping punctuation and collapsing
-    runs of whitespace, and return the normalized name."""
+    """
+    Normalize *location_name* by stripping punctuation and collapsing
+    runs of whitespace, and return the normalized name.
+    
+    Carmen seq2seq: also eliminate location special tokens <CITY>, <ADMIN>, and <COUNTRY>
+    TODO: smarter way to consider this in profile resolver
+    """
+    for token in LOCATION_SPECIAL_TOKENS:
+        location_name = location_name.replace(token, '')
     def replace(match):
         if preserve_commas and ',' in match.group(0):
             return ','
@@ -54,7 +62,6 @@ class ProfileResolver(AbstractResolver):
             aliases_already_added.add(alias)
 
     def resolve_tweet(self, tweet):
-        import sys
         location_string = tweet.get('user', {}).get('location', '')
             
         if not location_string:
