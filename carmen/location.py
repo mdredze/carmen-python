@@ -93,6 +93,23 @@ class Location(object):
             return tuple(
                 getattr(self, x) if getattr(self, x) else ''
                 for x in ('country', 'state', 'county', 'city'))
+    
+    def s2s_name(self):
+        '''carmen seq2seq name in the format of <CITY>, <ADMIN>, <COUNTRY>'''
+        country, state, county, city = self.name()
+        countrycode = self.countrycode
+        if countrycode is None:
+            countrycode = '<COUNTRY>'
+        if len(state) == 0:
+            state = '<ADMIN>'
+        if len(city) == 0:
+            city = '<CITY>'
+        
+        return list(set([
+            f'{city}, {state}, {countrycode}',
+            f'<CITY>, {state}, {countrycode}',
+            f'<CITY>, <ADMIN>, {countrycode}',
+        ]))
 
     def parent(self):
         """Return a location representing the administrative unit above
