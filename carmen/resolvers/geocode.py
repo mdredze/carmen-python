@@ -63,6 +63,8 @@ class GeocodeResolver(AbstractResolver):
         else:
             # API v2
             v2 = True
+            if isinstance(data, list):
+                data = data[0] # Jack 12/12/22: it seems the API changed again. Now actual data is dict in a list
             geo = data.get('geo') or {}
             tweet_coordinates = (geo.get('coordinates') or {}).get('coordinates')
 

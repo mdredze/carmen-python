@@ -29,7 +29,7 @@ to specify that Carmen should treat the files as gzipped text.
 If the ``-s`` (``--statistics``) option is passed,
 Carmen will print summary statistics when it finishes processing,
 detailing the number of tweets that were successfully resolved,
-and the resolution methods that were used to do so.
+and the resolution methods that were used to do so. (Note: this only works with Twitter API v1.)
 For information on other options, use the ``-h`` (``--help``) option.
 
 
