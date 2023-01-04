@@ -5,8 +5,8 @@ import sys
 sys.path.insert(0, os.path.abspath('..'))
 
 project = 'Carmen'
-release = '0.0.3'
-copyright = '2013, Roger Que and Mark Dredze'
+release = '2.0.0'
+copyright = '2022, Jack Jingyu Zhang, Alexandra DeLucia, Roger Que, and Mark Dredze'
 
 master_doc = 'index'
 exclude_patterns = ['_build']

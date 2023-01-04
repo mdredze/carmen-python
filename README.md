@@ -40,7 +40,7 @@ We refer reader to the Carmen 2.0 paper repo for more details of GeoNames mappin
 4. After checking correctness, use `python -m twine upload dist/*` to publish on actual pypi
 
 ### Reference
-If you use the Carmen 2.0 package, please cite the following work:
+If you use the Carmen 2.0 package, please cite the following papers:
 ```
 @inproceedings{zhang-etal-2022-changes,
     title = "Changes in Tweet Geolocation over Time: A Study with Carmen 2.0",
@@ -55,5 +55,18 @@ If you use the Carmen 2.0 package, please cite the following work:
     url = "https://aclanthology.org/2022.wnut-1.1",
     pages = "1--14",
     abstract = "Researchers across disciplines use Twitter geolocation tools to filter data for desired locations. These tools have largely been trained and tested on English tweets, often originating in the United States from almost a decade ago. Despite the importance of these tools for data curation, the impact of tweet language, country of origin, and creation date on tool performance remains largely unknown. We explore these issues with Carmen, a popular tool for Twitter geolocation. To support this study we introduce Carmen 2.0, a major update which includes the incorporation of GeoNames, a gazetteer that provides much broader coverage of locations. We evaluate using two new Twitter datasets, one for multilingual, multiyear geolocation evaluation, and another for usage trends over time. We found that language, country origin, and time does impact geolocation tool performance.",
+}
+
+@inproceedings{dredze_carmen_2013,
+	title = {Carmen: A Twitter Geolocation System with Applications to Public Health},
+	shorttitle = {Carmen},
+	url = {https://github.com/mdredze/carmen},
+	abstract = {Public health applications using social media often require accurate, broad-coverage location information. However, the standard information provided by social media APIs, such as Twitter, cover a limited number of messages. This paper presents Carmen, a geolocation system that can determine structured location information for messages provided by the Twitter API. Our system utilizes geocoding tools and a combination of automatic and manual alias resolution methods to infer location structures from GPS positions and user-provided profile data. We show that our system is accurate and covers many locations, and we demonstrate its utility for improving influenza surveillance.},
+	language = {en},
+	urldate = {2020-06-13},
+	publisher = {Association for the Advancement of Artificial Intelligence},
+	author = {Dredze, Mark and Paul, Michael J. and Bergsma, Shane and Tran, Hieu},
+	year = {2013},
+	keywords = {geotagging, privacy, twitter, twitter tool},
 }
 ```
